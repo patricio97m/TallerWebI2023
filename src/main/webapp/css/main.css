@@ -14,7 +14,7 @@ body {
   width: 100%;
   background-image: url("../img/Wood_Background.jpg");
   background-size: cover;
-  background-color: #cccccc;
+  background-color: rgb(156, 156, 156);
 }
 
 .h1, h1{
@@ -42,15 +42,15 @@ body {
 }
 
 .clr-tertiary{
-  background-color: #06332ce0;
+  background-color: rgba(6, 51, 44, 0.88);
 }
 
 .clr-secondary{
-  background-color: #0c6657;
+  background-color: rgb(12, 102, 87);
 }
 
 .clr-primary{
-  background-color: #094d42;
+  background-color: rgb(9, 77, 66);
 }
 
 .card{
@@ -64,11 +64,14 @@ body {
   border: 0;
 
   color: white;
+  text-decoration: none;
 
   transition: ease-in 0.25s;
 }
 
 .card:hover{
+  color: white;
+  text-decoration: none;
   box-shadow: 0px 1em 1em 0px rgba(0,0,0,1);
 }
 
@@ -90,16 +93,11 @@ body {
   background-image: url("../img/Ajustes_card_bg.jpeg");
 }
 
-.btn{
+.nav-link{
   transition: ease-in 0.25s;
 }
 
-.btn, .btn:hover{
-  background-color: #094d42
-}
-
-.btn:hover{
-  border: 0;
-  box-shadow: 0px 0px 0.15em 0.15em rgba(255, 255, 255, 0.75);
+.nav-link:hover{
+  border-bottom: solid 1px rgb(255, 255, 255);
 }
 
