@@ -1,0 +1,112 @@
+:root {
+  --transparencyGreen: rgba(6, 51, 44, 0.88);
+  --forestGreen: rgb(12, 102, 87);
+  --darkgreen: rgb(9, 77, 66);
+  --white: #f5f5f7;
+  --black: #1d1d1f;
+  --transparencyBlack: #1d1d1f80;
+  --grey: #5f5f5f;
+}
+
+*{
+box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/Wood_Background.jpg");
+  background-size: cover;
+  background-color: var(--grey);
+}
+
+.h1, h1{
+  font-size: 4em;
+}
+
+.h2, h2{
+  font-size: 3em;
+}
+
+.h3, h3{
+  font-size: 2em;
+}
+
+.h4, h4{
+  font-size: 1.5em;
+}
+
+.p, p{
+  font-size: 0.9em;
+}
+
+.h1, .h2, .h3, .h4, .p, h1, h2, h3, h4, p{
+  margin: 0;
+}
+
+.clr-tertiary{
+  background-color: var(--transparencyGreen);
+}
+
+.clr-secondary{
+  background-color: var(--forestGreen);
+}
+
+.clr-primary{
+  background-color: var(--darkGreen);
+}
+
+.card{
+  height: 20em;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: 1em;
+  border: 0;
+
+  color: var(--white);
+  text-decoration: none;
+
+  transition: ease-in 0.25s;
+}
+
+.card:hover{
+  color: var(--white);
+  text-decoration: none;
+  box-shadow: 0px 1em 1em 0px var(--black);
+}
+
+.card > div{
+  border-radius: 1em;
+  height: 100%;
+  background-color: var(--transparencyBlack);
+}
+
+.play-card{
+  background-image: url("../img/Jugar_card_bg.jpeg");
+}
+
+.tournaments-card{
+  background-image: url("../img/Torneo_card_bg.jpeg");
+}
+
+.settings-card{
+  background-image: url("../img/Ajuste_card_bg.jpeg");
+}
+
+.nav-link{
+  transition: ease-in 0.25s;
+  border-bottom: solid 1px transparent;
+}
+
+.nav-link:hover{
+  border-bottom: solid 1px var(--white);
+}
+

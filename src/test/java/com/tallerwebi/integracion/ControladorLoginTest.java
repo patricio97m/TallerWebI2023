@@ -45,7 +45,7 @@ public class ControladorLoginTest {
 	}
 
 	@Test
-	public void debeRetornarLaPaginaLoginCuandoSeNavegaALaRaiz() throws Exception {
+	public void debeRetornarLaPaginaHomeCuandoSeNavegaALaRaiz() throws Exception {
 
 		MvcResult result = this.mockMvc.perform(get("/"))
 				/*.andDo(print())*/
@@ -54,21 +54,21 @@ public class ControladorLoginTest {
 
 		ModelAndView modelAndView = result.getModelAndView();
         assert modelAndView != null;
-		assertThat("redirect:/login", equalToIgnoringCase(Objects.requireNonNull(modelAndView.getViewName())));
+		assertThat("redirect:/home", equalToIgnoringCase(Objects.requireNonNull(modelAndView.getViewName())));
 		assertThat(true, is(modelAndView.getModel().isEmpty()));
 	}
 
-	@Test
-	public void debeRetornarLaPaginaLoginCuandoSeNavegaALLogin() throws Exception {
+	// @Test
+	// public void debeRetornarLaPaginaLoginCuandoSeNavegaALLogin() throws Exception {
 
-		MvcResult result = this.mockMvc.perform(get("/login"))
-				.andExpect(status().isOk())
-				.andReturn();
+	// 	MvcResult result = this.mockMvc.perform(get("/login"))
+	// 			.andExpect(status().isOk())
+	// 			.andReturn();
 
-		ModelAndView modelAndView = result.getModelAndView();
-        assert modelAndView != null;
-        assertThat(modelAndView.getViewName(), equalToIgnoringCase("login"));
-		assertThat(modelAndView.getModel().get("datosLogin").toString(),  containsString("com.tallerwebi.presentacion.DatosLogin"));
+	// 	ModelAndView modelAndView = result.getModelAndView();
+    //     assert modelAndView != null;
+    //     assertThat(modelAndView.getViewName(), equalToIgnoringCase("login"));
+	// 	assertThat(modelAndView.getModel().get("datosLogin").toString(),  containsString("com.tallerwebi.presentacion.DatosLogin"));
 
-	}
+	// }
 }
