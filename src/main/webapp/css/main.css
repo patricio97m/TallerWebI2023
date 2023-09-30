@@ -1,4 +1,12 @@
-
+:root {
+  --transparencyGreen: rgba(6, 51, 44, 0.88);
+  --forestGreen: rgb(12, 102, 87);
+  --darkgreen: rgb(9, 77, 66);
+  --white: #f5f5f7;
+  --black: #1d1d1f;
+  --transparencyBlack: #1d1d1f80;
+  --grey: #5f5f5f;
+}
 
 *{
 box-sizing: border-box;
@@ -14,7 +22,7 @@ body {
   width: 100%;
   background-image: url("../img/Wood_Background.jpg");
   background-size: cover;
-  background-color: rgb(156, 156, 156);
+  background-color: var(--grey);
 }
 
 .h1, h1{
@@ -42,15 +50,15 @@ body {
 }
 
 .clr-tertiary{
-  background-color: rgba(6, 51, 44, 0.88);
+  background-color: var(--transparencyGreen);
 }
 
 .clr-secondary{
-  background-color: rgb(12, 102, 87);
+  background-color: var(--forestGreen);
 }
 
 .clr-primary{
-  background-color: rgb(9, 77, 66);
+  background-color: var(--darkGreen);
 }
 
 .card{
@@ -63,22 +71,22 @@ body {
   border-radius: 1em;
   border: 0;
 
-  color: white;
+  color: var(--white);
   text-decoration: none;
 
   transition: ease-in 0.25s;
 }
 
 .card:hover{
-  color: white;
+  color: var(--white);
   text-decoration: none;
-  box-shadow: 0px 1em 1em 0px rgba(0,0,0,1);
+  box-shadow: 0px 1em 1em 0px var(--black);
 }
 
 .card > div{
   border-radius: 1em;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--transparencyBlack);
 }
 
 .play-card{
@@ -86,18 +94,19 @@ body {
 }
 
 .tournaments-card{
-  background-image: url("../img/Torneo_card_bg.jpg");
+  background-image: url("../img/Torneo_card_bg.jpeg");
 }
 
 .settings-card{
-  background-image: url("../img/Ajustes_card_bg.jpeg");
+  background-image: url("../img/Ajuste_card_bg.jpeg");
 }
 
 .nav-link{
   transition: ease-in 0.25s;
+  border-bottom: solid 1px transparent;
 }
 
 .nav-link:hover{
-  border-bottom: solid 1px rgb(255, 255, 255);
+  border-bottom: solid 1px var(--white);
 }
 
