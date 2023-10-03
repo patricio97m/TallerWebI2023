@@ -6,6 +6,7 @@
   --black: #1d1d1f;
   --transparencyBlack: #1d1d1f80;
   --grey: #5f5f5f;
+  --fuenteExt: 'Hanuman', serif;
 }
 
 *{
@@ -20,7 +21,7 @@ html{
 body {
   height: 100%;
   width: 100%;
-  background-image: url("../img/Wood_Background.jpg");
+  background-image: url("/img/mesa_madera_clara.jpg");
   background-size: cover;
   background-color: var(--grey);
 }
@@ -108,5 +109,12 @@ body {
 
 .nav-link:hover{
   border-bottom: solid 1px var(--white);
+}
+
+.nav-bar{
+  background-color: #0f0f0f;
+}
+.nav-bar-brand  {
+  font-family: var(--fuenteExt);
 }
 
