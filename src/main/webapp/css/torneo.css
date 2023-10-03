@@ -1,0 +1,39 @@
+.enfrentamientos{
+  width: 80%;
+    margin: 3% auto auto auto;
+}
+
+.cuartos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.semifinal{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.final{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.ronda{
+    margin: 3%;
+    background-color: #1A5753;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border: #1A5753;
+}
+
+.ganador{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+}
