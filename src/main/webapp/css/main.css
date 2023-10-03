@@ -108,3 +108,7 @@ body {
   border-bottom: solid 1px var(--white);
 }
 
+.derecha{
+  margin-left:auto;
+}
+
