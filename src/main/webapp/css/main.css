@@ -18,7 +18,9 @@ html{
 }
 
 body {
-  background-image: url("../img/Wood_Background.jpg");
+  height: 100%;
+  width: 100%;
+  background-image: url("/img/mesa_madera_clara.jpg");
   background-size: cover;
   background-color: var(--grey);
 }
@@ -110,5 +112,12 @@ body {
 
 .derecha{
   margin-left:auto;
+}
+
+.nav-bar{
+  background-color: #0f0f0f;
+}
+.nav-bar-brand  {
+  font-family: var(--fuenteExt);
 }
 
