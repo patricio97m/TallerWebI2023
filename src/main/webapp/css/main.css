@@ -20,7 +20,7 @@ html{
 body {
   height: 100%;
   width: 100%;
-  background-image: url("/img/mesa_madera_clara.jpg");
+  background-image: url("../img/mesa_madera_intermedia.jpg");
   background-size: cover;
   background-color: var(--grey);
 }

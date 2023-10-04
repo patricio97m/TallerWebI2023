@@ -1,10 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <title>Taller Web I</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/partida.css}"/>
+
+    <!-- Cargando la Fuente Personalizada -->
+    <link rel="stylesheet" th:href="@{/css/fontsLinking.css}"/>
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm clr-tertiary p-3">
+        <div class="container-fluid p-0">
+            <a class="nav-link me-2" href="home">
+                <img th:src="@{/img/Logo.png}" alt="Home" width="50" height="40" class="me-2">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
+                    <a class="nav-link text-white h4 pb-0" href="#">Opciones</a>
+                    <a class="nav-link text-white h4 pb-0" href="#">Mi Perfil</a>
+                    <a class="nav-link text-white h4 pb-0" href="#">Partida Rápida</a>
+                    <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <button class="btn chat-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" id="corner-button"></button>
+
+    <!-- Chat -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Chat</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="chat-message-adversary">Este es un mensaje de chat.</p>
+            <p class="chat-message">Este es otro mensaje de chat.</p>
+        </div>
+        <div class="offcanvas-footer p-3">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Escribe tu mensaje...">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Puntaje -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title"><img src="img/account_circle.svg" class="card-img-top" alt="foto-perfil"><b> Jugador:</b></p>
+                        <p>0 puntos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="card-title"><img src="img/account_circle.svg" class="card-img-top" alt="foto-perfil"><b> Oponente:</b></p>
+                        <p>15 puntos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Cartas del oponente -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-4 "><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+            <div class="col-4"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+            <div class="col-4"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+        </div>
+
+        <!--Cartas a jugar -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+            <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+            <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+        </div>
+
+        <!-- Cartas del jugador -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-4"><img th:src="@{/img/cards/1 de basto.png}" class="img-fluid shake"></div>
+            <div class="col-4"><img th:src="@{/img/cards/4 de espada.png}" src="img/4 de espada.png" class="img-fluid shake"></div>
+            <div class="col-4"><img th:src="@{/img/cards/7 de basto.png}" class="img-fluid shake"></div>
+        </div>
+
+        <!-- Botones de truco, envido y mazo -->
+        <div class="row justify-content-center mt-5">
+            <div class="btn-group" role="group" >
+                <button type="button" class="btn btn-light btn-lg">Truco</button>
+                <button type="button" class="btn btn-light btn-lg">Envido</button>
+                <button type="button" class="btn btn-light btn-lg">Mazo</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
 </body>
 </html>
