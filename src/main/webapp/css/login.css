@@ -4,8 +4,8 @@
 }
 
 body{
-    background-image: url("../img/Wood_Background.jpg");
-    background-image: url("../img/fondo-login.png");
+    background-image: url("../img/style/Wood_Background.jpg");
+    background-image: url("../img/style/fondo-login.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: local;

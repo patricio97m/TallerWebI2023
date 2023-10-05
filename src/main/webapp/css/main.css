@@ -20,7 +20,7 @@ html{
 body {
   height: 100%;
   width: 100%;
-  background-image: url("../img/mesa_madera_intermedia.jpg");
+  background-image: url("../img/style/mesa_madera_intermedia.jpg");
   background-size: cover;
   background-color: var(--grey);
 }
@@ -102,15 +102,15 @@ body {
 }
 
 .play-card{
-  background-image: url("../img/Jugar_card_bg.jpeg");
+  background-image: url("../img/style/Jugar_card_bg.jpeg");
 }
 
 .tournaments-card{
-  background-image: url("../img/Torneo_card_bg.jpeg");
+  background-image: url("../img/style/Torneo_card_bg.jpeg");
 }
 
 .settings-card{
-  background-image: url("../img/Ajuste_card_bg.jpeg");
+  background-image: url("../img/style/Ajuste_card_bg.jpeg");
 }
 
 
