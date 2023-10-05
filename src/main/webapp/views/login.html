@@ -1,71 +1,83 @@
 <!DOCTYPE HTML>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Taller Web I</title>
+  <title>Taller Web I</title>
 
 
 
-    <!-- Boostrap core css -->
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+  <!-- Boostrap core css -->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" />
 
-    <!-- custom style -->
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
 
-    <!-- custom style -->
-    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/login.css}" />
 
-    <link rel="stylesheet" th:href="@{/css/fontsLinking.css}"/>
+  <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
 
-    <!-- custom style -->
-    <link rel="stylesheet" th:href="@{/css/estilo-login-registrarse.css}"/>
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/estilo-login-registrarse.css}" />
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="nav-link me-2" href="home">
+  <nav class="navbar navbar-expand-sm clr-tertiary p-3">
+    <div class="container-fluid p-0">
+      <a class="me-2" href="home">
         <img th:src="@{/img/Logo.png}" alt="Home" width="50" height="40" class="me-2">
-    </a>
-<nav class="navegador p-3">
-    <a href="#">UNLaM - Taller Web 1</a>
-</nav>
-
-<main role="main" class="container">
-
-    <div class = "container">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <form action="#" th:action="@{/validar-login}" method="POST" th:object="${datosLogin}">
-                <h3 class="form-signin-heading">Iniciar Sesión</h3>
-                <hr class="colorgraph"><br>
-
-                <input th:field="*{email}" id="email" type="email" class="form-control" placeholder="E-mail" required/>
-                <input th:field="*{password}" type="password" id="password" class="form-control" placeholder="Contraseña" required/>
-
-                <button id="btn-login" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión</button>
-
-                <p th:if="${error != null}" class="alert alert-danger" th:text="'Error ' + ${error}">
-                </p>
-            </form>
-            <div class="opcionesExtras">
-                <a id="ir-a-recuperar-contraseña" href="nuevo-usuario">¿Te olvidaste la contraseña?</a>
-                <a id="ir-a-registrarme" href="nuevo-usuario">¿No tenes una cuenta? Registrate</a>
-            </div>
-
-            <div class="iniciosExternos">
-                <button id="btn-login-google" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión con Google</button>
-                <button id="btn-login-facebook" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión con Facebook</button>
-            </div>
-
-            </div>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
+          <a class="nav-link text-white h4 pb-0" href="opciones">Opciones</a>
+          <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
+          <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
+          <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+        </div>
+      </div>
     </div>
-</main>
-<!-- /.container -->
+  </nav>
 
-<!-- Boostrap core js -->
-<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+  <main role="main" class="container-fluid mt-5">
+    <div id="loginbox" class="mainbox col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 mx-auto dark-bg p-3">
+      <form th:action="@{/validar-login}" method="POST" th:object="${datosLogin}" class="p-1">
+        <h3 class="form-signin-heading">Iniciar Sesión</h3>
+        <hr class="colorgraph"><br>
+
+        <input th:field="*{email}" id="email" type="email" class="form-control" placeholder="E-mail" required />
+        <input th:field="*{password}" type="password" id="password" class="form-control" placeholder="Contraseña"
+          required />
+
+        <button id="btn-login" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión</button>
+
+        <p th:if="${error != null}" class="alert alert-danger" th:text="'Error ' + ${error}">
+        </p>
+      </form>
+
+      <div class="opcionesExtras w-100 p-1">
+        <a id="ir-a-recuperar-contraseña" href="nuevo-usuario">¿Te olvidaste la contraseña?</a>
+        <a id="ir-a-registrarme" href="nuevo-usuario">¿No tenes una cuenta? Registrate</a>
+      </div>
+
+      <div class="iniciosExternos p-1">
+        <button id="btn-login-google" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión con
+          Google</button>
+        <button id="btn-login-facebook" class="btn btn-lg btn-primary btn-block" Type="Submit">Iniciar Sesión con
+          Facebook</button>
+      </div>
+
+    </div>
+  </main>
+  <!-- /.container -->
+
+  <!-- Boostrap core js -->
+  <script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
 </body>
+
 </html>

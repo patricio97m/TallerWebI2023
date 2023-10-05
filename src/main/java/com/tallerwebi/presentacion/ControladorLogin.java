@@ -76,5 +76,15 @@ public class ControladorLogin {
     public ModelAndView inicio() {
         return new ModelAndView("redirect:/home");
     }
+
+    @RequestMapping(path = "/opciones", method = RequestMethod.GET)
+    public ModelAndView irAOpciones() {
+        return new ModelAndView("opciones");
+    }
+
+    @RequestMapping(path = "/perfil", method = RequestMethod.GET)
+    public ModelAndView irAlPerfil() {
+        return new ModelAndView("perfil");
+    }
 }
 

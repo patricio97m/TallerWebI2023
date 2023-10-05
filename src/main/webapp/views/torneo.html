@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Torneo</title>
 
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" />
 
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
 
     <!-- custom style -->
-    <link rel="stylesheet" th:href="@{/css/torneo.css}"/>
+    <link rel="stylesheet" th:href="@{/css/torneo.css}" />
 
-    <link rel="stylesheet" th:href="@{/css/fontsLinking.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
 
 </head>
+
 <body>
-<nav class="navbar navbar-expand-sm clr-tertiary p-3">
-    <div class="container-fluid p-0">
-        <a class="nav-link me-2" href="home">
-           <img th:src="@{/img/Logo.png}" alt="Home" width="50" height="40" class="me-2">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <nav class="navbar navbar-expand-sm clr-tertiary p-3">
+        <div class="container-fluid p-0">
+          <a class="me-2" href="home">
+            <img th:src="@{/img/Logo.png}" alt="Home" width="50" height="40" class="me-2">
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
-                <a class="nav-link text-white h4 pb-0" href="#">Opciones</a>
-                <a class="nav-link text-white h4 pb-0" href="#">Mi Perfil</a>
-                <a class="nav-link text-white h4 pb-0" href="#">Partida Rápida</a>
-                <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+              <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
+              <a class="nav-link text-white h4 pb-0" href="opciones">Opciones</a>
+              <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
+              <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
+              <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="enfrentamientos">
+        <div class="cuartos">
+
+            <div class="ronda">
+                <p>Participante 1 </p>
+                <p>VS</p>
+                <p>Participante 2</p>
+            </div>
+
+            <div class="ronda">
+                <p>Participante 3</p>
+                <p>VS</p>
+                <p>Participante 4</p>
+            </div>
+
+            <div class="ronda">
+                <p>Participante 5</p>
+                <p>VS</p>
+                <p>Participante 6</p>
+            </div>
+
+            <div class="ronda">
+                <p>Participante 7</p>
+                <p>VS</p>
+                <p>Participante 8</p>
             </div>
         </div>
+
+        <div class="semifinal">
+            <div class="ronda">
+                <p>Participante Ganador</p>
+                <p>VS</p>
+                <p>Participante Ganador</p>
+            </div>
+
+            <div class="ronda">
+                <p>Participante Ganador</p>
+                <p>VS</p>
+                <p>Participante Ganador</p>
+            </div>
+
+        </div>
+
+        <div class="final">
+            <div class="ronda">
+                <p>Participante Ganador</p>
+                <p>VS</p>
+                <p>Participante Ganador</p>
+            </div>
+        </div>
+
+        <div class="ganador">
+
+            <img th:src="@{/img/copaDelMundo.png}" alt="Home" width="100" height="100" class="me-2">
+            <img alt="ImagenGanador">
+            <p>Participante Ganador</p>
+        </div>
+
     </div>
-</nav>
-<div class="enfrentamientos">
-<div class="cuartos">
-
-    <div class="ronda">
-     <p>Participante 1 </p>
-        <p>VS</p>
-        <p>Participante 2</p>
-    </div>
-
-    <div class="ronda">
-        <p>Participante 3</p>
-        <p>VS</p>
-        <p>Participante 4</p>
-    </div>
-
-    <div class="ronda">
-        <p>Participante 5</p>
-        <p>VS</p>
-        <p>Participante 6</p>
-    </div>
-
-    <div class="ronda">
-        <p>Participante 7</p>
-        <p>VS</p>
-        <p>Participante 8</p>
-    </div>
-</div>
-
-<div class="semifinal">
-    <div class="ronda">
-        <p>Participante Ganador</p>
-        <p>VS</p>
-        <p>Participante Ganador</p>
-    </div>
-
-    <div class="ronda">
-        <p>Participante Ganador</p>
-        <p>VS</p>
-        <p>Participante Ganador</p>
-    </div>
-
-</div>
-
-<div class="final">
-    <div class="ronda">
-        <p>Participante Ganador</p>
-        <p>VS</p>
-        <p>Participante Ganador</p>
-    </div>
-</div>
-
-    <div class="ganador">
-
-        <img th:src="@{/img/copaDelMundo.png}" alt="Home" width="100" height="100" class="me-2">
-        <img alt="ImagenGanador">
-        <p>Participante Ganador</p>
-    </div>
-
-</div>
 
 
 
 </body>
+
 </html>

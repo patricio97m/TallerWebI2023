@@ -11,4 +11,14 @@ public class ControladorPartida {
 
         return new ModelAndView("partida");
     }
+
+    @RequestMapping("/crear-sala")
+    public ModelAndView crearSala(){
+        return new ModelAndView("crear-sala");
+    }
+
+    @RequestMapping("/unirse-a-sala")
+    public ModelAndView unirseASala(){
+        return new ModelAndView("crear-sala");
+    }
 }

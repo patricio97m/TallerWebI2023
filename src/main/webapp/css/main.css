@@ -61,6 +61,15 @@ body {
   background-color: var(--darkGreen);
 }
 
+.nav-link{
+  transition: ease-in 0.25s;
+  border-bottom: solid 1px transparent;
+}
+
+.nav-link:hover{
+  border-bottom: solid 1px var(--white);
+}
+
 .card{
   height: 20em;
 
@@ -84,9 +93,12 @@ body {
 }
 
 .card > div{
-  border-radius: 1em;
   height: 100%;
+}
+
+.dark-bg{
   background-color: var(--transparencyBlack);
+  border-radius: 1em;
 }
 
 .play-card{
@@ -101,23 +113,5 @@ body {
   background-image: url("../img/Ajuste_card_bg.jpeg");
 }
 
-.nav-link{
-  transition: ease-in 0.25s;
-  border-bottom: solid 1px transparent;
-}
 
-.nav-link:hover{
-  border-bottom: solid 1px var(--white);
-}
-
-.derecha{
-  margin-left:auto;
-}
-
-.nav-bar{
-  background-color: #0f0f0f;
-}
-.nav-bar-brand  {
-  font-family: var(--fuenteExt);
-}
 
