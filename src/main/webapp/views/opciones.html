@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Taller Web I</title>
+  <title>Opciones</title>
 
   <!-- Boostrap core css -->
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" />
@@ -19,22 +19,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm clr-tertiary p-3">
-    <div class="container-fluid p-0">
-      <a class="me-2" href="home">
-        <img th:src="@{/img/iconos/Logo.png}" alt="Home" width="50" height="40" class="me-2">
-      </a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
-          <a class="nav-link text-white h4 pb-0" href="opciones">Opciones</a>
-          <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
-          <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
-          <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<div th:replace="../templates/header"></div>
 
   <main class="container-fluid">
     
