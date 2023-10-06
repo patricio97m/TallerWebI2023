@@ -43,7 +43,12 @@
 }
 
 body{
-    background-image: url(../img/mesa_madera_oscura.jpg);
+    background-image: url(../img/style/mesa_madera_oscura.jpg);
+}
+
+.marcador{
+    background-color: var(--white);
+    border-radius: 0.5em;
 }
 
 .btn-group > button{
