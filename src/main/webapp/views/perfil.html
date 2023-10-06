@@ -50,10 +50,13 @@
         </div>
       </div>
       <div class="perfil-usuario-body">
-        <div class="perfil-usuario-bio">
-          <h3 class="titulo">Juan Carlos</h3>
+        <div class="perfil-usuario-bio" th:if="${usuario != null}">
+          <h3 class="titulo" th:text="${usuario.email}"></h3>
           <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div th:if="${usuario == null}">
+          <p>El usuario no está autenticado. Debes iniciar sesión primero.</p>
         </div>
         <div class="perfil-usuario-footer">
           <ul class="lista-datos">
