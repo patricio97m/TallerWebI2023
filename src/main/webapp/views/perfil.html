@@ -16,13 +16,71 @@
   <!-- Cargando la Fuente Personalizada -->
   <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
 
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/perfil.css}" />
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Iconos redes sociales -->
+
+
+  <script src="https://kit.fontawesome.com/9f631d33db.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 <div th:replace="../templates/header"></div>
 
   <main class="container-fluid">
-    
+
+
+    <section class="seccion-perfil-usuario">
+      <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+          <div class="perfil-usuario-avatar">
+            <img th:src="@{/img/iconos/perfilDefault.jpg}" alt="img-avatar">
+            <button type="button" class="boton-avatar">
+              <i class="far fa-image"></i>
+            </button>
+          </div>
+          <button type="button" class="boton-portada">
+            <i class="far fa-image"></i> Cambiar fondo
+          </button>
+        </div>
+      </div>
+      <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+          <h3 class="titulo">Juan Carlos</h3>
+          <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="perfil-usuario-footer">
+          <ul class="lista-datos">
+            <li><span class="material-symbols-outlined">mail</span> Mail:</li>
+            <li><span class="material-symbols-outlined">cake</span> Fecha de Nacimiento:</li>
+            <li><span class="material-symbols-outlined">man_4</span> Sexo:</li>
+          </ul>
+          <ul class="lista-datos">
+            <li><span class="material-symbols-outlined">trophy</span>Torneos Ganados:</li>
+            <li><span class="material-symbols-outlined">check</span> Partidas Ganados:</li>
+            <li><span class="material-symbols-outlined">close</span> Partidas Perdidos:</li>
+          </ul>
+        </div>
+        <div class="redes-sociales">
+          <a href="" class="boton-redes facebook "><i class="fa-brands fa-facebook-f"></i></i></a>
+          <a href="" class="boton-redes twitter "><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="" class="boton-redes instagram "><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
+
+
+
+
   </main>
 
   <!-- Boostrap core js -->
