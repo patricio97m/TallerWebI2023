@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="p-2">
 <div th:replace="../templates/header"></div>
 
     <main>
@@ -71,24 +71,23 @@
 
             <!-- Cartas del oponente -->
             <div class="row justify-content-center mt-5">
-                <div class="col-4 "><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
-                <div class="col-4"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
-                <div class="col-4"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/reverso.png}" class="img-fluid"></div>
             </div>
 
             <!--Cartas a jugar -->
             <div class="row justify-content-center mt-5">
-                <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
-                <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
-                <div class="col-4"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
+                <div class="col-4 carta"><img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid"></div>
             </div>
 
             <!-- Cartas del jugador -->
             <div class="row justify-content-center mt-5">
-                <div class="col-4"><img th:src="@{/img/cards/1 de basto.png}" class="img-fluid shake"></div>
-                <div class="col-4"><img th:src="@{/img/cards/4 de espada.png}" src="img/4 de espada.png"
-                        class="img-fluid shake"></div>
-                <div class="col-4"><img th:src="@{/img/cards/7 de basto.png}" class="img-fluid shake"></div>
+                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[0] + '.png'}}" class="img-fluid shake"></div>
+                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[1] + '.png'}}" class="img-fluid shake"></div>
+                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[2] + '.png'}}" class="img-fluid shake"></div>
             </div>
 
             <!-- Botones de truco, envido y mazo -->
