@@ -44,14 +44,14 @@
               <i class="far fa-image"></i>
             </button>
           </div>
-          <button type="button" class="boton-portada">
+         <!--  <button type="button" class="boton-portada">
             <i class="far fa-image"></i> Cambiar fondo
-          </button>
+          </button> -->
         </div>
       </div>
       <div class="perfil-usuario-body">
         <div class="perfil-usuario-bio" th:if="${usuario != null}">
-          <h3 class="titulo" th:text="${usuario.email}"></h3>
+          <h3 class="titulo" th:text="${usuario.nombre}"></h3>
           <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
@@ -60,9 +60,12 @@
         </div>
         <div class="perfil-usuario-footer">
           <ul class="lista-datos">
-            <li><span class="material-symbols-outlined">mail</span> Mail:</li>
-            <li><span class="material-symbols-outlined">cake</span> Fecha de Nacimiento:</li>
-            <li><span class="material-symbols-outlined">man_4</span> Sexo:</li>
+            <li><span class="material-symbols-outlined">mail</span> Mail: <span th:text="${usuario.email}"></span></li>
+            <li><span class="material-symbols-outlined">cake</span> Fecha de Nacimiento: <span th:text="${usuario.nacimiento}"></span></li>
+            <li><span class="material-symbols-outlined">man_4</span> Genero:  <span th:if="${usuario.genero} == 1" th:text="Masculino"></span>
+              <span th:if="${usuario.genero} == 2" th:text="Femenino"></span>
+              <span th:if="${usuario.genero} == 3" th:text="Otro"></span>
+            </li>
           </ul>
           <ul class="lista-datos">
             <li><span class="material-symbols-outlined">trophy</span>Torneos Ganados:</li>

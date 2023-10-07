@@ -13,13 +13,13 @@
   <!-- custom style -->
   <link rel="stylesheet" th:href="@{/css/main.css}" />
 
-  <!-- custom style -->
-  <link rel="stylesheet" th:href="@{/css/login.css}" />
-
   <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
 
   <!-- custom style -->
   <link rel="stylesheet" th:href="@{/css/estilo-login-registrarse.css}" />
+
+  <!-- custom style -->
+  <link rel="stylesheet" th:href="@{/css/login.css}" />
 </head>
 
 <body>
@@ -37,6 +37,22 @@
           <input th:field="*{email}" id="email" class="form-control" placeholder="E-mail" required />
           <input th:field="*{password}" type="password" id="password" class="form-control" placeholder="Contraseña"
             required />
+          <input th:field="*{nombre}" id="nombre" class="form-control" placeholder="Nombre" required />
+          <input th:field="*{nacimiento}" type="date" id="nacimiento" class="form-control" placeholder="Fecha de nacimiento" required />
+
+          <div class="container-gender">
+
+            <input th:field="*{genero}" type="radio" id="generoMasculino" name="genero"  placeholder="Genero" value="1"  />
+            <label for="generoMasculino">Masculino</label>
+
+            <input th:field="*{genero}" type="radio" id="generoFemenino" name="genero"  placeholder="Genero" value="2"  />
+            <label for="generoFemenino">Femenino</label>
+
+            <input th:field="*{genero}" type="radio" id="generoOtro" name="genero"  placeholder="Genero" value="3"  />
+            <label for="generoOtro">Otro</label>
+          </div>
+
+
 
           <button id="btn-registrarme" class="btn btn-lg btn-primary btn-block" Type="Submit">Registrate</button>
           <p th:if="${error != null}" class="alert alert-danger" th:text="'Error ' + ${error}">
