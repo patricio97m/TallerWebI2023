@@ -19,10 +19,39 @@
 </head>
 
 <body>
-<div th:replace="../templates/header"></div>
+<div th:replace="../templates/header">  </div>
 
-  <main class="container-fluid">
-    
+  <main class="container-fluid d-flex justify-content-center align-items-center">
+    <div>
+      <form>
+        <h3>Notificaciones</h3>
+        <input type="checkbox" id="notificaciones" name="notificaciones">
+        <label for="notificaciones">Activar Notificaciones</label>
+
+        <h3>Preferencias de Juego</h3>
+        <label for="dificultad">Puntos para ganar:</label>
+        <select name="niveles">
+          <option value="pts-15">15</option>
+          <option value="pts-30">30</option>
+        </select>
+
+        <label for="dificultad">Dificultad del Juego:</label>
+        <select name="niveles">
+          <option value="facil">Facil</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="dificil">Dificil</option>
+        </select>
+
+        <h3>Ayuda</h3>
+        <label for="tutoriales">Descarga aqui el valor de las cartas</label>
+        <a href="../img/style/TRUCO-valor-de-las-cartas-EN.jpg" download="TRUCO-valor-de-las-cartas-EN.jpg">
+          Descargar Archivo
+        </a>
+        <br>
+
+        <a th:href="home">Guardar Ajustes</a>
+      </form>
+    </div>
   </main>
 
   <!-- Boostrap core js -->
