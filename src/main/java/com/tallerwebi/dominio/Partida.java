@@ -1,20 +1,32 @@
 package com.tallerwebi.dominio;
 
-import java.util.ArrayList;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Partida{
 
+    public Partida(){
+        manoDelJugador = new Mano();
+        manoDeLaIA = new Mano();
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private ArrayList<Carta> cartasDelJugador = new ArrayList<Carta>();
-    private ArrayList<Carta> cartasDeLaIA = new ArrayList<Carta>();
+
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "manoDelJugador_id")
+    private Mano manoDelJugador;
+    
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "manoDeLaIa_id")
+    private Mano manoDeLaIA;
 
     public Long getId() {
         return id;
@@ -22,17 +34,17 @@ public class Partida{
     public void setId(Long id) {
         this.id = id;
     }
-    public ArrayList<Carta> getCartasDelJugador() {
-        return cartasDelJugador;
+    public Mano getManoDelJugador() {
+        return manoDelJugador;
     }
-    public void setCartasDelJugador(ArrayList<Carta> cartasDelJugador) {
-        this.cartasDelJugador = cartasDelJugador;
+    public void setManoDelJugador(Mano manoDelJugador) {
+        this.manoDelJugador = manoDelJugador;
     }
-    public ArrayList<Carta> getCartasDeLaIa() {
-        return cartasDeLaIA;
+    public Mano getManoDeLaIa() {
+        return manoDeLaIA;
     }
-    public void setCartasDeLaIa(ArrayList<Carta> cartasDeLaIA) {
-        this.cartasDeLaIA = cartasDeLaIA;
+    public void setManoDeLaIa(Mano manoDeLaIA) {
+        this.manoDeLaIA = manoDeLaIA;
     }
     
     

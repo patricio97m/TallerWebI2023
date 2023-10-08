@@ -1,9 +1,8 @@
 package com.tallerwebi.infraestructura;
 
 import com.tallerwebi.dominio.Carta;
+import com.tallerwebi.dominio.Mano;
 import com.tallerwebi.dominio.Partida;
-
-import java.util.ArrayList;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -26,6 +25,11 @@ public class RepositorioPartidaImpl implements RepositorioPartida {
     }
 
     @Override
+    public Long guardarNuevaMano(Mano mano) {
+         return (Long)sessionFactory.getCurrentSession().save(mano);
+    }
+
+    @Override
     public Carta buscarCartaPorId(Long id) {
         return (Carta) sessionFactory.getCurrentSession().createCriteria(Carta.class)
                 .add(Restrictions.eq("id", id))
@@ -40,28 +44,28 @@ public class RepositorioPartidaImpl implements RepositorioPartida {
     }
 
     @Override
-    public ArrayList<Carta> buscarCartasDelJugador(Long idPartida) {
+    public Mano buscarCartasDelJugador(Long idPartida) {
         Partida partida = buscarPartidaPorId(idPartida);
-        return partida.getCartasDelJugador();
+        return partida.getManoDelJugador();
     }
 
     @Override
-    public ArrayList<Carta> buscarCartasDeLaIa(Long idPartida) {
+    public Mano buscarCartasDeLaIa(Long idPartida) {
         Partida partida = buscarPartidaPorId(idPartida);
-        return partida.getCartasDeLaIa();
+        return partida.getManoDeLaIa();
     }
 
     @Override
-    public void asignarCartasAlJugador(Long idPartida, ArrayList<Carta> cartasDelJugador) {
+    public void asignarCartasAlJugador(Long idPartida, Mano cartasDelJugador) {
         Partida partida = buscarPartidaPorId(idPartida);
-        partida.setCartasDelJugador(cartasDelJugador);
+        partida.setManoDelJugador(cartasDelJugador);
         sessionFactory.getCurrentSession().update(partida);
     }
 
     @Override
-    public void asignarCartasALaIa(Long idPartida, ArrayList<Carta> cartasDeLaIA) {
+    public void asignarCartasALaIa(Long idPartida, Mano cartasDeLaIA) {
         Partida partida = buscarPartidaPorId(idPartida);
-        partida.setCartasDeLaIa(cartasDeLaIA);
+        partida.setManoDeLaIa(cartasDeLaIA);
         sessionFactory.getCurrentSession().update(partida);
     }
 

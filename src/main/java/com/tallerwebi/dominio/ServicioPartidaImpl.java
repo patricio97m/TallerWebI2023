@@ -24,32 +24,41 @@ public class ServicioPartidaImpl implements ServicioPartida{
     @Override
     public Long iniciarPartida(){
         Partida partida = new Partida();
+        repartirCartas(partida);
         return repositorioPartida.guardarNuevaPartida(partida);
     }
 
     @Override
-    public ArrayList<Carta> getCartas(Long idPartida){
+    public Mano getMano(Long idPartida){
         return repositorioPartida.buscarCartasDelJugador(idPartida);
     }
 
     @Override
-    public void repartirCartas(Long idPartida){
+    public void repartirCartas(Partida partida){
         ArrayList<Long> numerosDeCartas = generarNumerosDeCartas(6);
         ArrayList<Carta> cartasDelJugador = new ArrayList<Carta>();
         ArrayList<Carta> cartasDeLaIa = new ArrayList<Carta>();
         int index = 0;
         for (Long id : numerosDeCartas) {
+            Carta carta = repositorioPartida.buscarCartaPorId(id);
             if(index < 3){
-                cartasDelJugador.add(repositorioPartida.buscarCartaPorId(id));
+                cartasDelJugador.add(carta);
             }
             else{
-                cartasDeLaIa.add(repositorioPartida.buscarCartaPorId(id));
+                cartasDeLaIa.add(carta);
             }
             index++;
         }
 
-        repositorioPartida.asignarCartasAlJugador(idPartida, cartasDelJugador);
-        repositorioPartida.asignarCartasALaIa(idPartida, cartasDeLaIa);
+        Mano manoDelJugador = new Mano();
+        Mano manoDeLaIa = new Mano();
+        manoDelJugador.setCartas(cartasDelJugador);
+        manoDeLaIa.setCartas(cartasDeLaIa);
+        repositorioPartida.guardarNuevaMano(manoDelJugador);
+        repositorioPartida.guardarNuevaMano(manoDeLaIa);
+
+        partida.setManoDelJugador(manoDelJugador);
+        partida.setManoDeLaIa(manoDeLaIa);
     }
 
     private ArrayList<Long> generarNumerosDeCartas(int count){

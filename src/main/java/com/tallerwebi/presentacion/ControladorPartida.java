@@ -23,10 +23,9 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida() {
-        long idPartida = servicioPartida.iniciarPartida();
-        servicioPartida.repartirCartas(idPartida);
+        Long idPartida = servicioPartida.iniciarPartida();
         ModelMap model = new ModelMap();
-        ArrayList<Carta> Cartas = servicioPartida.getCartas(idPartida);
+        ArrayList<Carta> Cartas = servicioPartida.getMano(idPartida).getCartas();
         ArrayList<String> nombreCartas = new ArrayList<String>();
         for (Carta carta : Cartas) {
             String nombre = carta.getPalo() + carta.getNumero();
