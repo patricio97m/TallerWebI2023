@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Date;
 
 @Entity
 public class Usuario {
@@ -12,6 +13,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
+    private String nombre;
+    private java.sql.Date nacimiento;
+    private Integer genero;
     private String password;
     private String rol;
     private Boolean activo = false;
@@ -53,5 +57,29 @@ public class Usuario {
 
     public void activar() {
         activo = true;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Date getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(Date nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public Integer getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Integer genero) {
+        this.genero = genero;
     }
 }

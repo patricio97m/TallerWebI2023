@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ControladorLogin {
@@ -37,6 +38,9 @@ public class ControladorLogin {
 
         Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin.getEmail(), datosLogin.getPassword());
         if (usuarioBuscado != null) {
+            //Recuperar usuario de la sesion
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioAutenticado", usuarioBuscado);
             request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
             return new ModelAndView("redirect:/home");
         } else {
@@ -83,8 +87,19 @@ public class ControladorLogin {
     }
 
     @RequestMapping(path = "/perfil", method = RequestMethod.GET)
-    public ModelAndView irAlPerfil() {
-        return new ModelAndView("perfil");
+    public ModelAndView irAlPerfil(HttpServletRequest request) {
+        ModelMap model = new ModelMap();
+
+        HttpSession session = request.getSession();
+        Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuarioAutenticado");
+
+        if (usuarioAutenticado != null) {
+            model.put("usuario", usuarioAutenticado);
+            return new ModelAndView("perfil", model);
+        } else {
+            // Maneja el caso en el que el usuario no está autenticado
+            return new ModelAndView("redirect:/login");
+        }
     }
 }
 
