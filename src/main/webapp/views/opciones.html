@@ -19,10 +19,58 @@
 </head>
 
 <body>
-<div th:replace="../templates/header"></div>
+<header>
+  <nav class="navbar navbar-expand-sm clr-tertiary p-3">
+    <div class="container-fluid p-0">
+      <a class="me-2" href="home">
+        <img th:src="@{/img/iconos/Logo.png}" alt="Home" width="50" height="40" class="me-2">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
+          <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
+          <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
+          <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-  <main class="container-fluid">
-    
+</header>
+
+  <main class="container-fluid d-flex justify-content-center align-items-center">
+    <div>
+      <form class="rounded p-4 mt-xl-5" style="background-color: rgba(6, 51, 44, 0.88)">
+        <h3 class="text-light">Notificaciones</h3>
+        <input type="checkbox" id="notificaciones" name="notificaciones">
+        <label class="text-light pb-4" for="notificaciones">Activar Notificaciones</label>
+
+        <h3 class="text-light">Preferencias de Juego</h3>
+        <label class="text-light pb-4" for="dificultad">Puntos para ganar:</label>
+        <select name="niveles">
+          <option value="pts-15">15</option>
+          <option value="pts-30">30</option>
+        </select>
+
+        <label class="text-light" for="dificultad">Dificultad del Juego:</label>
+        <select name="niveles">
+          <option value="facil">Facil</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="dificil">Dificil</option>
+        </select>
+
+        <h3 class="text-light">Ayuda</h3>
+        <label for="tutoriales" class="text-light pb-4">Descarga aqui el valor de las cartas</label>
+        <a class="btn btn-info" href="../img/style/TRUCO-valor-de-las-cartas-EN.jpg" download="TRUCO-valor-de-las-cartas-EN.jpg">
+          Descargar Archivo
+        </a>
+        <br>
+
+        <a th:href="home"  class="btn btn-primary">
+          Guardar Ajustes
+        </a>
+      </form>
+    </div>
   </main>
 
   <!-- Boostrap core js -->
