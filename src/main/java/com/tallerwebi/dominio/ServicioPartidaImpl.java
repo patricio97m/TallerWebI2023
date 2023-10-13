@@ -74,6 +74,13 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         return randomNumbers;
     }
+
+    public Mano getManoDeLaIa(Partida partida) {
+        Mano cartasIA = partida.getManoDeLaIa();
+
+        return cartasIA;
+
+    }
 }
 
 
