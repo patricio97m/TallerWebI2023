@@ -23,15 +23,29 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida() {
-        Long idPartida = servicioPartida.iniciarPartida();
-        ModelMap model = new ModelMap();
-        ArrayList<Carta> Cartas = servicioPartida.getMano(idPartida).getCartas();
-        ArrayList<String> nombreCartas = new ArrayList<String>();
-        for (Carta carta : Cartas) {
-            String nombre = carta.getPalo() + carta.getNumero();
-            nombreCartas.add(nombre);
+        if(cookieIdPartida != null){
+            Long idPartida = cookieIdPartida;
         }
-        model.put("Cartas", nombreCartas);
+        else{
+            Long idPartida = servicioPartida.iniciarPartida();
+        }
+        
+        ArrayList<String> manoDelJugador = servicioPartida.getManoDelJugador(idPartida);
+        ArrayList<String> cartasJugadasIa = servicioPartida.getCartasJugadasIa(idPartida);
+        ArrayList<String> cartasJugadasJugador = servicioPartida.getCartasJugadasJugador(idPartida);
+        short puntosJugador = servicioPartida.getPuntosJugador(idPartida);
+        short puntosIa = servicioPartida.getPuntosJugador(idPartida);
+        short estadoTruco = servicioPartida.getEstadoTruco(idPartida);
+        short estadoEnvido = servicioPartida.getEstadoEnvido(idPartida);
+
+        ModelMap model = new ModelMap();
+        model.put("manoDelJugador", manoDelJugador);
+        model.put("cartasJugadasIa", cartasJugadasIa);
+        model.put("cartasJugadasJugadas", cartasJugadasJugador);
+        model.put("puntosJugador", puntosJugador);
+        model.put("puntosIa", puntosIa);
+        model.put("truco", estadoTruco);
+        model.put("envido", estadoEnvido);
         return new ModelAndView("partida", model);
     }
 }

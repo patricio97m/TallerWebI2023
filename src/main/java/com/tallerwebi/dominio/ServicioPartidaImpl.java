@@ -29,11 +29,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     @Override
-    public Mano getMano(Long idPartida){
-        return repositorioPartida.buscarCartasDelJugador(idPartida);
-    }
-
-    @Override
     public void repartirCartas(Partida partida){
         ArrayList<Long> numerosDeCartas = generarNumerosDeCartas(6);
         ArrayList<Carta> cartasDelJugador = new ArrayList<Carta>();
@@ -50,10 +45,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
             index++;
         }
 
-        Mano manoDelJugador = new Mano();
-        Mano manoDeLaIa = new Mano();
-        manoDelJugador.setCartas(cartasDelJugador);
-        manoDeLaIa.setCartas(cartasDeLaIa);
+        Mano manoDelJugador = new Mano(cartasDelJugador);
+        Mano manoDeLaIa = new Mano(cartasDeLaIa);
         repositorioPartida.guardarNuevaMano(manoDelJugador);
         repositorioPartida.guardarNuevaMano(manoDeLaIa);
 
@@ -73,6 +66,53 @@ public class ServicioPartidaImpl implements ServicioPartida{
         }
 
         return randomNumbers;
+    }
+
+    @Override
+    public ArrayList<String> getManoDelJugador(Long idPartida) {
+        ArrayList<Carta> cartasDelJugador = repositorioPartida.buscarCartasDelJugador(idPartida).getCartas();
+        ArrayList<String> nombreCartasDelJugador = new ArrayList<String>();
+        for (Carta carta : cartasDelJugador) {
+            String nombre = carta.getPalo() + carta.getNumero();
+            nombreCartasDelJugador.add(nombre);
+        }
+        return nombreCartasDelJugador;
+    }
+
+    @Override
+    public ArrayList<String> getCartasJugadasJugador(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCartasJugadasJugador'");
+    }
+
+    @Override
+    public ArrayList<String> getCartasJugadasIa(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCartasJugadasIa'");
+    }
+
+    @Override
+    public short getPuntosJugador(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPuntosJugador'");
+    }
+
+    @Override
+    public short getPuntosIa(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPuntosIa'");
+    }
+
+    @Override
+    public short getEstadoTruco(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getEstadoTruco'");
+    }
+
+    @Override
+    public short getEstadoEnvido(Long idPartida) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getEstadoEnvido'");
     }
 }
 
