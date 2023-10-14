@@ -18,6 +18,8 @@ public class Partida{
         puntosJugador = 0;
         cartasJugadasJugador = new Mano();
         cartasJugadasIa = new Mano();
+        limitePuntos = 15;
+        quienEsMano = Jugador.J1;
     }
 
     @Id
@@ -46,10 +48,13 @@ public class Partida{
 
     private short puntosJugador;
     private short puntosIa;
+    private short limitePuntos;
+    private Jugador quienEsMano;
 
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -112,6 +117,21 @@ public class Partida{
     }
     public void setCartasJugadasIa(Mano cartasJugadasIa) {
         this.cartasJugadasIa = cartasJugadasIa;
+    }
+
+    public short getLimitePuntos() {
+        return limitePuntos;
+    }
+    public void setLimitePuntos(short limitePuntos) {
+        this.limitePuntos = limitePuntos;
+    }
+
+    public Jugador getQuienEsMano() {
+        return quienEsMano;
+    }
+
+    public void setQuienEsMano(Jugador quienEsMano) {
+        this.quienEsMano = quienEsMano;
     }
 
 }

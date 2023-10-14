@@ -14,6 +14,7 @@ public class Carta {
     private String palo;
     private short numero;
     private short valorTruco;
+    private short valorEnvido;
     
     public Long getId() {
         return id;
@@ -39,7 +40,11 @@ public class Carta {
     public void setValorTruco(short valorTruco) {
         this.valorTruco = valorTruco;
     }
-    
-    
+    public short getValorEnvido() {
+        return valorEnvido;
+    }
+    public void setValorEnvido(short valorEnvido) {
+        this.valorEnvido = valorEnvido;
+    }
 }
 

@@ -1,6 +1,7 @@
 package com.tallerwebi.dominio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,8 @@ public class Mano{
     @ManyToOne
     @JoinColumn(name = "carta3_id")
     private Carta carta3;
+
+    private short valorEnvido;
 
     public Mano(ArrayList<Carta> cartasDelJugador) {
         setCartas(cartasDelJugador);
@@ -74,6 +77,14 @@ public class Mano{
         return cartas;
     }
 
+    public short getValorEnvido() {
+        return valorEnvido;
+    }
+
+    public void setValorEnvido(short valorEnvido) {
+        this.valorEnvido = valorEnvido;
+    }
+
     public void setCartas(ArrayList<Carta> cartas){
         int index = 1;
         for (Carta carta : cartas) {
@@ -95,6 +106,44 @@ public class Mano{
             }
             index++;
         }
+        valorEnvido = calcularEnvido();
+    }
+
+    private short calcularEnvido() {
+        short valorEnvido = 0;
+        if(carta1.getPalo() == carta2.getPalo()){
+            valorEnvido += 20;
+            if(carta1.getPalo() == carta3.getPalo()){
+                short[] listaValores = new short[3];
+                listaValores[0] = carta1.getValorEnvido();
+                listaValores[1] = carta2.getValorEnvido();
+                listaValores[2] = carta3.getValorEnvido();
+
+                Arrays.sort(listaValores);
+                valorEnvido += listaValores[2] + listaValores[1];
+            }
+            else{
+                valorEnvido += (carta1.getValorEnvido() + carta2.getValorEnvido());
+            }
+        }
+        else if(carta1.getPalo() == carta3.getPalo()){
+            valorEnvido += 20;
+            valorEnvido += (carta1.getValorEnvido() + carta3.getValorEnvido());  
+        }
+        else if(carta2.getPalo() == carta3.getPalo()){
+            valorEnvido += 20;
+            valorEnvido += (carta2.getValorEnvido() + carta3.getValorEnvido());
+        }
+        else{
+            short[] listaValores = new short[3];
+            listaValores[0] = carta1.getValorEnvido();
+            listaValores[1] = carta2.getValorEnvido();
+            listaValores[2] = carta3.getValorEnvido();
+
+            Arrays.sort(listaValores);
+            valorEnvido = listaValores[2];
+        }
+        return valorEnvido;
     }
     
 }
