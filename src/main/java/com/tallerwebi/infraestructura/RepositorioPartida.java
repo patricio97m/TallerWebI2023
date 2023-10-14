@@ -16,4 +16,6 @@ public interface RepositorioPartida {
     
     void asignarCartasAlJugador(Long idPartida, Mano cartasDelJugador);
     void asignarCartasALaIa(Long idPartida, Mano cartasDeLaIA);
+	Mano buscarCartasJugadasJugador(Long idPartida);
+    Mano buscarCartasJugadasIa(Long idPartida);
 }

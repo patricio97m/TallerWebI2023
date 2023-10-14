@@ -30,22 +30,6 @@ public class ControladorPartida {
             Long idPartida = servicioPartida.iniciarPartida();
         }
         
-        ArrayList<String> manoDelJugador = servicioPartida.getManoDelJugador(idPartida);
-        ArrayList<String> cartasJugadasIa = servicioPartida.getCartasJugadasIa(idPartida);
-        ArrayList<String> cartasJugadasJugador = servicioPartida.getCartasJugadasJugador(idPartida);
-        short puntosJugador = servicioPartida.getPuntosJugador(idPartida);
-        short puntosIa = servicioPartida.getPuntosJugador(idPartida);
-        short estadoTruco = servicioPartida.getEstadoTruco(idPartida);
-        short estadoEnvido = servicioPartida.getEstadoEnvido(idPartida);
-
-        ModelMap model = new ModelMap();
-        model.put("manoDelJugador", manoDelJugador);
-        model.put("cartasJugadasIa", cartasJugadasIa);
-        model.put("cartasJugadasJugadas", cartasJugadasJugador);
-        model.put("puntosJugador", puntosJugador);
-        model.put("puntosIa", puntosIa);
-        model.put("truco", estadoTruco);
-        model.put("envido", estadoEnvido);
-        return new ModelAndView("partida", model);
+        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
     }
 }

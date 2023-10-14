@@ -2,6 +2,7 @@ package com.tallerwebi.dominio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import com.tallerwebi.infraestructura.RepositorioPartida;
 
@@ -45,6 +46,11 @@ public class ServicioPartidaImpl implements ServicioPartida{
             index++;
         }
 
+        Mano cartasJugadasJugador = new Mano();
+        Mano cartasJugadasIa = new Mano();
+        repositorioPartida.guardarNuevaMano(cartasJugadasJugador);
+        repositorioPartida.guardarNuevaMano(cartasJugadasIa);
+
         Mano manoDelJugador = new Mano(cartasDelJugador);
         Mano manoDeLaIa = new Mano(cartasDeLaIa);
         repositorioPartida.guardarNuevaMano(manoDelJugador);
@@ -52,6 +58,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         partida.setManoDelJugador(manoDelJugador);
         partida.setManoDeLaIa(manoDeLaIa);
+        partida.setCartasJugadasJugador(cartasJugadasJugador);
+        partida.setCartasJugadasIa(cartasJugadasIa);
     }
 
     private ArrayList<Long> generarNumerosDeCartas(int count){
@@ -81,38 +89,69 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
     @Override
     public ArrayList<String> getCartasJugadasJugador(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCartasJugadasJugador'");
+        ArrayList<Carta> cartasJugadasJugador = repositorioPartida.buscarCartasJugadasJugador(idPartida).getCartas();
+        ArrayList<String> nombreCartasJugadasJugador = new ArrayList<String>();
+        for (Carta carta : cartasJugadasJugador) {
+            String nombre = carta.getPalo() + carta.getNumero();
+            nombreCartasJugadasJugador.add(nombre);
+        }
+        return nombreCartasJugadasJugador;
     }
 
     @Override
     public ArrayList<String> getCartasJugadasIa(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCartasJugadasIa'");
+        ArrayList<Carta> cartasJugadasIa = repositorioPartida.buscarCartasJugadasIa(idPartida).getCartas();
+        ArrayList<String> nombreCartasJugadasIa = new ArrayList<String>();
+        for (Carta carta : cartasJugadasIa) {
+            String nombre = carta.getPalo() + carta.getNumero();
+            nombreCartasJugadasIa.add(nombre);
+        }
+        return nombreCartasJugadasIa;
     }
 
     @Override
     public short getPuntosJugador(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPuntosJugador'");
+        return repositorioPartida.buscarPartidaPorId(idPartida).getPuntosJugador();
     }
 
     @Override
     public short getPuntosIa(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPuntosIa'");
+        return repositorioPartida.buscarPartidaPorId(idPartida).getPuntosIa();
     }
 
     @Override
     public short getEstadoTruco(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEstadoTruco'");
+        return repositorioPartida.buscarPartidaPorId(idPartida).getEstadoTruco();
     }
 
     @Override
     public short getEstadoEnvido(Long idPartida) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEstadoEnvido'");
+        return repositorioPartida.buscarPartidaPorId(idPartida).getEstadoEnvido();
+    }
+
+    @Override
+    public boolean getCantoTruco(Long idPartida) {
+        return repositorioPartida.buscarPartidaPorId(idPartida).getCantoTruco();
+    }
+
+    @Override
+    public boolean getCantoEnvido(Long idPartida) {
+        return repositorioPartida.buscarPartidaPorId(idPartida).getCantoEnvido();
+    }
+
+    @Override
+    public ModelMap getDetallesPartida(Long idPartida) {
+        ModelMap model = new ModelMap();
+        model.put("manoDelJugador", getManoDelJugador(idPartida));
+        model.put("cartasJugadasIa", getCartasJugadasIa(idPartida));
+        model.put("cartasJugadasJugador", getCartasJugadasJugador(idPartida));
+        model.put("puntosJugador", getPuntosJugador(idPartida));
+        model.put("puntosIa", getPuntosIa(idPartida));
+        model.put("truco", getEstadoTruco(idPartida));
+        model.put("cantoTruco", getCantoTruco(idPartida));
+        model.put("envido", getEstadoEnvido(idPartida));
+        model.put("cantoEnvido", getCantoEnvido(idPartida));
+        return model;
     }
 }
 

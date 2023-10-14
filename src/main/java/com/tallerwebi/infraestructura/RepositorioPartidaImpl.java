@@ -69,5 +69,17 @@ public class RepositorioPartidaImpl implements RepositorioPartida {
         sessionFactory.getCurrentSession().update(partida);
     }
 
+    @Override
+    public Mano buscarCartasJugadasJugador(Long idPartida) {
+        Partida partida = buscarPartidaPorId(idPartida);
+        return partida.getCartasJugadasJugador();
+    }
+
+    @Override
+    public Mano buscarCartasJugadasIa(Long idPartida) {
+        Partida partida = buscarPartidaPorId(idPartida);
+        return partida.getCartasJugadasIa();
+    }
+
 }
 

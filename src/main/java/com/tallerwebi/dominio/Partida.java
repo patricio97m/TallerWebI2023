@@ -14,6 +14,10 @@ public class Partida{
     public Partida(){
         manoDelJugador = new Mano();
         manoDeLaIA = new Mano();
+        puntosIa = 0;
+        puntosJugador = 0;
+        cartasJugadasJugador = new Mano();
+        cartasJugadasIa = new Mano();
     }
 
     @Id
@@ -27,6 +31,21 @@ public class Partida{
     @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "manoDeLaIa_id")
     private Mano manoDeLaIA;
+
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "cartasJugadasJugador_id")
+    private Mano cartasJugadasJugador;
+    
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "cartasJugadasIa_id")
+    private Mano cartasJugadasIa;
+
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "ronda_id")
+    private Ronda ronda;
+
+    private short puntosJugador;
+    private short puntosIa;
 
     public Long getId() {
         return id;
@@ -47,7 +66,54 @@ public class Partida{
         this.manoDeLaIA = manoDeLaIA;
     }
     
+    public short getEstadoTruco() {
+        return ronda.getEstadoTruco();
+    }
+
+    public void setEstadoTruco(short estadoTruco){
+        ronda.setEstadoTruco(estadoTruco);
+    }
+
+    public short getEstadoEnvido() {
+        return ronda.getEstadoEnvido();
+    }
+
+    public void setEstadoEnvido(short estadoEnvido){
+        ronda.setEstadoEnvido(estadoEnvido);
+    }
     
+    public short getPuntosJugador() {
+        return puntosJugador;
+    }
+    public void setPuntosJugador(short puntosJugador) {
+        this.puntosJugador = puntosJugador;
+    }
+    public short getPuntosIa() {
+        return puntosIa;
+    }
+    public void setPuntosIa(short puntosIa) {
+        this.puntosIa = puntosIa;
+    }
+    public boolean getCantoEnvido() {
+        return ronda.getCantoEnvido();
+    }
+    public boolean getCantoTruco() {
+        return ronda.getCantoTruco();
+    }
+
+    public Mano getCartasJugadasJugador() {
+        return cartasJugadasJugador;
+    }
+    public void setCartasJugadasJugador(Mano cartasJugadasJugador) {
+        this.cartasJugadasJugador = cartasJugadasJugador;
+    }
+    public Mano getCartasJugadasIa() {
+        return cartasJugadasIa;
+    }
+    public void setCartasJugadasIa(Mano cartasJugadasIa) {
+        this.cartasJugadasIa = cartasJugadasIa;
+    }
+
 }
 
 
