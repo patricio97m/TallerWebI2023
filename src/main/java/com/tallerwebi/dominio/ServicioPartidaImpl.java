@@ -67,7 +67,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Random random = new Random();
 
         while (randomNumbers.size() < count) {
-            Long randomNumber = random.nextLong(40);
+            Long randomNumber = (long) random.nextInt(40);
             if (!randomNumbers.contains(randomNumber)) {
                 randomNumbers.add(randomNumber);
             }
