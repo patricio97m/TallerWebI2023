@@ -36,6 +36,9 @@ public class Mano{
     }
 
     public Mano() {
+        carta1 = null;
+        carta2 = null;
+        carta3 = null;
     }
 
     public Long getId() {
@@ -45,28 +48,28 @@ public class Mano{
         this.id = id;
     }
 
-    public Carta getCarta1() {
-        return carta1;
-    }
-    
-    public void setCarta1(Carta carta1) {
-        this.carta1 = carta1;
-    }
-
-    public Carta getCarta2() {
-        return carta2;
-    }
-
-    public void setCarta2(Carta carta2) {
-        this.carta2 = carta2;
+    public Carta getCarta(int i){
+        if(i == 1){
+            return carta1;
+        }
+        else if(i == 2){
+            return carta2;
+        }
+        else{
+            return carta3;
+        }
     }
 
-    public Carta getCarta3() {
-        return carta3;
-    }
-
-    public void setCarta3(Carta carta3) {
-        this.carta3 = carta3;
+    public void setCarta(int i, Carta carta){
+        if(i == 1){
+            carta1 = carta;
+        }
+        else if(i == 2){
+            carta2 = carta;
+        }
+        else{
+            carta3 = carta;
+        }
     }
 
     public ArrayList<Carta> getCartas(){
@@ -88,22 +91,7 @@ public class Mano{
     public void setCartas(ArrayList<Carta> cartas){
         int index = 1;
         for (Carta carta : cartas) {
-            switch (index) {
-                case 1:
-                    setCarta1(carta);
-                    break;
-
-                case 2:
-                    setCarta2(carta);
-                    break;
-
-                case 3:
-                    setCarta3(carta);
-                    break;
-            
-                default:
-                    break;
-            }
+            setCarta(index, carta);
             index++;
         }
         valorEnvido = calcularEnvido();

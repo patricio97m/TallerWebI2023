@@ -225,8 +225,6 @@ public class ServiciaIAImpl implements ServicioIA {
     }
 
 
-
-
     @Override
     public Jugada rechazarEnvido(Long idPartida) {
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);

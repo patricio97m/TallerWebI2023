@@ -4,19 +4,20 @@ import java.util.ArrayList;
 
 import org.springframework.ui.ModelMap;
 
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
+import com.tallerwebi.enums.Jugador;
+
 public interface ServicioPartida {
 
     Long iniciarPartida();
+    void nuevaRonda(Partida partida);
+    void reiniciarRonda(Partida partida);
     void repartirCartas(Partida partida);
+    void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador) throws JugadaInvalidaException;
+
     ArrayList<String> getManoDelJugador(Long idPartida);
     ArrayList<String> getCartasJugadasJugador(Long idPartida);
     ArrayList<String> getCartasJugadasIa(Long idPartida);
-    short getPuntosJugador(Long idPartida);
-    short getPuntosIa(Long idPartida);
-    short getEstadoTruco(Long idPartida);
-    boolean getCantoTruco(Long idPartida);
-    short getEstadoEnvido(Long idPartida);
-    boolean getCantoEnvido(Long idPartida);
     ModelMap getDetallesPartida(Long idPartida);
 
     

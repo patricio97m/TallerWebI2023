@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
+import com.tallerwebi.enums.Jugador;
+import com.tallerwebi.enums.TipoJugada;
 import com.tallerwebi.infraestructura.RepositorioPartida;
 
 import java.util.ArrayList;
@@ -22,11 +25,27 @@ public class ServicioPartidaImpl implements ServicioPartida{
         this.repositorioPartida = repositorioPartida;
     }
 
+    //Sistema de la Partida
+
     @Override
     public Long iniciarPartida(){
         Partida partida = new Partida();
-        repartirCartas(partida);
+        nuevaRonda(partida);
         return repositorioPartida.guardarNuevaPartida(partida);
+    }
+
+    @Override
+    public void nuevaRonda(Partida partida){
+        reiniciarRonda(partida);
+        repartirCartas(partida);
+        partida.cambiarQuienEsMano();
+    }
+
+    @Override
+    public void reiniciarRonda(Partida partida) {
+        Ronda ronda = new Ronda();
+        repositorioPartida.guardarNuevaRonda(ronda);
+        partida.setRonda(ronda);
     }
 
     @Override
@@ -62,19 +81,208 @@ public class ServicioPartidaImpl implements ServicioPartida{
         partida.setCartasJugadasIa(cartasJugadasIa);
     }
 
-    private ArrayList<Long> generarNumerosDeCartas(int count){
-        ArrayList<Long> randomNumbers = new ArrayList<>();
-        Random random = new Random();
+    @Override
+    public void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador) throws JugadaInvalidaException {
+        TipoJugada tipoJugada = jugada.getTipoJugada();
+        Integer index = jugada.getIndex();
 
-        while (randomNumbers.size() < count) {
-            Long randomNumber = (long) random.nextInt(40);
-            if (!randomNumbers.contains(randomNumber)) {
-                randomNumbers.add(randomNumber);
-            }
+        if(tipoJugada == TipoJugada.ENVIDO){
+            calcularCambiosEnvido(idPartida, index);
+        }
+        else if(tipoJugada == TipoJugada.TRUCO){
+            calcularCambiosTruco(idPartida);
+        }
+        else if(tipoJugada == TipoJugada.RESPUESTA){
+            calcularCambiosRespuesta(idPartida, index, jugador);
+        }
+        else if(tipoJugada == TipoJugada.CARTA){
+            calcularCambiosCarta(idPartida, index, jugador);
+        }
+        else if(tipoJugada == TipoJugada.MAZO){
+            calcularCambiosMazo(idPartida, jugador);
+        }
+        else{
+            throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
         }
 
-        return randomNumbers;
+        chequearSiHayUnGanador();
+        tirar excepciones en las jugadas restringidas
     }
+
+    
+
+
+
+
+
+
+
+    //Getters y métodos auxiliares
+
+    private void calcularCambiosMazo(Long idPartida, Jugador jugador) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        if(partida.getEstadoEnvido() == 0 && noSeJugoNingunaCarta(partida)){
+            if(jugador == Jugador.IA){
+                partida.setPuntosJugador(partida.getPuntosJugador() + 1);
+            }
+            else if(jugador == Jugador.J1){
+                partida.setPuntosIa(partida.getPuntosIa() + 1);
+            }
+        }
+        else if(partida.getEstadoEnvido() != -1){
+            if(jugador == Jugador.IA){
+                partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+            }
+            else if(jugador == Jugador.J1){
+                partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+            }
+        }
+        
+        if(jugador == Jugador.IA){
+            partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoTruco());
+        }
+        else if(jugador == Jugador.J1){
+            partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoTruco());
+        }
+
+        nuevaRonda(partida);
+    }
+
+    private void calcularCambiosCarta(Long idPartida, Integer index, Jugador jugador) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        int tiradaActual = partida.getTiradaActual();
+        Mano manoDelJugador;
+        Mano cartasJugadasDelJugador;
+        Mano cartasJugadasDelRival;
+        if(jugador == Jugador.IA){
+            manoDelJugador = partida.getManoDeLaIa();
+            cartasJugadasDelJugador = partida.getCartasJugadasIa();
+            cartasJugadasDelRival = partida.getCartasJugadasJugador();
+        }
+        else{
+            manoDelJugador = partida.getManoDelJugador();
+            cartasJugadasDelJugador = partida.getCartasJugadasJugador();
+            cartasJugadasDelRival = partida.getCartasJugadasIa();
+        }
+
+        cartasJugadasDelJugador.setCarta(tiradaActual, manoDelJugador.getCarta(index));
+        manoDelJugador.setCarta(index, null);
+
+        if(cartasJugadasDelRival.getCarta(tiradaActual) != null){
+            partida.calcularGanadorTirada(tiradaActual);
+            if(tiradaActual < 3){
+                partida.setTiradaActual(tiradaActual++);
+            }  
+        }
+    }
+
+    private void calcularCambiosRespuesta(Long idPartida, Integer index, Jugador jugador) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        if(index == 0){
+            if(partida.getCantoEnvido()){
+                if(jugador == Jugador.IA){
+                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                }
+                else if(jugador == Jugador.J1){
+                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+                }
+                partida.setCantoEnvido(false);
+                partida.setEstadoEnvido(-1);
+            }
+            else if(partida.getCantoTruco()){
+                if(jugador == Jugador.IA){
+                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoTruco());
+                }
+                else if(jugador == Jugador.J1){
+                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoTruco());
+                }
+                nuevaRonda(partida);
+            }
+        }
+        else{
+            if(partida.getCantoEnvido()){
+                Jugador ganadorEnvido = partida.getGanadorEnvido();
+
+                if(partida.getCantoFaltaEnvido()){
+                    partida.setEstadoEnvido(partida.getEnvidoAQuerer());
+                }
+                else{
+                    partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+                }
+                
+                if(ganadorEnvido == Jugador.IA){
+                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                }
+                else if(ganadorEnvido == Jugador.J1){
+                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+                }
+
+                partida.setEnvidoAQuerer(0);
+                partida.setCantoEnvido(false);
+                partida.setEstadoEnvido(-1);
+                
+            }
+            else if(partida.getCantoTruco()){
+                partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+                partida.setTrucoAQuerer(0);
+                partida.setCantoTruco(false);
+            }
+               
+        }
+    }
+
+    private void calcularCambiosEnvido(Long idPartida, Integer index) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        if(partida.getCantoEnvido()){
+            partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+        }
+        else{
+            partida.setCantoEnvido(true);
+        }
+
+        if(index < 4){
+            //Envido o Real Envido
+            partida.setEnvidoAQuerer(index.intValue());
+        }
+        else{
+            //Falta Envido
+            partida.setCantoFaltaEnvido(true);
+            partida.setEnvidoAQuerer(partida.getLimitePuntos() - partida.getPuntosGanador());
+        }
+    }
+
+    private void calcularCambiosTruco(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        if(partida.getCantoTruco()){
+            partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+        }
+        partida.setTrucoAQuerer(1);
+    }
+
+    private boolean noSeJugoNingunaCarta(Partida partida) {
+        if(partida.getCartasJugadasIa().getCarta(1) == null && partida.getCartasJugadasJugador().getCarta(1) == null){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
+
+    private ArrayList<Long> generarNumerosDeCartas(int count){
+            ArrayList<Long> randomNumbers = new ArrayList<>();
+            Random random = new Random();
+
+            while (randomNumbers.size() < count) {
+                Long randomNumber = (long) random.nextInt(40);
+                if (!randomNumbers.contains(randomNumber)) {
+                    randomNumbers.add(randomNumber);
+                }
+            }
+
+            return randomNumbers;
+        }
 
     @Override
     public ArrayList<String> getManoDelJugador(Long idPartida) {
@@ -110,49 +318,23 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     @Override
-    public short getPuntosJugador(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getPuntosJugador();
-    }
-
-    @Override
-    public short getPuntosIa(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getPuntosIa();
-    }
-
-    @Override
-    public short getEstadoTruco(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getEstadoTruco();
-    }
-
-    @Override
-    public short getEstadoEnvido(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getEstadoEnvido();
-    }
-
-    @Override
-    public boolean getCantoTruco(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getCantoTruco();
-    }
-
-    @Override
-    public boolean getCantoEnvido(Long idPartida) {
-        return repositorioPartida.buscarPartidaPorId(idPartida).getCantoEnvido();
-    }
-
-    @Override
     public ModelMap getDetallesPartida(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         ModelMap model = new ModelMap();
         model.put("manoDelJugador", getManoDelJugador(idPartida));
         model.put("cartasJugadasIa", getCartasJugadasIa(idPartida));
         model.put("cartasJugadasJugador", getCartasJugadasJugador(idPartida));
-        model.put("puntosJugador", getPuntosJugador(idPartida));
-        model.put("puntosIa", getPuntosIa(idPartida));
-        model.put("truco", getEstadoTruco(idPartida));
-        model.put("cantoTruco", getCantoTruco(idPartida));
-        model.put("envido", getEstadoEnvido(idPartida));
-        model.put("cantoEnvido", getCantoEnvido(idPartida));
+        model.put("puntosJugador", partida.getPuntosJugador());
+        model.put("puntosIa", partida.getPuntosIa());
+        model.put("truco", partida.getEstadoTruco());
+        model.put("cantoTruco", partida.getCantoTruco());
+        model.put("envido", partida.getEstadoEnvido());
+        model.put("cantoEnvido", partida.getCantoEnvido());
         return model;
     }
+
+    
+
 }
 
 

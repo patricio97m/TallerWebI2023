@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.tallerwebi.enums.Jugador;
+
 @Entity
 public class Partida{
 
@@ -46,9 +48,9 @@ public class Partida{
     @JoinColumn(name = "ronda_id")
     private Ronda ronda;
 
-    private short puntosJugador;
-    private short puntosIa;
-    private short limitePuntos;
+    private int puntosJugador;
+    private int puntosIa;
+    private int limitePuntos;
     private Jugador quienEsMano;
 
     public Long getId() {
@@ -71,39 +73,48 @@ public class Partida{
         this.manoDeLaIA = manoDeLaIA;
     }
     
-    public short getEstadoTruco() {
+    public int getEstadoTruco() {
         return ronda.getEstadoTruco();
     }
 
-    public void setEstadoTruco(short estadoTruco){
+    public void setEstadoTruco(int estadoTruco){
         ronda.setEstadoTruco(estadoTruco);
     }
 
-    public short getEstadoEnvido() {
+    public int getEstadoEnvido() {
         return ronda.getEstadoEnvido();
     }
 
-    public void setEstadoEnvido(short estadoEnvido){
+    public void setEstadoEnvido(int estadoEnvido){
         ronda.setEstadoEnvido(estadoEnvido);
     }
     
-    public short getPuntosJugador() {
+    public int getPuntosJugador() {
         return puntosJugador;
     }
-    public void setPuntosJugador(short puntosJugador) {
+    public void setPuntosJugador(int puntosJugador) {
         this.puntosJugador = puntosJugador;
     }
-    public short getPuntosIa() {
+    public int getPuntosIa() {
         return puntosIa;
     }
-    public void setPuntosIa(short puntosIa) {
+    public void setPuntosIa(int puntosIa) {
         this.puntosIa = puntosIa;
     }
     public boolean getCantoEnvido() {
         return ronda.getCantoEnvido();
     }
+
+    public void setCantoEnvido(boolean cantoEnvido){
+        ronda.setCantoEnvido(cantoEnvido);
+    }
+
     public boolean getCantoTruco() {
         return ronda.getCantoTruco();
+    }
+
+    public void setCantoTruco(boolean cantoTruco){
+        ronda.setCantoTruco(cantoTruco);
     }
 
     public Mano getCartasJugadasJugador() {
@@ -119,10 +130,10 @@ public class Partida{
         this.cartasJugadasIa = cartasJugadasIa;
     }
 
-    public short getLimitePuntos() {
+    public int getLimitePuntos() {
         return limitePuntos;
     }
-    public void setLimitePuntos(short limitePuntos) {
+    public void setLimitePuntos(int limitePuntos) {
         this.limitePuntos = limitePuntos;
     }
 
@@ -130,8 +141,77 @@ public class Partida{
         return quienEsMano;
     }
 
-    public void setQuienEsMano(Jugador quienEsMano) {
-        this.quienEsMano = quienEsMano;
+    public void cambiarQuienEsMano() {
+        if(quienEsMano == Jugador.IA){
+            quienEsMano = Jugador.J1;
+        }
+        else if(quienEsMano == Jugador.J1){
+            quienEsMano = Jugador.IA;
+        }
+    }
+
+    public int getTrucoAQuerer() {
+        return ronda.getTrucoAQuerer();
+    }
+
+    public void setTrucoAQuerer(int i){
+        ronda.setTrucoAQuerer(i);
+    }
+
+    public int getEnvidoAQuerer() {
+        return ronda.getEnvidoAQuerer();
+    }
+
+    public void setEnvidoAQuerer(int i){
+        ronda.setEnvidoAQuerer(i);
+    }
+
+    public boolean getCantoFaltaEnvido() {
+        return ronda.getCantoFaltaEnvido();
+    }
+
+    public void setCantoFaltaEnvido(boolean cantoEnvido){
+        ronda.setCantoFaltaEnvido(cantoEnvido);
+    }
+
+    public int getPuntosGanador() {
+        return Math.max(puntosIa, puntosJugador);
+    }
+
+    public void setRonda(Ronda ronda) {
+        this.ronda = ronda;
+    }
+
+    public int getTiradaActual(){
+        return ronda.getTiradaActual();
+    }
+
+    public void setTiradaActual(int i) {
+        ronda.setTiradaActual(i);
+    }
+
+    public Jugador getGanadorEnvido(){
+        if(getManoDeLaIa().getValorEnvido() > getManoDelJugador().getValorEnvido()){
+            return Jugador.IA;
+        }
+        else if(getManoDelJugador().getValorEnvido() > getManoDeLaIa().getValorEnvido()){
+            return Jugador.J1;
+        }
+        else{
+            return quienEsMano;
+        }
+    }
+
+    public void calcularGanadorTirada(int tiradaActual){
+       if(cartasJugadasIa.getCarta(tiradaActual).getValorTruco() > cartasJugadasJugador.getCarta(tiradaActual).getValorTruco()){
+            ronda.setResultadoTirada(tiradaActual, Jugador.IA);
+        }
+        else if(cartasJugadasJugador.getCarta(tiradaActual).getValorTruco() > cartasJugadasIa.getCarta(tiradaActual).getValorTruco()){
+            ronda.setResultadoTirada(tiradaActual, Jugador.J1);
+        }
+        else{
+            ronda.setResultadoTirada(tiradaActual, Jugador.Empate);
+        } 
     }
 
 }

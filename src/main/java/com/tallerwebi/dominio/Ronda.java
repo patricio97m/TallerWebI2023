@@ -1,12 +1,18 @@
 package com.tallerwebi.dominio;
 
+import com.tallerwebi.enums.Jugador;
+
 public class Ronda {
 
-    short estadoTruco;
+    int estadoTruco;
+    int trucoAQuerer;
     boolean cantoTruco;
-    short estadoEnvido;
+    int estadoEnvido;
+    int envidoAQuerer;
+    boolean cantoFaltaEnvido;
     boolean cantoEnvido;
-    short tiradaActual;
+
+    int tiradaActual;
     Jugador resultadoTirada1;
     Jugador resultadoTirada2;
     Jugador resultadoTirada3;
@@ -16,33 +22,39 @@ public class Ronda {
         estadoEnvido = 0;
         cantoTruco = false;
         cantoEnvido = false;
+        trucoAQuerer = 0;
+        envidoAQuerer = 0;
+        cantoFaltaEnvido = false;
         tiradaActual = 1;
         resultadoTirada1 = Jugador.NA;
         resultadoTirada2 = Jugador.NA;
         resultadoTirada3 = Jugador.NA;
     }
 
-    public short getTiradaActual() {
+    public int getTiradaActual() {
         return tiradaActual;
     }
 
-    public void setTiradaActual(short tiradaActual) {
+    public void setTiradaActual(int tiradaActual) {
         this.tiradaActual = tiradaActual;
+        if(this.tiradaActual > 1){
+            estadoEnvido = -1;
+        }
     }
 
-    public short getEstadoTruco() {
+    public int getEstadoTruco() {
         return estadoTruco;
     }
 
-    public void setEstadoTruco(short estadoTruco) {
+    public void setEstadoTruco(int estadoTruco) {
         this.estadoTruco = estadoTruco;
     }
 
-    public short getEstadoEnvido() {
+    public int getEstadoEnvido() {
         return estadoEnvido;
     }
 
-    public void setEstadoEnvido(short estadoEnvido) {
+    public void setEstadoEnvido(int estadoEnvido) {
         this.estadoEnvido = estadoEnvido;
     }
 
@@ -61,28 +73,52 @@ public class Ronda {
     public void setCantoEnvido(boolean cantoEnvido) {
         this.cantoEnvido = cantoEnvido;
     }
-      
-    public Jugador getResultadoTirada1() {
-        return resultadoTirada1;
+
+    public int getTrucoAQuerer() {
+        return trucoAQuerer;
     }
 
-    public void setResultadoTirada1(Jugador resultadoTirada1) {
-        this.resultadoTirada1 = resultadoTirada1;
+    public void setTrucoAQuerer(int trucoAQuerer) {
+        this.trucoAQuerer = trucoAQuerer;
     }
 
-    public Jugador getResultadoTirada2() {
-        return resultadoTirada2;
+    public int getEnvidoAQuerer() {
+        return envidoAQuerer;
     }
 
-    public void setResultadoTirada2(Jugador resultadoTirada2) {
-        this.resultadoTirada2 = resultadoTirada2;
+    public void setEnvidoAQuerer(int envidoAQuerer) {
+        this.envidoAQuerer = envidoAQuerer;
     }
 
-    public Jugador getResultadoTirada3() {
-        return resultadoTirada3;
+    public boolean getCantoFaltaEnvido() {
+        return cantoFaltaEnvido;
     }
 
-    public void setResultadoTirada3(Jugador resultadoTirada3) {
-        this.resultadoTirada3 = resultadoTirada3;
+    public void setCantoFaltaEnvido(boolean cantoFaltaEnvido) {
+        this.cantoFaltaEnvido = cantoFaltaEnvido;
+    }
+
+    public Jugador getResultadoTirada(int tiradaActual){
+        if(tiradaActual == 1){
+            return resultadoTirada1;
+        }
+        else if(tiradaActual == 2){
+            return resultadoTirada2;
+        }
+        else{
+            return resultadoTirada3;
+        }
+    }
+
+    public void setResultadoTirada(int tiradaActual, Jugador jugador){
+        if(tiradaActual == 1){
+            resultadoTirada1 = jugador;
+        }
+        else if(tiradaActual == 2){
+            resultadoTirada2 = jugador;
+        }
+        else{
+            resultadoTirada3 = jugador;
+        }
     }
 }
