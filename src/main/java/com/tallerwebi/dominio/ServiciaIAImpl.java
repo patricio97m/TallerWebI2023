@@ -41,20 +41,20 @@ public class ServiciaIAImpl implements ServicioIA {
         Carta mejorCarta;
         Integer posicionCarta = 0;
 
-        if (manoIA.getCarta1().getValorTruco() >= manoIA.getCarta2().getValorTruco()) {
-            if (manoIA.getCarta1().getValorTruco() >= manoIA.getCarta3().getValorTruco()) {
-                mejorCarta = manoIA.getCarta1();
+        if (manoIA.getCarta(1).getValorTruco() >= manoIA.getCarta(2).getValorTruco()) {
+            if (manoIA.getCarta(1).getValorTruco() >= manoIA.getCarta(3).getValorTruco()) {
+                mejorCarta = manoIA.getCarta(1);
                 posicionCarta = 1;
             } else {
-                mejorCarta = manoIA.getCarta3();
+                mejorCarta = manoIA.getCarta(3);
                 posicionCarta = 3;
             }
         } else {
-            if (manoIA.getCarta2().getValorTruco() >= manoIA.getCarta3().getValorTruco()) {
-                mejorCarta = manoIA.getCarta2();
+            if (manoIA.getCarta(2).getValorTruco() >= manoIA.getCarta(3).getValorTruco()) {
+                mejorCarta = manoIA.getCarta(2);
                 posicionCarta = 2;
             } else {
-                mejorCarta = manoIA.getCarta3();
+                mejorCarta = manoIA.getCarta(3);
                 posicionCarta = 3;
             }
         }
@@ -72,20 +72,20 @@ public class ServiciaIAImpl implements ServicioIA {
         Carta mejorCarta;
         Integer posicionCarta = 0;
 
-        if (manoIA.getCarta1().getValorTruco() <= manoIA.getCarta2().getValorTruco()) {
-            if (manoIA.getCarta1().getValorTruco() <= manoIA.getCarta3().getValorTruco()) {
-                mejorCarta = manoIA.getCarta1();
+        if (manoIA.getCarta(1).getValorTruco() <= manoIA.getCarta(2).getValorTruco()) {
+            if (manoIA.getCarta(1).getValorTruco() <= manoIA.getCarta(3).getValorTruco()) {
+                mejorCarta = manoIA.getCarta(1);
                 posicionCarta = 1;
             } else {
-                mejorCarta = manoIA.getCarta3();
+                mejorCarta = manoIA.getCarta(3);
                 posicionCarta = 3;
             }
         } else {
-            if (manoIA.getCarta2().getValorTruco() <= manoIA.getCarta3().getValorTruco()) {
-                mejorCarta = manoIA.getCarta2();
+            if (manoIA.getCarta(2).getValorTruco() <= manoIA.getCarta(3).getValorTruco()) {
+                mejorCarta = manoIA.getCarta(2);
                 posicionCarta = 2;
             } else {
-                mejorCarta = manoIA.getCarta3();
+                mejorCarta = manoIA.getCarta(3);
                 posicionCarta = 3;
             }
         }
@@ -128,13 +128,13 @@ public class ServiciaIAImpl implements ServicioIA {
     private static Integer getEnvido(Mano manoIA) {
         Integer envido = 0;
 
-        String paloCarta1 = manoIA.getCarta1().getPalo();
-        String paloCarta2 = manoIA.getCarta2().getPalo();
-        String paloCarta3 = manoIA.getCarta3().getPalo();
+        String paloCarta1 = manoIA.getCarta(1).getPalo();
+        String paloCarta2 = manoIA.getCarta(2).getPalo();
+        String paloCarta3 = manoIA.getCarta(3).getPalo();
 
-        Short numeroCarta1 = manoIA.getCarta1().getNumero();
-        Short numeroCarta2 = manoIA.getCarta2().getNumero();
-        Short numeroCarta3 = manoIA.getCarta3().getNumero();
+        Short numeroCarta1 = manoIA.getCarta(1).getNumero();
+        Short numeroCarta2 = manoIA.getCarta(2).getNumero();
+        Short numeroCarta3 = manoIA.getCarta(3).getNumero();
 
         if (paloCarta1 == paloCarta2) {
             if (numeroCarta1 <= 9) {
