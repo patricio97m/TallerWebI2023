@@ -23,15 +23,13 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida() {
-        Long idPartida = servicioPartida.iniciarPartida();
-        ModelMap model = new ModelMap();
-        ArrayList<Carta> Cartas = servicioPartida.getMano(idPartida).getCartas();
-        ArrayList<String> nombreCartas = new ArrayList<String>();
-        for (Carta carta : Cartas) {
-            String nombre = carta.getPalo() + carta.getNumero();
-            nombreCartas.add(nombre);
+        if(cookieIdPartida != null){
+            Long idPartida = cookieIdPartida;
         }
-        model.put("Cartas", nombreCartas);
-        return new ModelAndView("partida", model);
+        else{
+            Long idPartida = servicioPartida.iniciarPartida();
+        }
+        
+        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
     }
 }
