@@ -10,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.ServicioPartida;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class ControladorPartida {
@@ -17,19 +20,39 @@ public class ControladorPartida {
     private ServicioPartida servicioPartida;
 
     @Autowired
-    public ControladorPartida(ServicioPartida servicioPartida){
+    public ControladorPartida(ServicioPartida servicioPartida) {
         this.servicioPartida = servicioPartida;
     }
 
     @RequestMapping("/partida")
-    public ModelAndView irAPartida() {
-        if(cookieIdPartida != null){
-            Long idPartida = cookieIdPartida;
+    public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
+        Long idPartida = obtenerIdPartidaDesdeCookie(request);
+
+        if (idPartida == null) {
+            idPartida = servicioPartida.iniciarPartida();
+            guardarIdPartidaEnCookie(idPartida, response);
         }
-        else{
-            Long idPartida = servicioPartida.iniciarPartida();
-        }
-        
+
         return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
+    }
+
+    private Long obtenerIdPartidaDesdeCookie(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("idPartida".equals(cookie.getName())) {
+                    return Long.parseLong(cookie.getValue());
+                }
+            }
+        }
+        return null;
+    }
+
+    private void guardarIdPartidaEnCookie(Long idPartida, HttpServletResponse response) {
+        Cookie cookie = new Cookie("idPartida", idPartida.toString());
+        cookie.setMaxAge(1800); // La cookie desaparece en media hora
+
+        response.addCookie(cookie);
     }
 }
