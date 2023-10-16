@@ -22,6 +22,7 @@ public class Partida{
         cartasJugadasIa = new Mano();
         limitePuntos = 15;
         quienEsMano = Jugador.J1;
+        ronda = new Ronda();
     }
 
     @Id

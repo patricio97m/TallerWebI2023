@@ -300,8 +300,11 @@ public class ServicioPartidaImpl implements ServicioPartida{
         ArrayList<Carta> cartasDelJugador = repositorioPartida.buscarCartasDelJugador(idPartida).getCartas();
         ArrayList<String> nombreCartasDelJugador = new ArrayList<String>();
         for (Carta carta : cartasDelJugador) {
-            String nombre = carta.getPalo() + carta.getNumero();
-            nombreCartasDelJugador.add(nombre);
+            if(carta != null){
+                String nombre = carta.getPalo() + carta.getNumero();
+                nombreCartasDelJugador.add(nombre);
+            }
+            
         }
         return nombreCartasDelJugador;
     }
@@ -310,9 +313,12 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public ArrayList<String> getCartasJugadasJugador(Long idPartida) {
         ArrayList<Carta> cartasJugadasJugador = repositorioPartida.buscarCartasJugadasJugador(idPartida).getCartas();
         ArrayList<String> nombreCartasJugadasJugador = new ArrayList<String>();
-        for (Carta carta : cartasJugadasJugador) {
-            String nombre = carta.getPalo() + carta.getNumero();
-            nombreCartasJugadasJugador.add(nombre);
+        for (Carta carta : cartasJugadasJugador){
+            if(carta != null){
+                String nombre = carta.getPalo() + carta.getNumero();
+                nombreCartasJugadasJugador.add(nombre);
+            }
+            
         }
         return nombreCartasJugadasJugador;
     }
@@ -321,9 +327,12 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public ArrayList<String> getCartasJugadasIa(Long idPartida) {
         ArrayList<Carta> cartasJugadasIa = repositorioPartida.buscarCartasJugadasIa(idPartida).getCartas();
         ArrayList<String> nombreCartasJugadasIa = new ArrayList<String>();
-        for (Carta carta : cartasJugadasIa) {
-            String nombre = carta.getPalo() + carta.getNumero();
-            nombreCartasJugadasIa.add(nombre);
+        for (Carta carta : cartasJugadasIa){
+            if(carta != null){
+                String nombre = carta.getPalo() + carta.getNumero();
+                nombreCartasJugadasIa.add(nombre);
+            }
+            
         }
         return nombreCartasJugadasIa;
     }
