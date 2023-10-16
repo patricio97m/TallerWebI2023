@@ -105,8 +105,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
             throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
         }
 
-        chequearSiHayUnGanador();
-        tirar excepciones en las jugadas restringidas
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        partida.chequearSiHayUnGanador();
     }
 
     
@@ -171,9 +171,20 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         if(cartasJugadasDelRival.getCarta(tiradaActual) != null){
             partida.calcularGanadorTirada(tiradaActual);
-            if(tiradaActual < 3){
+            Jugador ganadorRonda = partida.hayGanadorDeLaRonda();
+
+            if(ganadorRonda == Jugador.NA){
                 partida.setTiradaActual(tiradaActual++);
-            }  
+            }
+            else if(ganadorRonda == Jugador.IA){
+                partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoTruco());
+                nuevaRonda(partida);
+                    
+            }
+            else if(ganadorRonda == Jugador.J1){
+                partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoTruco());
+                nuevaRonda(partida);
+            }    
         }
     }
 
@@ -327,14 +338,15 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("puntosJugador", partida.getPuntosJugador());
         model.put("puntosIa", partida.getPuntosIa());
         model.put("truco", partida.getEstadoTruco());
+        model.put("trucoAQuerer", partida.getTrucoAQuerer());
         model.put("cantoTruco", partida.getCantoTruco());
         model.put("envido", partida.getEstadoEnvido());
+        model.put("envidoAQuerer", partida.getEnvidoAQuerer());
         model.put("cantoEnvido", partida.getCantoEnvido());
+        model.put("cantoFaltaEnvido", partida.getCantoFaltaEnvido());
+        model.put("ganador", partida.getGanador());
         return model;
     }
-
-    
-
 }
 
 

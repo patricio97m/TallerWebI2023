@@ -52,6 +52,7 @@ public class Partida{
     private int puntosIa;
     private int limitePuntos;
     private Jugador quienEsMano;
+    private Jugador ganador;
 
     public Long getId() {
         return id;
@@ -212,6 +213,101 @@ public class Partida{
         else{
             ronda.setResultadoTirada(tiradaActual, Jugador.Empate);
         } 
+    }
+
+    public Jugador hayGanadorDeLaRonda(){
+        if(ronda.getTiradaActual() == 3){
+            Jugador jugadorGanador = ganoDosTiradas();
+            if(jugadorGanador != Jugador.NA){
+                return jugadorGanador;
+            }
+            else if(ronda.getResultadoTirada(1) == Jugador.Empate){
+                jugadorGanador = ganoSegundaOTercera();
+                if(jugadorGanador != Jugador.NA){
+                    return jugadorGanador;
+                }
+                else{
+                    return quienEsMano;
+                }
+            }  
+            else{
+                return quienEsMano;
+            }
+        }
+        else if(ronda.getTiradaActual() == 2){
+            Jugador jugadorGanador = ganoDosTiradas();
+            if(jugadorGanador != Jugador.NA){
+                return jugadorGanador;
+            }
+            else if(ronda.getResultadoTirada(2) == Jugador.Empate){
+                if(ronda.getResultadoTirada(1) != Jugador.Empate){
+                    return ronda.getResultadoTirada(1);
+                }
+                else{
+                    return Jugador.NA;
+                }
+            }
+            else{
+                return Jugador.NA;
+            }
+        } 
+        else{
+            return Jugador.NA;
+        }     
+    }
+
+    private Jugador ganoSegundaOTercera() {
+        if(ronda.getResultadoTirada(2) != Jugador.Empate){
+            return ronda.getResultadoTirada(2);
+        }
+        else if(ronda.getResultadoTirada(3) != Jugador.Empate){
+            return ronda.getResultadoTirada(3);
+        }
+        else return Jugador.NA;
+    }
+
+    private Jugador ganoDosTiradas() {
+        if(ronda.getTiradaActual() >= 2){
+            if(ronda.getResultadoTirada(1) == ronda.getResultadoTirada(2)){
+                return ronda.getResultadoTirada(1);
+            }
+        }
+        if(ronda.getTiradaActual() == 3){
+            if(ronda.getResultadoTirada(3) == Jugador.Empate){
+                return Jugador.NA;
+            }
+
+            if(ronda.getResultadoTirada(1) == ronda.getResultadoTirada(3)){
+                return ronda.getResultadoTirada(1);
+            }
+            else if(ronda.getResultadoTirada(2) == ronda.getResultadoTirada(3)){
+                return ronda.getResultadoTirada(2);
+            }
+            else{
+                return Jugador.NA;
+            } 
+            
+        }
+        else{
+            return Jugador.NA;
+        }
+    }
+
+    public Jugador getGanador(){
+        return ganador;
+    } 
+
+    public void setGanador(Jugador ganador){
+        this.ganador = ganador;
+    }
+
+    public void chequearSiHayUnGanador(){
+        if(puntosIa >= limitePuntos){
+            ganador = Jugador.IA;
+        }
+        else if(puntosJugador >= limitePuntos){
+            ganador = Jugador.J1;
+        }
     }
 
 }
