@@ -26,6 +26,34 @@ public class ServiciaIAImpl implements ServicioIA {
         return null;
     }
 
+   // @Override
+   // public Jugada tirarCartaAleatoria(Long idPartida) {
+   //     Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
+   //     if (manoIA == null || manoIA.getCartas().isEmpty()) {
+   //         return null;
+   //     }
+   //     ArrayList<Carta> cartasDeLaIA = manoIA.getCartas();
+
+    //     int numero = (int) (Math.random() * 3);
+
+    //   if (numero == 0 && manoIA.getCarta(1)!=null) {
+    //      return new Jugada(TipoJugada.CARTA, 1);
+    //  } else{
+    //      numero = siguienteCarta(numero);
+    //  }
+    //  if (numero == 1 && manoIA.getCarta(2)!=null) {
+    //      return new Jugada(TipoJugada.CARTA, 2);
+    //  }else{
+    //      numero = siguienteCarta(numero);
+    //  }
+    //  if (numero == 2 && manoIA.getCarta(3)!=null) {
+    //      return new Jugada(TipoJugada.CARTA, 3);
+    //  }else{
+    //      numero = siguienteCarta(numero);
+    //  }
+
+    //    return null;
+    // }
     @Override
     public Jugada tirarCartaAleatoria(Long idPartida) {
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
@@ -36,21 +64,19 @@ public class ServiciaIAImpl implements ServicioIA {
 
         int numero = (int) (Math.random() * 3);
 
-        if (numero == 0 && manoIA.getCarta1()!=null) {
-            return new Jugada(TipoJugada.CARTA, 1);
-        } else{
-            numero = siguienteCarta(numero);
-        }
-        if (numero == 1 && manoIA.getCarta2()!=null) {
-            return new Jugada(TipoJugada.CARTA, 2);
-        }else{
-            numero = siguienteCarta(numero);
-        }
-        if (numero == 2 && manoIA.getCarta3()!=null) {
-            return new Jugada(TipoJugada.CARTA, 3);
-        }else{
-            numero = siguienteCarta(numero);
-        }
+        do {
+            if (numero == 0) {
+                return new Jugada(TipoJugada.CARTA, 1);
+            }
+            if (numero == 1) {
+                return new Jugada(TipoJugada.CARTA, 2);
+            }
+            if (numero == 2) {
+                return new Jugada(TipoJugada.CARTA, 3);
+            }
+        }while (manoIA.getCarta(numero)!=null);
+
+
 
         return null;
     }
