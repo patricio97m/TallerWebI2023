@@ -3,6 +3,7 @@ package com.tallerwebi.infraestructura;
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.Mano;
 import com.tallerwebi.dominio.Partida;
+import com.tallerwebi.dominio.Ronda;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -26,7 +27,12 @@ public class RepositorioPartidaImpl implements RepositorioPartida {
 
     @Override
     public Long guardarNuevaMano(Mano mano) {
-         return (Long)sessionFactory.getCurrentSession().save(mano);
+        return (Long)sessionFactory.getCurrentSession().save(mano);
+    }
+
+    @Override
+    public Long guardarNuevaRonda(Ronda ronda) {
+        return (Long)sessionFactory.getCurrentSession().save(ronda);
     }
 
     @Override
@@ -67,6 +73,18 @@ public class RepositorioPartidaImpl implements RepositorioPartida {
         Partida partida = buscarPartidaPorId(idPartida);
         partida.setManoDeLaIa(cartasDeLaIA);
         sessionFactory.getCurrentSession().update(partida);
+    }
+
+    @Override
+    public Mano buscarCartasJugadasJugador(Long idPartida) {
+        Partida partida = buscarPartidaPorId(idPartida);
+        return partida.getCartasJugadasJugador();
+    }
+
+    @Override
+    public Mano buscarCartasJugadasIa(Long idPartida) {
+        Partida partida = buscarPartidaPorId(idPartida);
+        return partida.getCartasJugadasIa();
     }
 
 }
