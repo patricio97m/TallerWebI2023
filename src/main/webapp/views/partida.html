@@ -56,14 +56,14 @@
                     <div class="marcador p-2 text-center">
                             <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
                                     alt="foto-perfil"><b>Jugador:</b></p>
-                            <p>9 puntos</p>
+                            <p th:text="${puntosJugador + ' Puntos'}"></p>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="marcador p-2 text-center">
                             <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
                                     alt="foto-perfil"><b>Oponente:</b></p>
-                            <p>11 puntos</p>
+                                    <p th:text="${puntosIa + ' Puntos'}"></p>
                     </div>
                 </div>
             </div>
@@ -85,9 +85,7 @@
 
             <!-- Cartas del jugador -->
             <div class="row justify-content-center mt-5">
-                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[0] + '.png'}}" class="img-fluid shake"></div>
-                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[1] + '.png'}}" class="img-fluid shake"></div>
-                <div class="col-4 carta"><img th:src="@{${'/img/cards/' + Cartas[2] + '.png'}}" class="img-fluid shake"></div>
+                <div class="col-4 carta" th:each="carta: ${manoDelJugador}"><img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake"></div>
             </div>
 
             <!-- Botones de truco, envido y mazo -->

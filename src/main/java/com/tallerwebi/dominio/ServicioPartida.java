@@ -9,6 +9,7 @@ import com.tallerwebi.enums.Jugador;
 
 public interface ServicioPartida {
 
+    boolean partidaExiste(Long idPartida);
     Long iniciarPartida();
     void nuevaRonda(Partida partida);
     void reiniciarRonda(Partida partida);

@@ -28,7 +28,7 @@ public class ControladorPartida {
     public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
         Long idPartida = obtenerIdPartidaDesdeCookie(request);
 
-        if (idPartida == null) {
+        if (idPartida == null || !servicioPartida.partidaExiste(idPartida)) {
             idPartida = servicioPartida.iniciarPartida();
             guardarIdPartidaEnCookie(idPartida, response);
         }

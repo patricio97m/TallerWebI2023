@@ -28,6 +28,11 @@ public class ServicioPartidaImpl implements ServicioPartida{
     //Sistema de la Partida
 
     @Override
+    public boolean partidaExiste(Long idPartida){
+        return !(repositorioPartida.buscarPartidaPorId(idPartida) == null);
+    }
+
+    @Override
     public Long iniciarPartida(){
         Partida partida = new Partida();
         nuevaRonda(partida);
