@@ -9,6 +9,7 @@ public class ServiciaIAImpl implements ServicioIA {
 
     private RepositorioPartida repositorioPartida;
 
+
     @Override
     public Jugada respuestaAleatoria(){
         int numero = (int) (Math.random() * 2+1);
@@ -32,19 +33,41 @@ public class ServiciaIAImpl implements ServicioIA {
             return null;
         }
         ArrayList<Carta> cartasDeLaIA = manoIA.getCartas();
+
         int numero = (int) (Math.random() * 3);
 
-        if (numero == 0) {
+        if (numero == 0 && manoIA.getCarta1()!=null) {
             return new Jugada(TipoJugada.CARTA, 1);
+        } else{
+            numero = siguienteCarta(numero);
         }
-        if (numero == 1) {
+        if (numero == 1 && manoIA.getCarta2()!=null) {
             return new Jugada(TipoJugada.CARTA, 2);
+        }else{
+            numero = siguienteCarta(numero);
         }
-        if (numero == 2) {
+        if (numero == 2 && manoIA.getCarta3()!=null) {
             return new Jugada(TipoJugada.CARTA, 3);
+        }else{
+            numero = siguienteCarta(numero);
         }
 
         return null;
+    }
+
+    private static int siguienteCarta(int numero) {
+        if(numero ==3){
+            numero = numero -1;
+        } else{
+            if(numero ==1){
+                numero = numero +1;
+            }else{
+                if(numero ==2){
+                    numero = numero +1;
+                }
+            }
+        }
+        return numero;
     }
 
     @Override
