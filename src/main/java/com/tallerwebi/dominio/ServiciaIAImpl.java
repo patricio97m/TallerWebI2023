@@ -65,13 +65,13 @@ public class ServiciaIAImpl implements ServicioIA {
         int numero = (int) (Math.random() * 3);
 
         do {
-            if (numero == 0) {
+            if (numero == 0 && manoIA.getCarta(1)!=null) {
                 return new Jugada(TipoJugada.CARTA, 1);
             }
-            if (numero == 1) {
+            if (numero == 1 && manoIA.getCarta(2)!=null) {
                 return new Jugada(TipoJugada.CARTA, 2);
             }
-            if (numero == 2) {
+            if (numero == 2 && manoIA.getCarta(3)!=null) {
                 return new Jugada(TipoJugada.CARTA, 3);
             }
         }while (manoIA.getCarta(numero)!=null);
