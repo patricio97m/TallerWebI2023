@@ -2,7 +2,7 @@ package com.tallerwebi.dominio;
 
 public interface ServicioIA {
 
-
+    public Jugada respuestaAleatoria();
     public Jugada tirarCartaAleatoria(Long idPartida);
 
     public Jugada cantarTruco(Long idPartida);

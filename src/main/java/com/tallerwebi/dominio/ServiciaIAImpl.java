@@ -10,6 +10,22 @@ public class ServiciaIAImpl implements ServicioIA {
     private RepositorioPartida repositorioPartida;
 
     @Override
+    public Jugada respuestaAleatoria(){
+        int numero = (int) (Math.random() * 2+1);
+
+        if(numero==1){
+            return new Jugada(TipoJugada.RESPUESTA,1);
+        } else{
+
+            if(numero==2){
+                return new Jugada(TipoJugada.RESPUESTA,2);
+            }
+        }
+
+        return null;
+    }
+
+    @Override
     public Jugada tirarCartaAleatoria(Long idPartida) {
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
         if (manoIA == null || manoIA.getCartas().isEmpty()) {
