@@ -4,10 +4,16 @@ $(document).ready(function() {
     $(".carta-jugador").click(function() {
         let tipoJugada = "Carta";
         let indice = $(this).data("indice-carta");
-        let idPartida = obtenerIdPartidaDesdeCookie(); // Implementa esta función para obtener el ID de la partida desde las cookies
-        console.log("Jugada= " + tipoJugada + " " + indice);
+        const idPartida = obtenerCookie("idPartida");
+        console.log("Jugada= " + tipoJugada + " " + indice + " cookie:"+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
-        
+    });
+
+    $(".btn").click(function() {
+        let tipoJugada = $(this).data("tipo-jugada");
+        const idPartida = obtenerCookie("idPartida");
+        console.log("Jugada= " + tipoJugada +  "cookie:"+ idPartida);
+        enviarJugada(tipoJugada, idPartida);
     });
 });
 
@@ -20,7 +26,7 @@ function actualizarVista(partida) {
 function enviarJugada(tipoJugada, indice, idPartida){
     $.ajax({
         type: "POST",
-        url: "/enviarJugada",
+        url: "/spring/enviarJugada",
         data: {
             tipoJugada: tipoJugada,
             indice: indice,
@@ -59,12 +65,12 @@ function recibirCambios() {
     });
 }
 
-function obtenerCookie(nombre) {
+function obtenerCookie(nombreCookie) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();
-        if (cookie.startsWith(nombre + '=')) {
-            return cookie.substring(nombre.length + 1);
+        if (cookie.startsWith(nombreCookie + '=')) {
+            return cookie.substring(nombreCookie.length + 1);
         }
     }
     return null;
