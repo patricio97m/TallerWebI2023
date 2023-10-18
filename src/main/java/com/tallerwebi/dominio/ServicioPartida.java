@@ -15,11 +15,13 @@ public interface ServicioPartida {
     void reiniciarRonda(Partida partida);
     void repartirCartas(Partida partida);
     void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador) throws JugadaInvalidaException;
+    void calcularJugadaIA(Long idPartida);
 
     ArrayList<String> getManoDelJugador(Long idPartida);
     ArrayList<String> getCartasJugadasJugador(Long idPartida);
     ArrayList<String> getCartasJugadasIa(Long idPartida);
     ModelMap getDetallesPartida(Long idPartida);
+    
 
     
 }

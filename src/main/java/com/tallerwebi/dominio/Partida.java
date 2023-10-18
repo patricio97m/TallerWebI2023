@@ -23,6 +23,7 @@ public class Partida{
         limitePuntos = 15;
         quienEsMano = Jugador.J1;
         ronda = new Ronda();
+        hayCambios = false;
     }
 
     @Id
@@ -54,6 +55,9 @@ public class Partida{
     private int limitePuntos;
     private Jugador quienEsMano;
     private Jugador ganador;
+    private boolean hayCambios;
+    private Jugada ultimaJugada;
+
 
     public Long getId() {
         return id;
@@ -62,6 +66,23 @@ public class Partida{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Jugada getUltimaJugada() {
+        return ultimaJugada;
+    }
+
+    public void setUltimaJugada(Jugada ultimaJugada) {
+        this.ultimaJugada = ultimaJugada;
+    }
+
+    public boolean hayCambios() {
+        return hayCambios;
+    }
+
+    public void setHayCambios(boolean hayCambios) {
+        this.hayCambios = hayCambios;
+    }
+
     public Mano getManoDelJugador() {
         return manoDelJugador;
     }

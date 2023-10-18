@@ -5,11 +5,18 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tallerwebi.dominio.Carta;
+import com.tallerwebi.dominio.Jugada;
 import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
+import com.tallerwebi.enums.Jugador;
+import com.tallerwebi.enums.TipoJugada;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +41,60 @@ public class ControladorPartida {
         }
 
         return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
+    }
+
+    @PostMapping("/enviarJugada")
+    public ModelMap enviarJugada(@RequestParam("indice") int indice, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("idPartida") Long idPartida) {
+        if(tipoJugada == "Truco"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tipoJugada == "Envido"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tipoJugada == "Mazo"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tipoJugada == "Carta"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tipoJugada == "Quiero"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tipoJugada == "No Quiero"){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        return servicioPartida.getDetallesPartida(idPartida);
+    }
+
+    @PostMapping("/recibirCambios")
+    public ModelMap recibirCambios(@RequestParam("idPartida") Long idPartida){
+        servicioPartida.calcularJugadaIA(idPartida);
+        return servicioPartida.getDetallesPartida(idPartida);
     }
 
     private Long obtenerIdPartidaDesdeCookie(HttpServletRequest request) {

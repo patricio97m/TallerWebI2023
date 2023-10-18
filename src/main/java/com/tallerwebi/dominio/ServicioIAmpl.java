@@ -5,7 +5,7 @@ import com.tallerwebi.infraestructura.RepositorioPartida;
 
 import java.util.ArrayList;
 
-public class ServiciaIAImpl implements ServicioIA {
+public class ServicioIAmpl implements ServicioIA {
 
     private RepositorioPartida repositorioPartida;
 
