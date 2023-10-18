@@ -1,15 +1,13 @@
 $(document).ready(function() {
+    console.log("JS Cargado");
+
     $(".carta-jugador").click(function() {
         let tipoJugada = "Carta";
         let indice = $(this).data("indice-carta");
-        console.log(tipoJugada, indice)
-        enviarJugada(tipoJugada, indice);
-    });
-    $(".btn").click(function() {
-        let tipoJugada = $(this).data("tipo-jugada");
-        let indice = $(this).data("indice-carta");
-        console.log(tipoJugada, indice)
-        enviarJugada(tipoJugada, indice);
+        let idPartida = obtenerIdPartidaDesdeCookie(); // Implementa esta función para obtener el ID de la partida desde las cookies
+        console.log("Jugada= " + tipoJugada + " " + indice);
+        enviarJugada(tipoJugada, indice, idPartida);
+        
     });
 });
 
@@ -59,4 +57,15 @@ function recibirCambios() {
             console.error("Error al recibir cambios: " + err);
         }
     });
+}
+
+function obtenerCookie(nombre) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(nombre + '=')) {
+            return cookie.substring(nombre.length + 1);
+        }
+    }
+    return null;
 }
