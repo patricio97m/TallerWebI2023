@@ -10,26 +10,54 @@ public class ServiciaIAImpl implements ServicioIA {
     private RepositorioPartida repositorioPartida;
 
     @Override
+    public Jugada calcularJugada(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        if (partida.getCantoTruco() || partida.getCantoEnvido()) {
+            return respuestaAleatoria();
+        } else {
+            int numero = (int) (Math.random() * 2);
+
+            if (numero == 0) {
+                short indice = calcularEnvido(idPartida);
+                if (indice != 0) {
+                    return cantarEnvido(idPartida, indice);
+                }
+            }
+
+            if (numero == 1) {
+                if (verificarTruco(idPartida)) {
+                    return cantarTruco();
+                }
+            }
+        }
+        return tirarCartaAleatoria(idPartida);
+    }
+
+    @Override
+    public Jugada respuestaAleatoria(){
+        int numero = (int) (Math.random() * 2);
+
+        if(numero==0){
+            return new Jugada(TipoJugada.RESPUESTA,0);
+        }else{
+            return new Jugada(TipoJugada.RESPUESTA,1);
+        }
+    }
+
+    @Override
     public Jugada tirarCartaAleatoria(Long idPartida) {
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
-        if (manoIA == null || manoIA.getCartas().isEmpty()) {
-            return null;
-        }
-        ArrayList<Carta> cartasDeLaIA = manoIA.getCartas();
-        int numero = (int) (Math.random() * 3);
 
-        if (numero == 0) {
-            return new Jugada(TipoJugada.CARTA, 1);
-        }
-        if (numero == 1) {
-            return new Jugada(TipoJugada.CARTA, 2);
-        }
-        if (numero == 2) {
-            return new Jugada(TipoJugada.CARTA, 3);
-        }
+        int numero;
 
-        return null;
+        while(true){
+            numero = (int) (Math.random() * 3 + 1);
+            if (manoIA.getCarta(numero)!=null) {
+                return new Jugada(TipoJugada.CARTA, numero);
+            }
+        }
     }
+
 
     @Override
     public Jugada tirarMejorCarta(Long idPartida) {
@@ -95,151 +123,125 @@ public class ServiciaIAImpl implements ServicioIA {
     }
 
     @Override
-    public Jugada cantarTruco(Long idPartida) {
+    public boolean verificarTruco(Long idPartida){
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        int estadoTruco = partida.getEstadoTruco();
+        int trucoAQuerer = partida.getTrucoAQuerer();
+
+        if(estadoTruco+trucoAQuerer < 4) {
+        return true;
+
+        } else{
+            return false;
+        }
+    }
+    @Override
+    public Jugada cantarTruco() {
+
+            return new  Jugada(TipoJugada.TRUCO);
+    }
+    @Override
+    public Jugada cantarEnvido(Long idPartida,short indice){
+
+        if(indice == 2){
+            if(siPuedeCantarEnvido(idPartida)){
+                return new Jugada(TipoJugada.ENVIDO,2);
+            }
+        }
+        if(indice == 3){
+            if(siPuedeCantarRealEnvido(idPartida)){
+                return new Jugada(TipoJugada.ENVIDO,3);
+            }
+        }
+        if(indice == 100){
+            if(siPuedeCantarFaltaEnvido(idPartida)){
+                return new Jugada(TipoJugada.ENVIDO,100);
+            }
+        }
+
+
         return null;
+    }
+
+    private boolean siPuedeCantarFaltaEnvido(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        return !partida.getCantoFaltaEnvido();
+    }
+
+    private boolean siPuedeCantarRealEnvido(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        int valorEnvido = partida.getEstadoEnvido();
+
+        if(valorEnvido==0 || valorEnvido==2){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    private boolean siPuedeCantarEnvido(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        int valorEnvido = partida.getEstadoEnvido();
+
+
+        if(valorEnvido==0){
+            return true;
+        } else{
+            return false;
+        }
+
     }
 
     @Override
-    public Jugada cantarEnvido(Long idPartida) {
+    public short calcularEnvido(Long idPartida) {
 
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
         if (manoIA == null || manoIA.getCartas().isEmpty()) {
-            return null;
+            return 0;
         }
 
-        Integer envido = getEnvido(manoIA);
+        short envido = manoIA.getValorEnvido();
 
         if (envido <= 16) {
-            return new Jugada(TipoJugada.ENVIDO, 0);
+            return 0;
         }
         if (envido >= 17 && envido <= 25) {
-            return new Jugada(TipoJugada.ENVIDO, 1);
+            return 2;
         }
         if (envido >= 26 && envido <= 30) {
-            return new Jugada(TipoJugada.ENVIDO, 2);
+            return 3;
         }
         if (envido >= 31 && envido <= 33) {
-            return new Jugada(TipoJugada.ENVIDO, 3);
+            return 100;
         }
 
-        return null;
-    }
-
-    private static Integer getEnvido(Mano manoIA) {
-        Integer envido = 0;
-
-        String paloCarta1 = manoIA.getCarta(1).getPalo();
-        String paloCarta2 = manoIA.getCarta(2).getPalo();
-        String paloCarta3 = manoIA.getCarta(3).getPalo();
-
-        Short numeroCarta1 = manoIA.getCarta(1).getNumero();
-        Short numeroCarta2 = manoIA.getCarta(2).getNumero();
-        Short numeroCarta3 = manoIA.getCarta(3).getNumero();
-
-        if (paloCarta1 == paloCarta2) {
-            if (numeroCarta1 <= 9) {
-                if (numeroCarta2 <= 9) {
-                    envido = numeroCarta1 + numeroCarta2 + 20;
-                } else {
-                    envido = numeroCarta1 + 20;
-                }
-            } else {
-                if (numeroCarta2 <= 9) {
-                    envido = numeroCarta2 + 20;
-                } else {
-                    envido = 20;
-                }
-            }
-
-
-        }
-
-        if (paloCarta1 == paloCarta3) {
-            if (numeroCarta1 <= 9) {
-                if (numeroCarta3 <= 9) {
-                    envido = numeroCarta1 + numeroCarta3 + 20;
-                } else {
-                    envido = numeroCarta1 + 20;
-                }
-            } else {
-                if (numeroCarta3 <= 9) {
-                    envido = numeroCarta3 + 20;
-                } else {
-                    envido = 20;
-                }
-            }
-
-
-        }
-
-        if (paloCarta3 == paloCarta2) {
-            if (numeroCarta3 <= 9) {
-                if (numeroCarta2 <= 9) {
-                    envido = numeroCarta3 + numeroCarta2 + 20;
-                } else {
-                    envido = numeroCarta3 + 20;
-                }
-            } else {
-                if (numeroCarta2 <= 9) {
-                    envido = numeroCarta2 + 20;
-                } else {
-                    envido = 20;
-                }
-            }
-
-        }
-        return envido;
+        return 0;
     }
 
     @Override
     public Jugada aceptarTruco(Long idPartida) {
-        return null;
+        return new Jugada(TipoJugada.RESPUESTA,1);
     }
 
     @Override
     public Jugada rechazarTruco(Long idPartida) {
-        return null;
+        return new Jugada(TipoJugada.RESPUESTA,2);
     }
 
     @Override
     public Jugada aceptarEnvido(Long idPartida) {
-        Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
-        if (manoIA == null || manoIA.getCartas().isEmpty()) {
-            return null;
-        }
-
-        Integer envido = getEnvido(manoIA);
-
-        if (envido >= 17 && envido <= 25) {
-            return new Jugada(TipoJugada.ENVIDO, 1);
-        }
-        if (envido >= 26 && envido <= 30) {
-            return new Jugada(TipoJugada.ENVIDO, 2);
-        }
-        if (envido >= 31 && envido <= 33) {
-            return new Jugada(TipoJugada.ENVIDO, 3);
-        }
-
-        return null;
+        return new Jugada(TipoJugada.RESPUESTA,1);
 
     }
 
 
     @Override
     public Jugada rechazarEnvido(Long idPartida) {
-        Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
-        if (manoIA == null || manoIA.getCartas().isEmpty()) {
-            return null;
-        }
-
-        Integer envido = getEnvido(manoIA);
-
-        if(envido <= 16){
-            return new Jugada(TipoJugada.ENVIDO,0);
-        } else{
-            return new Jugada(TipoJugada.ENVIDO,1);
-        }
-
+        return new Jugada(TipoJugada.RESPUESTA,2);
     }
 
 
