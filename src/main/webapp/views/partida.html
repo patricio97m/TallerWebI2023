@@ -17,6 +17,8 @@
     <!-- Cargando la Fuente Personalizada -->
     <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -85,7 +87,9 @@
 
             <!-- Cartas del jugador -->
             <div class="row justify-content-center mt-5">
-                <div class="col-4 carta" th:each="carta: ${manoDelJugador}"><img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake"></div>
+                <div class="col-4 carta" th:each="carta: ${manoDelJugador}">
+                    <img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" data-carta="${carta}" />
+                </div>
             </div>
 
             <!-- Botones de truco, envido y mazo -->
@@ -102,6 +106,7 @@
 
     <!-- Boostrap core js -->
     <script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:href="@{../js/partida.js}"></script>
 </body>
 
 </html>
