@@ -12,73 +12,27 @@ public class ServiciaIAImpl implements ServicioIA {
 
     @Override
     public Jugada respuestaAleatoria(){
-        int numero = (int) (Math.random() * 2+1);
+        int numero = (int) (Math.random() * 2);
 
-        if(numero==1){
+        if(numero==0){
+            return new Jugada(TipoJugada.RESPUESTA,0);
+        }else{
             return new Jugada(TipoJugada.RESPUESTA,1);
-        } else{
-
-            if(numero==2){
-                return new Jugada(TipoJugada.RESPUESTA,2);
-            }
         }
-
-        return null;
     }
 
-   // @Override
-   // public Jugada tirarCartaAleatoria(Long idPartida) {
-   //     Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
-   //     if (manoIA == null || manoIA.getCartas().isEmpty()) {
-   //         return null;
-   //     }
-   //     ArrayList<Carta> cartasDeLaIA = manoIA.getCartas();
-
-    //     int numero = (int) (Math.random() * 3);
-
-    //   if (numero == 0 && manoIA.getCarta(1)!=null) {
-    //      return new Jugada(TipoJugada.CARTA, 1);
-    //  } else{
-    //      numero = siguienteCarta(numero);
-    //  }
-    //  if (numero == 1 && manoIA.getCarta(2)!=null) {
-    //      return new Jugada(TipoJugada.CARTA, 2);
-    //  }else{
-    //      numero = siguienteCarta(numero);
-    //  }
-    //  if (numero == 2 && manoIA.getCarta(3)!=null) {
-    //      return new Jugada(TipoJugada.CARTA, 3);
-    //  }else{
-    //      numero = siguienteCarta(numero);
-    //  }
-
-    //    return null;
-    // }
     @Override
     public Jugada tirarCartaAleatoria(Long idPartida) {
         Mano manoIA = repositorioPartida.buscarCartasDeLaIa(idPartida);
-        if (manoIA == null || manoIA.getCartas().isEmpty()) {
-            return null;
+
+        int numero;
+
+        while(true){
+            numero = (int) (Math.random() * 3 + 1);
+            if (manoIA.getCarta(numero)!=null) {
+                return new Jugada(TipoJugada.CARTA, numero);
+            }
         }
-        ArrayList<Carta> cartasDeLaIA = manoIA.getCartas();
-
-        int numero = (int) (Math.random() * 3);
-
-        do {
-            if (numero == 0 && manoIA.getCarta(1)!=null) {
-                return new Jugada(TipoJugada.CARTA, 1);
-            }
-            if (numero == 1 && manoIA.getCarta(2)!=null) {
-                return new Jugada(TipoJugada.CARTA, 2);
-            }
-            if (numero == 2 && manoIA.getCarta(3)!=null) {
-                return new Jugada(TipoJugada.CARTA, 3);
-            }
-        }while (manoIA.getCarta(numero)!=null);
-
-
-
-        return null;
     }
 
     private static int siguienteCarta(int numero) {
