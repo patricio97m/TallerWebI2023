@@ -368,6 +368,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("Ultima Jugada", partida.getUltimaJugada());
         model.put("turnoIA", partida.hayCambios());
         model.put("manoDelJugador", getManoDelJugador(idPartida));
+        model.put("cartasRestantesIa", 3 - (getCartasJugadasIa(idPartida).size()));
         model.put("cartasJugadasIa", getCartasJugadasIa(idPartida));
         model.put("cartasJugadasJugador", getCartasJugadasJugador(idPartida));
         model.put("puntosJugador", partida.getPuntosJugador());

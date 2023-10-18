@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $(".carta-jugador").click(function() {
+        var tipoJugada = "Carta";
         var indice = $(this).data("indice-carta");
         var idPartida = obtenerIdPartidaDesdeCookie(); // Implementa esta función para obtener el ID de la partida desde las cookies
         enviarJugada(tipoJugada, indice, idPartida);
