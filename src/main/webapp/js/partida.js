@@ -1,25 +1,35 @@
 $(document).ready(function() {
-    // Manejar clic en las cartas del jugador
     $(".carta-jugador").click(function() {
-        var cartaSeleccionada = $(this).data("carta");
-        enviarCartaSeleccionadaAlServidor(cartaSeleccionada);
-    });
+        var indice = $(this).data("indice-carta");
+        var idPartida = obtenerIdPartidaDesdeCookie(); // Implementa esta función para obtener el ID de la partida desde las cookies
 
-    // Función para enviar la carta seleccionada al servidor
-    function enviarCartaSeleccionadaAlServidor(carta) {
         $.ajax({
             type: "POST",
-            url: "/jugar-carta", // Acá va la función del controlador para jugar la carta
+            url: "/enviarJugada",
             data: {
-                carta: carta // Acá van los datos que envía el servidor
+                indice: indice,
+                idPartida: idPartida
             },
-            dataType: "json", // Se se espera un json
-            success: function(data) {
-                // acá se hacen las acciones con los datos que trajo el servidor
+            dataType: "json",
+            success: function(response) {
+                if ("error" in response) {
+                    console.error("Error al jugar la carta: " + response.error);
+                } else {
+                    actualizarVista(response.partida); // Implementa esta función para actualizar la vista con los nuevos datos
+                }
             },
             error: function(err) {
                 console.error("Error al jugar la carta: " + err);
             }
         });
-    }
+    });
 });
+
+function actualizarVista(partida) {
+    // Actualiza la vista con los datos de la partida
+    // Por ejemplo, actualiza los puntos, cartas jugadas, etc.
+    // Asegúrate de modificar la vista según tus necesidades específicas
+    $("#puntosJugador").text(partida.puntosJugador);
+    $("#puntosIa").text(partida.puntosIa);
+    // Actualiza otros elementos de la vista...
+}

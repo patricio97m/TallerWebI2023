@@ -88,16 +88,16 @@
             <!-- Cartas del jugador -->
             <div class="row justify-content-center mt-5">
                 <div class="col-4 carta" th:each="carta: ${manoDelJugador}">
-                    <img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" data-carta="${carta}" />
+                    <img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" indice-carta="${indice-carta}" />
                 </div>
             </div>
 
             <!-- Botones de truco, envido y mazo -->
             <div class="row justify-content-center mt-5">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light btn-lg">Truco</button>
-                    <button type="button" class="btn btn-light btn-lg">Envido</button>
-                    <button type="button" class="btn btn-light btn-lg">Mazo</button>
+                    <button type="button" class="btn btn-light btn-lg" data-tipo-jugada="truco">Truco</button>
+                    <button type="button" class="btn btn-light btn-lg" data-tipo-jugada="envido">Envido</button>
+                    <button type="button" class="btn btn-light btn-lg" data-tipo-jugada="mazo">Mazo</button>
                 </div>
             </div>
         </div>
