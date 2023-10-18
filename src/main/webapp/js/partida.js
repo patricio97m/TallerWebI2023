@@ -1,10 +1,15 @@
 $(document).ready(function() {
     $(".carta-jugador").click(function() {
-        var tipoJugada = "Carta";
-        var indice = $(this).data("indice-carta");
-        var idPartida = obtenerIdPartidaDesdeCookie(); // Implementa esta función para obtener el ID de la partida desde las cookies
-        enviarJugada(tipoJugada, indice, idPartida);
-        
+        let tipoJugada = "Carta";
+        let indice = $(this).data("indice-carta");
+        console.log(tipoJugada, indice)
+        enviarJugada(tipoJugada, indice);
+    });
+    $(".btn").click(function() {
+        let tipoJugada = $(this).data("tipo-jugada");
+        let indice = $(this).data("indice-carta");
+        console.log(tipoJugada, indice)
+        enviarJugada(tipoJugada, indice);
     });
 });
 

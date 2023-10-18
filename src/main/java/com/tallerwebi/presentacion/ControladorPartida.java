@@ -1,6 +1,7 @@
 package com.tallerwebi.presentacion;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,42 +46,42 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     public ModelMap enviarJugada(@RequestParam("indice") int indice, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("idPartida") Long idPartida) {
-        if(tipoJugada == "Truco"){
+        if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
-        else if(tipoJugada == "Envido"){
+        else if(Objects.equals(tipoJugada, "Envido")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
-        else if(tipoJugada == "Mazo"){
+        else if(Objects.equals(tipoJugada, "Mazo")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
-        else if(tipoJugada == "Carta"){
+        else if(Objects.equals(tipoJugada, "Carta")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
-        else if(tipoJugada == "Quiero"){
+        else if(Objects.equals(tipoJugada, "Quiero")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
-        else if(tipoJugada == "No Quiero"){
+        else if(Objects.equals(tipoJugada, "No Quiero")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
             } catch (JugadaInvalidaException e) {
