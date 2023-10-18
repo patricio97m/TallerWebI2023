@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.tallerwebi.enums.Jugador;
+import com.tallerwebi.enums.TipoJugada;
 
 @Entity
 public class Partida{
@@ -56,7 +57,7 @@ public class Partida{
     private Jugador quienEsMano;
     private Jugador ganador;
     private boolean hayCambios;
-    private Jugada ultimaJugada;
+    private String ultimaJugada;
 
 
     public Long getId() {
@@ -67,12 +68,68 @@ public class Partida{
         this.id = id;
     }
 
-    public Jugada getUltimaJugada() {
+    public String getUltimaJugada() {
         return ultimaJugada;
     }
 
-    public void setUltimaJugada(Jugada ultimaJugada) {
+    public void setUltimaJugada(String ultimaJugada) {
         this.ultimaJugada = ultimaJugada;
+    }
+
+    public void setUltimaJugada(Jugada ultimaJugada) {
+        TipoJugada tipoJugada = ultimaJugada.getTipoJugada();
+        int indice = ultimaJugada.getIndex().intValue();
+
+        if(tipoJugada == TipoJugada.ENVIDO){
+            if(indice == 2){
+                this.ultimaJugada = "Envido";
+            }
+            else if(indice == 3){
+                this.ultimaJugada = "Real Envido";
+            }
+            else if(indice >= 4){
+                this.ultimaJugada = "Falta Envido";
+            }
+            else{
+                this.ultimaJugada = "Canto Invalido de Envido";
+            }
+        }
+        else if(tipoJugada == TipoJugada.TRUCO){
+            int estadoTruco = getEstadoTruco();
+            if(estadoTruco == 1){
+                this.ultimaJugada = "Truco";
+            }
+            else if(estadoTruco == 2){
+                this.ultimaJugada = "Retruco";
+            }
+            else if(estadoTruco == 3){
+                this.ultimaJugada = "Vale Cuatro";
+            }
+            else{
+                this.ultimaJugada = "Canto Invalido de Truco";
+            } 
+        }
+        else if(tipoJugada == TipoJugada.MAZO){
+            this.ultimaJugada = "Me voy al Mazo";
+        }
+        else if(tipoJugada == TipoJugada.RESPUESTA){
+            if(indice == 1){
+                this.ultimaJugada = "Quiero";
+            }
+            else if(indice == 0){
+                this.ultimaJugada = "No Quiero";
+            }
+            else{
+                this.ultimaJugada = "Canto Invalido de Respuesta";
+            }
+        }
+        else if(tipoJugada == TipoJugada.CARTA){
+            this.ultimaJugada = null;
+        }
+        else{
+            this.ultimaJugada = "Error al leer Ultima Jugada";
+        }
+
     }
 
     public boolean hayCambios() {

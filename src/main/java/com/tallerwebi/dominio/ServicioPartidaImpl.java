@@ -365,7 +365,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public ModelMap getDetallesPartida(Long idPartida) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         ModelMap model = new ModelMap();
-        model.put("Ultima Jugada", getUltimaJugada(idPartida));
+        model.put("Ultima Jugada", partida.getUltimaJugada());
         model.put("turnoIA", partida.hayCambios());
         model.put("manoDelJugador", getManoDelJugador(idPartida));
         model.put("cartasJugadasIa", getCartasJugadasIa(idPartida));
@@ -382,63 +382,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("ganador", partida.getGanador());
         return model;
     }
-
-    private String getUltimaJugada(Long idPartida) {
-        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
-        TipoJugada tipoJugada = partida.getUltimaJugada().getTipoJugada();
-        int indice = partida.getUltimaJugada().getIndex().intValue();
-
-        if(tipoJugada == TipoJugada.ENVIDO){
-            if(indice == 2){
-                return "Envido";
-            }
-            else if(indice == 3){
-                return "Real Envido";
-            }
-            else if(indice >= 4){
-                return "Falta Envido";
-            }
-            else{
-                return "Canto Invalido de Envido";
-            }
-        }
-        else if(tipoJugada == TipoJugada.TRUCO){
-            int estadoTruco = partida.getEstadoTruco();
-            if(estadoTruco == 1){
-                return "Truco";
-            }
-            else if(estadoTruco == 2){
-                return "Retruco";
-            }
-            else if(estadoTruco == 3){
-                return "Vale Cuatro";
-            }
-            else{
-                return "Canto Invalido de Truco";
-            } 
-        }
-        else if(tipoJugada == TipoJugada.MAZO){
-            return "Me voy al Mazo";
-        }
-        else if(tipoJugada == TipoJugada.RESPUESTA){
-            if(indice == 1){
-                return "Quiero";
-            }
-            else if(indice == 0){
-                return "No Quiero";
-            }
-            else{
-                return "Canto Invalido de Respuesta";
-            }
-        }
-        else if(tipoJugada == TipoJugada.CARTA){
-            return null;
-        }
-        else{
-            return "Error al leer Ultima Jugada";
-        }
-
-    }
+        
 }
 
 
