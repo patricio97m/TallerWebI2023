@@ -2,13 +2,15 @@ package com.tallerwebi.dominio;
 
 public interface ServicioIA {
 
-
+    public Jugada calcularJugada(Long idPartida);
+    public Jugada respuestaAleatoria();
     public Jugada tirarCartaAleatoria(Long idPartida);
+    public boolean verificarTruco(Long idPartida);
+    public Jugada cantarTruco();
 
-    public Jugada cantarTruco(Long idPartida);
+    public Jugada cantarEnvido(Long idPartida,short indice);
 
-    public Jugada cantarEnvido(Long idPartida);
-
+    public short calcularEnvido(Long idPartida);
     public Jugada tirarMejorCarta(Long idPartida);
 
     public Jugada tirarPeorCarta(Long idPartida);
