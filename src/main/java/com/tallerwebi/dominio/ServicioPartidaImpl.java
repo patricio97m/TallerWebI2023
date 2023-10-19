@@ -301,6 +301,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
             partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
         }
         partida.setTrucoAQuerer(1);
+        partida.setCantoTruco(true);
     }
 
     private boolean noSeJugoNingunaCarta(Partida partida) {
