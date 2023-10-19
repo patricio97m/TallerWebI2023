@@ -1,5 +1,9 @@
 $(document).ready(function() {
     console.log("JS Cargado");
+    $('#miModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
 
     $(".carta-jugador").click(function() {
         let tipoJugada = "Carta";
