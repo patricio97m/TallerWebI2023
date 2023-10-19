@@ -42,7 +42,7 @@ function actualizarVista(partida) {
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
     let ganador = partida.ganador;
 
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
 }
@@ -101,23 +101,39 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
     const quieroButton = $('#miModal .btn-success');
     const noQuieroButton = $('#miModal .btn-danger');
+    const quieroRetrucoButton = $('#miModal .btn-warning');
+    const quieroValeCuatroButton = $('#miModal .btn-primary');
     const volverAlMenuButton = $('#miModal .btn-secondary');
 
     puntosJugadorElement.text(puntosJugador + ' Puntos');
     puntosIaElement.text(puntosIa + ' Puntos');
 
     if (turnoIA && ultimaJugada !== "null") {
-        // Habilita el modal si turnoIA es verdadero
-        $('#miModal').modal('show');
-        // Muestra el texto de ultimaJugada en el modal
-        $('#miModal .modal-body h5').text("La IA canta " + ultimaJugada);
-        volverAlMenuButton.hide();
+        if (truco === 2){
+            $('#miModal').modal('show');
+            $('#miModal .modal-body h5').text("La IA canta truco" );
+            volverAlMenuButton.hide();
+            quieroValeCuatroButton.hide();
+        }
+        else if (truco === 3){
+            $('#miModal').modal('show');
+            $('#miModal .modal-body h5').text("La IA canta retruco" );
+            volverAlMenuButton.hide();
+            quieroRetrucoButton.hide();
+        }
+        else if (truco === 4){
+            $('#miModal').modal('show');
+            $('#miModal .modal-body h5').text("La IA canta vale cuatro" );
+            volverAlMenuButton.hide();
+            quieroRetrucoButton.hide();
+            quieroValeCuatroButton.hide();
+        }
     } else {
         // Si turnoIA es falso, oculta el modal
         $('#miModal').modal('hide');
