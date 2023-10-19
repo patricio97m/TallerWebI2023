@@ -94,6 +94,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
+        System.out.println(jugada.getTipoJugada() + " " + jugada.getIndex().intValue());
         partida.setUltimaJugada(jugada);
 
         if(jugador == Jugador.IA){
@@ -391,7 +392,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         // Construye manualmente una cadena JSON
         String json = "{"
-                + "\"Ultima Jugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
                 + "\"turnoIA\":" + partida.hayCambios() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
