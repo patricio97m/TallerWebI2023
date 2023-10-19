@@ -100,6 +100,10 @@ function obtenerCookie(nombreCookie) {0
 function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
+    // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
+    const quieroButton = $('#miModal .btn-success');
+    const noQuieroButton = $('#miModal .btn-danger');
+    const volverAlMenuButton = $('#miModal .btn-secondary');
 
     puntosJugadorElement.text(puntosJugador + ' Puntos');
     puntosIaElement.text(puntosIa + ' Puntos');
@@ -109,6 +113,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
         $('#miModal').modal('show');
         // Muestra el texto de ultimaJugada en el modal
         $('#miModal .modal-body h5').text("La IA canta " + ultimaJugada);
+        volverAlMenuButton.hide();
     } else {
         // Si turnoIA es falso, oculta el modal
         $('#miModal').modal('hide');
@@ -118,6 +123,8 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
         // Si hay un ganador, muestra el mensaje del ganador en el modal
         $('#miModal').modal('show');
         $('#miModal .modal-body h5').text("El ganador es " + ganador);
+        quieroButton.hide();
+        noQuieroButton.hide();
     }
 }
 function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador) {
