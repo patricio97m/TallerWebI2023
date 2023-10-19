@@ -5,15 +5,16 @@ $(document).ready(function() {
         let tipoJugada = "Carta";
         let indice = $(this).data("indice-carta");
         const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada= " + tipoJugada + " " + indice + " cookie:"+ idPartida);
+        console.log("Jugada= " + tipoJugada + " " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
     });
 
     $(".btn").click(function() {
         let tipoJugada = $(this).data("tipo-jugada");
+        let indice = $(this).data("indice");
         const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada= " + tipoJugada +  "cookie:"+ idPartida);
-        enviarJugada(tipoJugada, idPartida);
+        console.log("Jugada= " + tipoJugada + " " + indice + " IDPartida: "+ idPartida);
+        enviarJugada(tipoJugada, indice, idPartida);
     });
 });
 
@@ -65,7 +66,7 @@ function recibirCambios() {
     });
 }
 
-function obtenerCookie(nombreCookie) {
+function obtenerCookie(nombreCookie) {0
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();

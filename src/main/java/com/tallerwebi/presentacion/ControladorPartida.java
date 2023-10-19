@@ -45,7 +45,7 @@ public class ControladorPartida {
     }
 
     @PostMapping("/enviarJugada")
-    public ModelMap enviarJugada(@RequestParam("indice") int indice, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("idPartida") Long idPartida) {
+    public ModelMap enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
