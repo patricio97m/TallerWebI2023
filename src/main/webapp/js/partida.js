@@ -20,8 +20,22 @@ $(document).ready(function() {
 
 function actualizarVista(partida) {
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
-    $("#puntosJugador").text(partida.puntosJugador);
-    $("#puntosIa").text(partida.puntosIa);
+    let ultimaJugada = partida.ultimaJugada;
+    let turnoIA = partida.turnoIA;
+    let manoDelJugador = partida.manoDelJugador;
+    let cartasRestantesIa = partida.cartasRestantesIa;
+    let cartasJugadasIa = partida.cartasJugadasIa;
+    let cartasJugadasJugador = partida.cartasJugadasJugador;
+    let puntosJugador = partida.puntosJugador;
+    let puntosIa = partida.puntosIa;
+    let truco = partida.truco;
+    let trucoAQuerer = partida.trucoAQuerer;
+    let cantoTruco = partida.cantoTruco;
+    let envido = partida.envido;
+    let envidoAQuerer = partida.envidoAQuerer;
+    let cantoEnvido =  partida.cantoEnvido;
+    let cantoFaltaEnvido = partida.cantoFaltaEnvido;
+    let ganador = partida.ganador;
 }
 
 function enviarJugada(tipoJugada, indice, idPartida){
@@ -53,7 +67,7 @@ function enviarJugada(tipoJugada, indice, idPartida){
 function recibirCambios() {
     $.ajax({
         type: "POST",
-        url: "/recibirCambios",
+        url: "/spring/recibirCambios",
         dataType: "json",
         success: function(response) {
             actualizarVista(response);

@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tallerwebi.dominio.Carta;
@@ -45,7 +46,9 @@ public class ControladorPartida {
     }
 
     @PostMapping("/enviarJugada")
-    public ModelMap enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    @ResponseBody
+    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+        System.out.println("Entro a Enviar Partida");
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
@@ -68,6 +71,7 @@ public class ControladorPartida {
             }
         }
         else if(Objects.equals(tipoJugada, "Carta")){
+            System.out.println("Carta");
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1);
             } catch (JugadaInvalidaException e) {
@@ -89,13 +93,14 @@ public class ControladorPartida {
             }
         }
     
-        return servicioPartida.getDetallesPartida(idPartida);
+        return servicioPartida.getDetallesPartidaJSON(idPartida);
     }
 
     @PostMapping("/recibirCambios")
-    public ModelMap recibirCambios(@RequestParam("idPartida") Long idPartida){
+    @ResponseBody
+    public String recibirCambios(@RequestParam("idPartida") Long idPartida){
         servicioPartida.calcularJugadaIA(idPartida);
-        return servicioPartida.getDetallesPartida(idPartida);
+        return servicioPartida.getDetallesPartidaJSON(idPartida);
     }
 
     private Long obtenerIdPartidaDesdeCookie(HttpServletRequest request) {

@@ -383,6 +383,45 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("ganador", partida.getGanador());
         return model;
     }
+
+    @Override
+    public String getDetallesPartidaJSON(Long idPartida) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
+        // Construye manualmente una cadena JSON
+        String json = "{"
+                + "\"Ultima Jugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"turnoIA\":" + partida.hayCambios() + ","
+                + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
+                + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
+                + "\"cartasJugadasIa\":" + convertirArrayListAJSON(getCartasJugadasIa(idPartida)) + ","
+                + "\"cartasJugadasJugador\":" + convertirArrayListAJSON(getCartasJugadasJugador(idPartida)) + ","
+                + "\"puntosJugador\":" + partida.getPuntosJugador() + ","
+                + "\"puntosIa\":" + partida.getPuntosIa() + ","
+                + "\"truco\":\"" + partida.getEstadoTruco() + "\","
+                + "\"trucoAQuerer\":\"" + partida.getTrucoAQuerer() + "\","
+                + "\"cantoTruco\":\"" + partida.getCantoTruco() + "\","
+                + "\"envido\":\"" + partida.getEstadoEnvido() + "\","
+                + "\"envidoAQuerer\":\"" + partida.getEnvidoAQuerer() + "\","
+                + "\"cantoEnvido\":\"" + partida.getCantoEnvido() + "\","
+                + "\"cantoFaltaEnvido\":\"" + partida.getCantoFaltaEnvido() + "\","
+                + "\"ganador\":\"" + partida.getGanador() + "\""
+                + "}";
+
+        return json;
+    }
+
+    private String convertirArrayListAJSON(ArrayList<String> arrayList) {
+        StringBuilder json = new StringBuilder("[");
+        for (String item : arrayList) {
+            json.append("\"").append(item).append("\",");
+        }
+        if (arrayList.size() > 0) {
+            json.deleteCharAt(json.length() - 1); // Elimina la última coma
+        }
+        json.append("]");
+        return json.toString();
+    }
         
 }
 
