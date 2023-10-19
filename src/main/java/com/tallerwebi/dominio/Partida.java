@@ -24,7 +24,7 @@ public class Partida{
         limitePuntos = 15;
         quienEsMano = Jugador.J1;
         ronda = new Ronda();
-        hayCambios = false;
+        turnoIA = false;
     }
 
     @Id
@@ -56,7 +56,7 @@ public class Partida{
     private int limitePuntos;
     private Jugador quienEsMano;
     private Jugador ganador;
-    private boolean hayCambios;
+    private boolean turnoIA;
     private String ultimaJugada;
 
 
@@ -132,12 +132,12 @@ public class Partida{
 
     }
 
-    public boolean hayCambios() {
-        return hayCambios;
+    public boolean isTurnoIA() {
+        return turnoIA;
     }
 
-    public void setHayCambios(boolean hayCambios) {
-        this.hayCambios = hayCambios;
+    public void setTurnoIA(boolean turnoIA) {
+        this.turnoIA = turnoIA;
     }
 
     public Mano getManoDelJugador() {
@@ -282,15 +282,18 @@ public class Partida{
         }
     }
 
-    public void calcularGanadorTirada(int tiradaActual){
+    public Jugador calcularGanadorTirada(int tiradaActual){
        if(cartasJugadasIa.getCarta(tiradaActual).getValorTruco() > cartasJugadasJugador.getCarta(tiradaActual).getValorTruco()){
             ronda.setResultadoTirada(tiradaActual, Jugador.IA);
+            return Jugador.IA;
         }
         else if(cartasJugadasJugador.getCarta(tiradaActual).getValorTruco() > cartasJugadasIa.getCarta(tiradaActual).getValorTruco()){
             ronda.setResultadoTirada(tiradaActual, Jugador.J1);
+            return Jugador.J1;
         }
         else{
             ronda.setResultadoTirada(tiradaActual, Jugador.Empate);
+            return Jugador.Empate;
         } 
     }
 

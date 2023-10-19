@@ -94,12 +94,15 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
-        System.out.println(jugada.getTipoJugada() + " " + jugada.getIndex().intValue());
         partida.setUltimaJugada(jugada);
 
         if(jugador == Jugador.IA){
-            partida.setHayCambios(true);
+            partida.setTurnoIA(false);
         }
+        else{
+            partida.setTurnoIA(true);
+        }
+
 
         if(tipoJugada == TipoJugada.ENVIDO){
             calcularCambiosEnvido(idPartida, index);
@@ -120,7 +123,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
             throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
         }
 
-        
         partida.chequearSiHayUnGanador();
     }
 
@@ -196,7 +198,10 @@ public class ServicioPartidaImpl implements ServicioPartida{
         manoDelJugador.setCarta(index, null);
 
         if(cartasJugadasDelRival.getCarta(tiradaActual) != null){
-            partida.calcularGanadorTirada(tiradaActual);
+            Jugador ganadorTirada = partida.calcularGanadorTirada(tiradaActual);
+            if(ganadorTirada == jugador){
+                partida.setTurnoIA(!partida.isTurnoIA());
+            }
             Jugador ganadorRonda = partida.hayGanadorDeLaRonda();
 
             if(ganadorRonda == Jugador.NA){
@@ -368,7 +373,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         ModelMap model = new ModelMap();
         model.put("Ultima Jugada", partida.getUltimaJugada());
-        model.put("turnoIA", partida.hayCambios());
+        model.put("turnoIA", partida.isTurnoIA());
         model.put("manoDelJugador", getManoDelJugador(idPartida));
         model.put("cartasRestantesIa", 3 - (getCartasJugadasIa(idPartida).size()));
         model.put("cartasJugadasIa", getCartasJugadasIa(idPartida));
@@ -393,7 +398,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         // Construye manualmente una cadena JSON
         String json = "{"
                 + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
-                + "\"turnoIA\":" + partida.hayCambios() + ","
+                + "\"turnoIA\":" + partida.isTurnoIA() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
                 + "\"cartasJugadasIa\":" + convertirArrayListAJSON(getCartasJugadasIa(idPartida)) + ","

@@ -1,19 +1,19 @@
 $(document).ready(function() {
     console.log("JS Cargado");
-    $('#miModal').modal({
-        backdrop: 'static',
-        keyboard: false
+
+    let puedeJugarCarta = true;
+ 
+    $(".body").on("click", ".carta-jugador", function(){
+        if(puedeJugarCarta){
+            let tipoJugada = "Carta";
+            let indice = parseInt($(this).data("indice-carta"));
+            const idPartida = obtenerCookie("idPartida");
+            console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
+            enviarJugada(tipoJugada, indice, idPartida);
+        }
     });
 
-    $(".carta-jugador").click(function() {
-        let tipoJugada = "Carta";
-        let indice = parseInt($(this).data("indice-carta"));
-        const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
-        enviarJugada(tipoJugada, indice, idPartida);
-    });
-
-    $(".boton-jugada").click(function() {
+    $(".body").on("click", ".boton-jugada", function(){
         let tipoJugada = $(this).data("tipo-jugada");
         let indice = $(this).data("indice");
         const idPartida = obtenerCookie("idPartida");
@@ -22,7 +22,7 @@ $(document).ready(function() {
     });
 });
 
-function actualizarVista(partida) {
+function actualizarVista(partida, idPartida) {
     console.log(partida)
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
     let ultimaJugada = partida.ultimaJugada;
@@ -42,9 +42,15 @@ function actualizarVista(partida) {
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
     let ganador = partida.ganador;
 
+    puedeJugarCarta = !(cantoEnvido || cantoTruco);
+
     actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
+
+    if(turnoIA)setTimeout(function() {
+        recibirCambios(idPartida);
+    }, 2000); // 2000 milisegundos (2 segundos)
 }
 
 function enviarJugada(tipoJugada, indice, idPartida){
@@ -61,10 +67,7 @@ function enviarJugada(tipoJugada, indice, idPartida){
             if ("error" in response) {
                 console.error("Error al jugar la carta: " + response.error);
             } else {
-                actualizarVista(response); // Implementa esta función para actualizar la vista con los nuevos datos
-                setTimeout(function() {
-                    recibirCambios(idPartida);
-                }, 2000); // 2000 milisegundos (2 segundos)
+                actualizarVista(response, idPartida); // Implementa esta función para actualizar la vista con los nuevos datos
             }
         },
         error: function(err) {
@@ -82,7 +85,7 @@ function recibirCambios(idPartida) {
         },
         dataType: "json",
         success: function(response) {
-            actualizarVista(response);
+            actualizarVista(response, idPartida);
         },
         error: function(err) {
             console.error("Error al recibir cambios: " + err);

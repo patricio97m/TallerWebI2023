@@ -21,7 +21,7 @@
     <script type="text/javascript" th:src="@{/js/partida.js}"></script>
 </head>
 
-<body>
+<body class="body">
 <div th:replace="../templates/header"></div>
 
     <main>
@@ -61,10 +61,10 @@
                         <h5></h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Quiero</button>
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Quiero retruco</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Quiero vale cuatro</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No quiero</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero retruco</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero vale cuatro</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" th:data-tipo-jugada="No Quiero" th:data-indice=0>No quiero</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver al menú</button>
                     </div>
                 </div>
@@ -122,9 +122,9 @@
             <!-- Botones de truco, envido y mazo -->
             <div class="row justify-content-center mt-5">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="truco" th:data-indice=0>Truco</button>
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="envido" th:data-indice=2>Envido</button>
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="mazo" th:data-indice=0>Mazo</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
                 </div>
             </div>
         </div>
