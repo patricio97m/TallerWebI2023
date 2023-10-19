@@ -3,9 +3,9 @@ $(document).ready(function() {
 
     $(".carta-jugador").click(function() {
         let tipoJugada = "Carta";
-        let indice = $(this).data("indice-carta");
+        let indice = parseInt($(this).data("indice-carta"));
         const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada= " + tipoJugada + " " + indice + " IDPartida: "+ idPartida);
+        console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
     });
 
@@ -13,7 +13,7 @@ $(document).ready(function() {
         let tipoJugada = $(this).data("tipo-jugada");
         let indice = $(this).data("indice");
         const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada= " + tipoJugada + " " + indice + " IDPartida: "+ idPartida);
+        console.log("Jugada: " + tipoJugada + " indice: " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
     });
 });
@@ -53,7 +53,7 @@ function enviarJugada(tipoJugada, indice, idPartida){
 function recibirCambios() {
     $.ajax({
         type: "POST",
-        url: "/recibirCambios",
+        url: "/spring/recibirCambios",
         dataType: "json",
         success: function(response) {
             actualizarVista(response);
