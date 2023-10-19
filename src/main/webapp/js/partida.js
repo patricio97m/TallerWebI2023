@@ -1,6 +1,9 @@
 $(document).ready(function() {
     console.log("JS Cargado");
-
+    $('#miModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
     let puedeJugarCarta = true;
  
     $(".body").on("click", ".carta-jugador", function(){
