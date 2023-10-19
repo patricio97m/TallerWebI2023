@@ -84,7 +84,7 @@ public class ControladorPartida {
                 e.printStackTrace();
             }
         }
-        else if(Objects.equals(tipoJugada, "No Quiero")){
+        else if(Objects.equals(tipoJugada, "NoQuiero")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
             } catch (JugadaInvalidaException e) {

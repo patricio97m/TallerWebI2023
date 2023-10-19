@@ -150,7 +150,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     private void calcularCambiosMazo(Long idPartida, Jugador jugador) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
-        if(partida.getEstadoEnvido() == 0 && noSeJugoNingunaCarta(partida)){
+        if(partida.getEstadoEnvido() == 0 && noSeJugoNingunaCarta(partida) && partida.getCantoTruco()){
             if(jugador == Jugador.IA){
                 partida.setPuntosJugador(partida.getPuntosJugador() + 1);
             }

@@ -125,45 +125,51 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
     if (turnoIA && ultimaJugada !== "null") { //Acá habría que arreglar para que salte el modal
 
         // aca faltaría verificar que la ia cantó truco
-        if (truco === 2){// se muestra quiero, no quiero y retruco
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta truco" );
-            volverAlMenuButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
-            envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+        if(!cantoEnvido){
+            if (truco === 2){// se muestra quiero, no quiero y retruco
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta truco" );
+                volverAlMenuButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
+                envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+            }
+            else if (truco === 3){ // se muestra quiero, no quiero y vale cuatro
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta retruco" );
+                volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
+                envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+            }
+            else if (truco === 4){ // se muestra quiero, no quiero
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta vale cuatro" );
+                volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
+                envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+            }
         }
-        else if (truco === 3){ // se muestra quiero, no quiero y vale cuatro
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta retruco" );
-            volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
-            envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+        else{
+                //Acá haría falta verificar si se cantó envido primero
+            if (envido === 2){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta envido" );
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();
+                volverAlMenuButton.hide();quieroValeCuatroButton.hide();
+            }
+            else if (envido === 3){ // aca se muestran los botones quiero, no quiero y falta envido
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta real envido" );
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
+                volverAlMenuButton.hide();quieroValeCuatroButton.hide();
+                envidoButton.hide(); realEnvidoButton.hide();
+            }
+            else if (envido === 4){ // aca se muestran los botones quiero y no quiero
+                $('#miModal').modal('show');
+                $('#miModal .modal-body h5').text("La IA canta falta envido" );
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
+                volverAlMenuButton.hide();quieroValeCuatroButton.hide();envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
+            }
         }
-        else if (truco === 4){ // se muestra quiero, no quiero
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta vale cuatro" );
-            volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
-            envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
-        }
+        
 
-        //Acá haría falta verificar si se cantó envido primero
-        if (envido === 2){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta envido" );
-            quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();
-            volverAlMenuButton.hide();quieroValeCuatroButton.hide();
-        }
-        else if (envido === 3){ // aca se muestran los botones quiero, no quiero y falta envido
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta real envido" );
-            quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
-            volverAlMenuButton.hide();quieroValeCuatroButton.hide();
-            envidoButton.hide(); realEnvidoButton.hide();
-        }
-        else if (envido === 4){ // aca se muestran los botones quiero y no quiero
-            $('#miModal').modal('show');
-            $('#miModal .modal-body h5').text("La IA canta falta envido" );
-            quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
-            volverAlMenuButton.hide();quieroValeCuatroButton.hide();envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
-        }
+        
     } else {
         // Si turnoIA es falso, oculta el modal
         $('#miModal').modal('hide');
