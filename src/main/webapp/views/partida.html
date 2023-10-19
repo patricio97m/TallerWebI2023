@@ -61,11 +61,27 @@
                         <h5></h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero retruco</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero vale cuatro</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" th:data-tipo-jugada="No Quiero" th:data-indice=0>No quiero</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Quiero</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Quiero retruco</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Quiero vale cuatro</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No quiero</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver al menú</button>
+
+
+
+
+                        //ACA ESTAN LOS BOTONES COMO LO HABIA HECHO YO, LOS LLAMO POR EL ID EN
+                        //EL SCRIPT, DEBERÍAS AGREGAR ESO QUE HICISTE A ESTOS BOTONES
+                        <button type="button" class="btn btn-success" id="quieroTruco" data-bs-dismiss="modal">Quiero</button>
+                        <button type="button" class="btn btn-warning" id="retruco" data-bs-dismiss="modal">Quiero retruco</button>
+                        <button type="button" class="btn btn-primary" id="valeCuatro" data-bs-dismiss="modal">Quiero vale cuatro</button>
+                        <button type="button" class="btn btn-danger" id="noQuieroTruco" data-bs-dismiss="modal">No quiero</button>
+                        <button type="button" class="btn btn-success" id="quieroEnvido" data-bs-dismiss="modal">Quiero</button>
+                        <button type="button" class="btn btn-danger" id="noQuieroEnvido" data-bs-dismiss="modal">No quiero</button>
+                        <button type="button" class="btn btn-warning" id="envido" data-bs-dismiss="modal">Envido</button>
+                        <button type="button" class="btn btn-primary" id="realEnvido" data-bs-dismiss="modal">Real envido</button>
+                        <button type="button" class="btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal">Falta envido</button>
+                        <button type="button" class="btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</button>
                     </div>
                 </div>
             </div>
