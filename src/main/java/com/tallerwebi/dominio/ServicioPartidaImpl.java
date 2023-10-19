@@ -3,7 +3,7 @@ package com.tallerwebi.dominio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
-
+import com.tallerwebi.dominio.ServicioIA;
 import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
 import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
@@ -22,8 +22,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
     private RepositorioPartida repositorioPartida;
 
     @Autowired
-    public ServicioPartidaImpl(RepositorioPartida repositorioPartida){
+    public ServicioPartidaImpl(RepositorioPartida repositorioPartida, ServicioIA servicioIa){
         this.repositorioPartida = repositorioPartida;
+        this.servicioIa = servicioIa;
     }
 
     //Sistema de la Partida

@@ -54,7 +54,7 @@ function enviarJugada(tipoJugada, indice, idPartida){
             } else {
                 actualizarVista(response); // Implementa esta función para actualizar la vista con los nuevos datos
                 setTimeout(function() {
-                    recibirCambios();
+                    recibirCambios(idPartida);
                 }, 2000); // 2000 milisegundos (2 segundos)
             }
         },
@@ -64,15 +64,16 @@ function enviarJugada(tipoJugada, indice, idPartida){
     });
 }
 
-function recibirCambios() {
+function recibirCambios(idPartida) {
     $.ajax({
         type: "POST",
         url: "/spring/recibirCambios",
+        data:{
+            idPartida: idPartida
+        },
         dataType: "json",
         success: function(response) {
             actualizarVista(response);
-            // Procesa la respuesta de la nueva solicitud aquí
-            // ...
         },
         error: function(err) {
             console.error("Error al recibir cambios: " + err);
