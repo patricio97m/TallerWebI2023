@@ -47,8 +47,7 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
-        System.out.println("Entro a Enviar Partida");
+    public ModelMap enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
