@@ -50,6 +50,20 @@
             </div>
         </div>
 
+        <div class="modal fade" id="miModal" tabindex="-1" data-backdrop="false" data-bs-dismiss="modal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">¡Atención!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
 
             <!-- Puntaje -->
@@ -58,14 +72,13 @@
                     <div class="marcador p-2 text-center">
                             <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
                                     alt="foto-perfil"><b>Jugador:</b></p>
-                            <p th:text="${puntosJugador + ' Puntos'}"></p>
+                            <p th:text="${puntosJugador + ' Puntos'}" id="puntosJugador"></p>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="marcador p-2 text-center">
-                            <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
-                                    alt="foto-perfil"><b>Oponente:</b></p>
-                                    <p th:text="${puntosIa + ' Puntos'}"></p>
+                        <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top" alt="foto-perfil"><b>Oponente:</b></p>
+                        <p th:text="${puntosIa + ' Puntos'}" id="puntosIa"></p>
                     </div>
                 </div>
             </div>
@@ -102,9 +115,9 @@
             <!-- Botones de truco, envido y mazo -->
             <div class="row justify-content-center mt-5">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light btn-lg" th:data-tipo-jugada="truco" th:data-indice=0>Truco</button>
-                    <button type="button" class="btn btn-light btn-lg" th:data-tipo-jugada="envido" th:data-indice=2>Envido</button>
-                    <button type="button" class="btn btn-light btn-lg" th:data-tipo-jugada="mazo" th:data-indice=0>Mazo</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="truco" th:data-indice=0>Truco</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="envido" th:data-indice=2>Envido</button>
+                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="mazo" th:data-indice=0>Mazo</button>
                 </div>
             </div>
         </div>

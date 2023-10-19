@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("JS Cargado");
 
-    $(".cartasDelJugador").on("click", ".carta-jugador", function(){
+    $(".carta-jugador").click(function() {
         let tipoJugada = "Carta";
         let indice = parseInt($(this).data("indice-carta"));
         const idPartida = obtenerCookie("idPartida");
@@ -9,7 +9,7 @@ $(document).ready(function() {
         enviarJugada(tipoJugada, indice, idPartida);
     });
 
-    $(".btn").click(function() {
+    $(".boton-jugada").click(function() {
         let tipoJugada = $(this).data("tipo-jugada");
         let indice = $(this).data("indice");
         const idPartida = obtenerCookie("idPartida");
@@ -19,6 +19,7 @@ $(document).ready(function() {
 });
 
 function actualizarVista(partida) {
+    console.log(partida)
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
     let ultimaJugada = partida.ultimaJugada;
     let turnoIA = partida.turnoIA;
@@ -37,6 +38,7 @@ function actualizarVista(partida) {
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
     let ganador = partida.ganador;
 
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
 }
@@ -95,6 +97,29 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador) {
+    const puntosJugadorElement = $('#puntosJugador');
+    const puntosIaElement = $('#puntosIa');
+
+    puntosJugadorElement.text(puntosJugador + ' Puntos');
+    puntosIaElement.text(puntosIa + ' Puntos');
+
+    if (turnoIA && ultimaJugada !== "null") {
+        // Habilita el modal si turnoIA es verdadero
+        $('#miModal').modal('show');
+        // Muestra el texto de ultimaJugada en el modal
+        $('#miModal .modal-body h5').text("La IA canta " + ultimaJugada);
+    } else {
+        // Si turnoIA es falso, oculta el modal
+        $('#miModal').modal('hide');
+    }
+
+    if (ganador !== "null") {
+        // Si hay un ganador, muestra el mensaje del ganador en el modal
+        $('#miModal').modal('show');
+        $('#miModal .modal-body h5').text("El ganador es " + ganador);
+    }
+}
 function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador) {
     // Actualiza las cartas del oponente
     var cartasOponente = $(".cartasDeLaIA");
@@ -123,10 +148,6 @@ function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, ca
     for (var i = 0; i < manoDelJugador.length; i++) {
         cartasJugadorPropias.append('<div class="col-4 carta"><img src="/spring/img/cards/' + manoDelJugador[i] + '.png" class="img-fluid shake carta-jugador" data-indice-carta="' + (i + 1) + '"></div>');
     }
-
-    function actualizarDatos(){
-
-    };
 
     function actualizarBotones(){
 
