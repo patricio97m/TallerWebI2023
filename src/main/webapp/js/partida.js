@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("JS Cargado");
 
-    $(".carta-jugador").click(function() {
+    $(".cartasDelJugador").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
         let indice = parseInt($(this).data("indice-carta"));
         const idPartida = obtenerCookie("idPartida");
@@ -37,10 +37,8 @@ function actualizarVista(partida) {
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
     let ganador = partida.ganador;
 
-
-    actualizarDatos();
-    actualizarCartas();
-    actualizarBotones();
+    console.log("Canto = " + ultimaJugada);
+    actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
 }
 
 function enviarJugada(tipoJugada, indice, idPartida){
@@ -95,4 +93,42 @@ function obtenerCookie(nombreCookie) {0
         }
     }
     return null;
+}
+
+function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador) {
+    // Actualiza las cartas del oponente
+    var cartasOponente = $(".cartasDeLaIA");
+    cartasOponente.empty(); // Limpia las cartas anteriores
+    for (var i = 0; i < cartasRestantesIa; i++) {
+        cartasOponente.append('<div class="col-4 carta"><img src="/spring/img/cards/reverso.png" class="img-fluid"></div>');
+    }
+
+    // Actualiza las cartas jugadas por la IA
+    var cartasIA = $(".cartasJugadasIA");
+    cartasIA.empty(); // Limpia las cartas anteriores
+    for (var i = 0; i < cartasJugadasIa.length; i++) {
+        cartasIA.append('<div class="col-4 carta"><img src="/spring/img/cards/' + cartasJugadasIa[i] + '.png" class="img-fluid"></div>');
+    }
+
+    // Actualiza las cartas jugadas por el jugador
+    var cartasJugador = $(".cartasJugadasJugador");
+    cartasJugador.empty(); // Limpia las cartas anteriores
+    for (var i = 0; i < cartasJugadasJugador.length; i++) {
+        cartasJugador.append('<div class="col-4 carta"><img src="/spring/img/cards/' + cartasJugadasJugador[i] + '.png" class="img-fluid"></div>');
+    }
+
+    // Actualiza las cartas del jugador
+    var cartasJugadorPropias = $(".cartasDelJugador");
+    cartasJugadorPropias.empty(); // Limpia las cartas anteriores
+    for (var i = 0; i < manoDelJugador.length; i++) {
+        cartasJugadorPropias.append('<div class="col-4 carta"><img src="/spring/img/cards/' + manoDelJugador[i] + '.png" class="img-fluid shake carta-jugador" data-indice-carta="' + (i + 1) + '"></div>');
+    }
+
+    function actualizarDatos(){
+
+    };
+
+    function actualizarBotones(){
+
+    };
 }

@@ -72,28 +72,28 @@
 
 
             <!-- Cartas del oponente -->
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5 cartasDeLaIA">
                 <div class="col-4 carta" th:each="i: ${#numbers.sequence(1, cartasRestantesIa)}">
                     <img th:src="@{/img/cards/reverso.png}" class="img-fluid">
                 </div>
             </div>
 
             <!--Cartas jugadas por la IA -->
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5 cartasJugadasIA">
                 <div class="col-4 carta" th:each="carta: ${cartasJugadasIa}">
                     <img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
                 </div>
             </div>
 
             <!--Cartas jugadas por el jugador -->
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5 cartasJugadasJugador">
                 <div class="col-4 carta" th:each="carta: ${cartasJugadasJugador}">
                     <img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
                 </div>
             </div>
 
             <!-- Cartas del jugador -->
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5 cartasDelJugador">
                 <div class="col-4 carta" th:each="carta, Stat: ${manoDelJugador}">
                     <img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}"/>
                 </div>
