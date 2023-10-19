@@ -36,6 +36,11 @@ function actualizarVista(partida) {
     let cantoEnvido =  partida.cantoEnvido;
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
     let ganador = partida.ganador;
+
+
+    actualizarDatos();
+    actualizarCartas();
+    actualizarBotones();
 }
 
 function enviarJugada(tipoJugada, indice, idPartida){
