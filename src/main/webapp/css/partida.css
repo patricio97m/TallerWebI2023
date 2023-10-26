@@ -48,14 +48,14 @@ body{
 
 .marcador{
     background-color: var(--white);
-    border-radius: 0.5em;
+ /*   border-radius: 0.5em; */
 }
 
 .btn-group > button{
     border: 1px solid #ccc;
 }
 
-.container {
+.contenedorPartida {
     max-width: 45em;
     margin: auto;
 }
@@ -87,4 +87,117 @@ body{
 .modal-backdrop
 {
     opacity:0 !important;
+}
+
+/*Alerta sobre lo que esta pasando en la partida*/
+.modal-content{
+    z-index: 3;
+}
+
+.btn-group-vertical>.btn, .btn-group>.btn {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.puntajes{
+    position: absolute;
+    top: 9%;
+    left: 2%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    /* padding: 5px 10px; */
+    width: 15%;
+}
+
+/*Marcador*/
+.col-6 {
+    flex: 0 0 auto;
+     width: 100%;
+}
+
+/*Contenedor Cartas*/
+.col-4 {
+    flex: 0 0 auto;
+    width: 16.70%;
+}
+
+.btn-group{
+    border-radius: 0.375rem;
+    position: absolute;
+    bottom: 2%;
+    left: 0%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    /* padding: 5px 10px; */
+    width: 15%;
+}
+
+/*Distancia entre cartas*/
+.mt-5 {
+    margin-top: 0.1rem!important;
+}
+
+.cartasDeLaIA{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    padding: 5px 10px;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.cartasDelJugador{
+    position: absolute;
+    top: 85.90%;
+    left: 50%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    padding: 5px 10px;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.cartasJugadasJugador{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    padding: 5px 10px;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.cartasJugadasIA{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 9999;
+    /* background-color: #f00; */
+    color: #000;
+    padding: 5px 10px;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.mazo{
+        position: fixed;
+        bottom: 30%;
+        right: 0;
+
+}
+
+.mazoimagen{
+    width: 90%;
 }

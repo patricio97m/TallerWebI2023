@@ -76,10 +76,10 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="contenedorPartida">
 
             <!-- Puntaje -->
-            <div class="row justify-content-center mt-3">
+            <div class="row justify-content-center mt-3 puntajes">
                 <div class="col-6">
                     <div class="marcador p-2 text-center">
                             <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
@@ -132,6 +132,10 @@
                     <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
                 </div>
             </div>
+        </div>
+
+        <div class="mazo">
+            <img th:src="@{/img/cartasMazo.png}" class="mazoimagen">
         </div>
 
     </main>
