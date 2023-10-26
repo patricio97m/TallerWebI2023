@@ -24,7 +24,31 @@
 
 <body>
 
-<div th:replace="../templates/header"></div>
+<header>
+  <nav class="navbar navbar-expand-sm clr-tertiary p-3">
+    <div class="container-fluid p-0">
+      <a class="me-2" href="home">
+        <img th:src="@{/img/iconos/Logo.png}" alt="Home" width="50" height="40" class="me-2">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
+          <a class="nav-link text-white h4 pb-0" href="opciones">Opciones</a>
+          <div th:if="${usuario != null}">
+            <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
+          </div>
+          <div th:if="${usuario != null}">
+            <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
+          </div>
+          <div th:if="${usuario == null}">
+            <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
 
   <main role="main" class="container">
 

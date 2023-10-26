@@ -28,9 +28,16 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link text-white h4 pb-0" href="torneo">Torneos</a>
-          <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
-          <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
-          <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+          <a class="nav-link text-white h4 pb-0" href="opciones">Opciones</a>
+          <div th:if="${usuario != null}">
+            <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
+          </div>
+          <div th:if="${usuario != null}">
+            <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
+          </div>
+          <div th:if="${usuario == null}">
+            <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
+          </div>
         </div>
       </div>
     </div>

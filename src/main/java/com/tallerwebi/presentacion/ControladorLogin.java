@@ -25,7 +25,7 @@ public class ControladorLogin {
     }
 
     @RequestMapping("/login")
-    public ModelAndView irALogin() {
+    public ModelAndView irALogin(HttpServletRequest request) {
 
         ModelMap modelo = new ModelMap();
         modelo.put("datosLogin", new DatosLogin());
@@ -65,25 +65,44 @@ public class ControladorLogin {
     }
 
     @RequestMapping(path = "/nuevo-usuario", method = RequestMethod.GET)
-    public ModelAndView nuevoUsuario() {
+    public ModelAndView nuevoUsuario(HttpServletRequest request) {
         ModelMap model = new ModelMap();
         model.put("usuario", new Usuario());
         return new ModelAndView("nuevo-usuario", model);
     }
 
     @RequestMapping(path = "/home", method = RequestMethod.GET)
-    public ModelAndView irAHome() {
-        return new ModelAndView("home");
+    public ModelAndView irAHome(HttpServletRequest request) {
+
+        ModelMap model = new ModelMap();
+
+        HttpSession session = request.getSession();
+        Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuarioAutenticado");
+
+            model.put("usuario", usuarioAutenticado);
+            return new ModelAndView("home", model);
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public ModelAndView inicio() {
-        return new ModelAndView("redirect:/home");
+    public ModelAndView inicio(HttpServletRequest request) {
+        ModelMap model = new ModelMap();
+
+        HttpSession session = request.getSession();
+        Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuarioAutenticado");
+
+        model.put("usuario", usuarioAutenticado);
+        return new ModelAndView("redirect:/home",model);
     }
 
     @RequestMapping(path = "/opciones", method = RequestMethod.GET)
-    public ModelAndView irAOpciones() {
-        return new ModelAndView("opciones");
+    public ModelAndView irAOpciones(HttpServletRequest request) {
+        ModelMap model = new ModelMap();
+
+        HttpSession session = request.getSession();
+        Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuarioAutenticado");
+
+        model.put("usuario", usuarioAutenticado);
+        return new ModelAndView("opciones",model);
     }
 
     @RequestMapping(path = "/perfil", method = RequestMethod.GET)

@@ -35,6 +35,8 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
+
+
         Long idPartida = obtenerIdPartidaDesdeCookie(request);
 
         if (idPartida == null || !servicioPartida.partidaExiste(idPartida)) {
