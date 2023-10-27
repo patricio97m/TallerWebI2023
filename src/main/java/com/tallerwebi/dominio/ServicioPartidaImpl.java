@@ -14,15 +14,20 @@ import java.util.Random;
 
 import javax.transaction.Transactional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Service("servicioPartida")
 @Transactional
 public class ServicioPartidaImpl implements ServicioPartida{
 
     private ServicioIA servicioIa;
     private RepositorioPartida repositorioPartida;
+    private static final Logger logger = LogManager.getLogger(ServicioPartidaImpl.class);
 
     @Autowired
     public ServicioPartidaImpl(RepositorioPartida repositorioPartida, ServicioIA servicioIa){
+        System.setProperty("log4j.configurationFile", "ruta/al/archivo/log4j2.xml");
         this.repositorioPartida = repositorioPartida;
         this.servicioIa = servicioIa;
     }
@@ -178,6 +183,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     private void calcularCambiosCarta(Long idPartida, Integer index, Jugador jugador) {
+        logger.info("Se jugó una carta");
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         int tiradaActual = partida.getTiradaActual();
         Mano manoDelJugador;
@@ -198,6 +204,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         manoDelJugador.setCarta(index, null);
 
         if(cartasJugadasDelRival.getCarta(tiradaActual) != null){
+            logger.info("El rival ya jugó una carta en esta Tirada");
             Jugador ganadorTirada = partida.calcularGanadorTirada(tiradaActual);
             if(ganadorTirada == jugador){
                 partida.setTurnoIA(!partida.isTurnoIA());
@@ -205,14 +212,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
             Jugador ganadorRonda = partida.hayGanadorDeLaRonda();
 
             if(ganadorRonda == Jugador.NA){
+                logger.info("Nadie gano la ronda");
                 partida.setTiradaActual(tiradaActual++);
             }
             else if(ganadorRonda == Jugador.IA){
+                logger.info("La IA gano la ronda");
                 partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoTruco());
                 nuevaRonda(partida);
                     
             }
             else if(ganadorRonda == Jugador.J1){
+                logger.info("El jugador gano la ronda");
                 partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoTruco());
                 nuevaRonda(partida);
             }    
@@ -336,6 +346,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 String nombre = carta.getPalo() + carta.getNumero();
                 nombreCartasDelJugador.add(nombre);
             }
+            else{
+                nombreCartasDelJugador.add("NULL");
+            }
             
         }
         return nombreCartasDelJugador;
@@ -398,7 +411,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         // Construye manualmente una cadena JSON
         String json = "{"
-                + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimaJugada\":" + partida.getUltimaJugada() + ","
                 + "\"turnoIA\":" + partida.isTurnoIA() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
@@ -406,14 +419,15 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"cartasJugadasJugador\":" + convertirArrayListAJSON(getCartasJugadasJugador(idPartida)) + ","
                 + "\"puntosJugador\":" + partida.getPuntosJugador() + ","
                 + "\"puntosIa\":" + partida.getPuntosIa() + ","
-                + "\"truco\":\"" + partida.getEstadoTruco() + "\","
-                + "\"trucoAQuerer\":\"" + partida.getTrucoAQuerer() + "\","
-                + "\"cantoTruco\":\"" + partida.getCantoTruco() + "\","
-                + "\"envido\":\"" + partida.getEstadoEnvido() + "\","
-                + "\"envidoAQuerer\":\"" + partida.getEnvidoAQuerer() + "\","
-                + "\"cantoEnvido\":\"" + partida.getCantoEnvido() + "\","
-                + "\"cantoFaltaEnvido\":\"" + partida.getCantoFaltaEnvido() + "\","
-                + "\"ganador\":\"" + partida.getGanador() + "\""
+                + "\"truco\":" + partida.getEstadoTruco() + ","
+                + "\"trucoAQuerer\":" + partida.getTrucoAQuerer() + ","
+                + "\"cantoTruco\":" + partida.getCantoTruco() + ","
+                + "\"envido\":" + partida.getEstadoEnvido() + ","
+                + "\"envidoAQuerer\":" + partida.getEnvidoAQuerer() + ","
+                + "\"cantoEnvido\":" + partida.getCantoEnvido() + ","
+                + "\"cantoFaltaEnvido\":" + partida.getCantoFaltaEnvido() + ","
+                + "\"tiradaActual\":" + partida.getTiradaActual() + ","
+                + "\"ganador\":" + partida.getGanador() + ""
                 + "}";
 
         return json;
