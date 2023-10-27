@@ -213,7 +213,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
             if(ganadorRonda == Jugador.NA){
                 logger.info("Nadie gano la ronda");
-                partida.setTiradaActual(tiradaActual++);
+                partida.setTiradaActual(tiradaActual + 1);
             }
             else if(ganadorRonda == Jugador.IA){
                 logger.info("La IA gano la ronda");
