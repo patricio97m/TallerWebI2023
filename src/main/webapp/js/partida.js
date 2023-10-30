@@ -36,15 +36,12 @@ function enviarJugada(tipoJugada, indice, idPartida){
         },
         dataType: "json",
         success: function(response) {
-            if ("error" in response) {
-                console.error("Error al jugar la carta: " + response.error);
-            } else {
-                actualizarVista(response, idPartida); // Implementa esta función para actualizar la vista con los nuevos datos
-            }
+            console.log(response)
+            actualizarVista(response, idPartida);
         },
         error: function(err) {
             console.error("Error al jugar la carta: " + err);
-            console.log(err)
+            console.log(err.responseText)
         }
     });
 }
@@ -58,11 +55,12 @@ function recibirCambios(idPartida) {
         },
         dataType: "json",
         success: function(response) {
+            console.log(response)
             actualizarVista(response, idPartida);
         },
         error: function(err) {
             console.error("Error al recibir cambios: " + err);
-            console.log(err)
+            console.log(err.responseText)
         }
     });
 }

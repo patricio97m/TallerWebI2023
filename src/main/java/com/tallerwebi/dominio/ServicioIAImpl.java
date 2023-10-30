@@ -36,7 +36,7 @@ public class ServicioIAImpl implements ServicioIA {
                 }
             }
 
-            if (false) {
+            if (numero == 1) {
                 if (verificarTruco(idPartida)) {
                     return cantarTruco();
                 }

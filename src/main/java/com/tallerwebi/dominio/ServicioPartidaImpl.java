@@ -411,7 +411,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         // Construye manualmente una cadena JSON
         String json = "{"
-                + "\"ultimaJugada\":" + partida.getUltimaJugada() + ","
+                + "\"Ultima Jugada\":\"" + partida.getUltimaJugada() + "\","
                 + "\"turnoIA\":" + partida.isTurnoIA() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
