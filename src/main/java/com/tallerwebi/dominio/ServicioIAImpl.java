@@ -36,7 +36,7 @@ public class ServicioIAImpl implements ServicioIA {
                 }
             }
 
-            if (numero == 1) {
+            if (false) {
                 if (verificarTruco(idPartida)) {
                     return cantarTruco();
                 }
@@ -130,7 +130,6 @@ public class ServicioIAImpl implements ServicioIA {
             }
         }
 
-
         return new Jugada(TipoJugada.CARTA, posicionCarta);
     }
 
@@ -142,8 +141,7 @@ public class ServicioIAImpl implements ServicioIA {
         int trucoAQuerer = partida.getTrucoAQuerer();
 
         if(estadoTruco+trucoAQuerer < 4) {
-        return true;
-
+            return true;
         } else{
             return false;
         }
@@ -151,7 +149,7 @@ public class ServicioIAImpl implements ServicioIA {
     @Override
     public Jugada cantarTruco() {
 
-            return new  Jugada(TipoJugada.TRUCO);
+        return new Jugada(TipoJugada.TRUCO);
     }
     @Override
     public Jugada cantarEnvido(Long idPartida,short indice){

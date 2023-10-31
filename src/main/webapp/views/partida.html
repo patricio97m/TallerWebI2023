@@ -81,16 +81,16 @@
                         <h5></h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="quieroTruco" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
-                        <button type="button" class="btn btn-warning" id="retruco" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero retruco</button>
-                        <button type="button" class="btn btn-primary" id="valeCuatro" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero vale cuatro</button>
-                        <button type="button" class="btn btn-danger" id="noQuieroTruco" data-bs-dismiss="modal" th:data-tipo-jugada="NoQuiero" th:data-indice=0>No quiero</button>
-                        <button type="button" class="btn btn-success" id="quieroEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
-                        <button type="button" class="btn btn-danger" id="noQuieroEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="NoQuiero" th:data-indice=0>No quiero</button>
-                        <button type="button" class="btn btn-warning" id="envido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
-                        <button type="button" class="btn btn-primary" id="realEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
-                        <button type="button" class="btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=100>Falta envido</button>
-                        <button type="button" class="btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</button>
+                        <button type="button" class="boton-jugada btn btn-success" id="quieroTruco" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
+                        <button type="button" class="boton-jugada btn btn-warning" id="retruco" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero retruco</button>
+                        <button type="button" class="boton-jugada btn btn-primary" id="valeCuatro" data-bs-dismiss="modal" th:data-tipo-jugada="Truco" th:data-indice=0>Quiero vale cuatro</button>
+                        <button type="button" class="boton-jugada btn btn-danger" id="noQuieroTruco" data-bs-dismiss="modal" th:data-tipo-jugada="NoQuiero" th:data-indice=0>No quiero</button>
+                        <button type="button" class="boton-jugada btn btn-success" id="quieroEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Quiero" th:data-indice=0>Quiero</button>
+                        <button type="button" class="boton-jugada btn btn-danger" id="noQuieroEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="NoQuiero" th:data-indice=0>No quiero</button>
+                        <button type="button" class="boton-jugada btn btn-warning" id="envido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
+                        <button type="button" class="boton-jugada btn btn-primary" id="realEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
+                        <button type="button" class="boton-jugada btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=100>Falta envido</button>
+                        <button type="button" class="boton-jugada btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</button>
                     </div>
                 </div>
             </div>
@@ -126,21 +126,24 @@
             <!--Cartas jugadas por la IA -->
             <div class="row justify-content-center mt-5 cartasJugadasIA">
                 <div class="col-4 carta" th:each="carta: ${cartasJugadasIa}">
-                    <img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
+                    <img th:if="${carta == 'NULL'}" th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
+                    <img th:if="${carta != 'NULL'}" th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}">
                 </div>
             </div>
 
             <!--Cartas jugadas por el jugador -->
             <div class="row justify-content-center mt-5 cartasJugadasJugador">
                 <div class="col-4 carta" th:each="carta: ${cartasJugadasJugador}">
-                    <img th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
+                    <img th:if="${carta == 'NULL'}" th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
+                    <img th:if="${carta != 'NULL'}" th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}">
                 </div>
             </div>
 
             <!-- Cartas del jugador -->
             <div class="row justify-content-center mt-5 cartasDelJugador">
                 <div class="col-4 carta" th:each="carta, Stat: ${manoDelJugador}">
-                    <img th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}"/>
+                    <img th:if="${carta == 'NULL'}" th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
+                    <img th:if="${carta != 'NULL'}" th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}">
                 </div>
             </div>
 
