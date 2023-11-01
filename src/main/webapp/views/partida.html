@@ -43,8 +43,10 @@
 </header>
 
     <main>
+        <div id="corner-button-container">
         <button class="btn chat-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
             aria-controls="offcanvasScrolling" id="corner-button"></button>
+        </div>
 
         <!-- Chat -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -101,14 +103,14 @@
                 <div class="col-6">
                     <div class="marcador p-2 text-center">
                             <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top"
-                                    alt="foto-perfil"><b>Jugador:</b></p>
-                            <p th:text="${puntosJugador + ' Puntos'}" id="puntosJugador"></p>
+                                    alt="foto-perfil"><b>Vos:</b></p>
+                            <p th:text="${puntosJugador} + ' Puntos'" id="puntosJugador"></p>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="marcador p-2 text-center">
-                        <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top" alt="foto-perfil"><b>Oponente:</b></p>
-                        <p th:text="${puntosIa + ' Puntos'}" id="puntosIa"></p>
+                        <p class="titulo-marcador mb-1"><img src="img/account_circle.svg" class="card-img-top" alt="foto-perfil"><b>IA:</b></p>
+                        <p th:text="${puntosIa} + ' Puntos'" id="puntosIa"></p>
                     </div>
                 </div>
             </div>
