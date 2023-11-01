@@ -36,7 +36,6 @@ function enviarJugada(tipoJugada, indice, idPartida){
         },
         dataType: "json",
         success: function(response) {
-            console.log(response)
             actualizarVista(response, idPartida);
         },
         error: function(err) {
@@ -55,7 +54,6 @@ function recibirCambios(idPartida) {
         },
         dataType: "json",
         success: function(response) {
-            console.log(response)
             actualizarVista(response, idPartida);
         },
         error: function(err) {
@@ -79,6 +77,7 @@ function actualizarVista(partida, idPartida) {
     let truco = partida.truco;
     let trucoAQuerer = partida.trucoAQuerer;
     let cantoTruco = partida.cantoTruco;
+    puedeCantarTruco = partida.puedeCantarTruco;
     let envido = partida.envido;
     let envidoAQuerer = partida.envidoAQuerer;
     let cantoEnvido =  partida.cantoEnvido;
@@ -176,12 +175,11 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
         $('#miModal').modal('hide');
     }
 
-    if (ganador != null) {
+    if (ganador != "null") {
         // Si hay un ganador, muestra el mensaje del ganador en el modal
         $('#miModal').modal('show');
         $('#miModal .modal-body h5').text("El ganador es " + ganador);
-        quieroButton.hide();
-        noQuieroButton.hide();
+        quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
     }
 }
 

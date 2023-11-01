@@ -113,7 +113,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
             calcularCambiosEnvido(idPartida, index);
         }
         else if(tipoJugada == TipoJugada.TRUCO){
-            calcularCambiosTruco(idPartida);
+            calcularCambiosTruco(idPartida, jugador);
         }
         else if(tipoJugada == TipoJugada.RESPUESTA){
             calcularCambiosRespuesta(idPartida, index, jugador);
@@ -305,13 +305,18 @@ public class ServicioPartidaImpl implements ServicioPartida{
         }
     }
 
-    private void calcularCambiosTruco(Long idPartida) {
+    private void calcularCambiosTruco(Long idPartida, Jugador jugador) throws JugadaInvalidaException {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
-        if(partida.getCantoTruco()){
+        if(partida.puedeCantarTruco(jugador)){
+            if(partida.getCantoTruco()){
             partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+            }
+            partida.setTrucoAQuerer(1);
+            partida.setCantoTruco(true);
+            partida.setQuienCantoTruco(jugador);
         }
-        partida.setTrucoAQuerer(1);
-        partida.setCantoTruco(true);
+        else throw new JugadaInvalidaException("El jugador " + jugador + " intento cantar truco sin tener el quiero");
+        
     }
 
     private boolean noSeJugoNingunaCarta(Partida partida) {
@@ -397,12 +402,15 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("truco", partida.getEstadoTruco());
         model.put("trucoAQuerer", partida.getTrucoAQuerer());
         model.put("cantoTruco", partida.getCantoTruco());
+        model.put("puedeCantarTruco", partida.puedeCantarTruco(Jugador.J1));
         model.put("envido", partida.getEstadoEnvido());
         model.put("envidoAQuerer", partida.getEnvidoAQuerer());
         model.put("cantoEnvido", partida.getCantoEnvido());
         model.put("cantoFaltaEnvido", partida.getCantoFaltaEnvido());
         model.put("ganador", partida.getGanador());
         return model;
+
+
     }
 
     @Override
@@ -422,12 +430,14 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"truco\":" + partida.getEstadoTruco() + ","
                 + "\"trucoAQuerer\":" + partida.getTrucoAQuerer() + ","
                 + "\"cantoTruco\":" + partida.getCantoTruco() + ","
+                + "\"puedeCantarTruco\":" + partida.puedeCantarTruco(Jugador.J1) + ","
+                + "\"quienCantoTruco\":\"" + partida.getQuienCantoTruco() + "\","
                 + "\"envido\":" + partida.getEstadoEnvido() + ","
                 + "\"envidoAQuerer\":" + partida.getEnvidoAQuerer() + ","
                 + "\"cantoEnvido\":" + partida.getCantoEnvido() + ","
                 + "\"cantoFaltaEnvido\":" + partida.getCantoFaltaEnvido() + ","
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
-                + "\"ganador\":" + partida.getGanador() + ""
+                + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
 
         return json;

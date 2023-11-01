@@ -392,6 +392,17 @@ public class Partida{
         }
     }
 
+	public boolean puedeCantarTruco(Jugador jugador) {
+		return (jugador != ronda.getQuienCantoTruco());
+	} 
+
+    public void setQuienCantoTruco(Jugador jugador) {
+        ronda.setQuienCantoTruco(jugador);
+    }
+
+    public Jugador getQuienCantoTruco(){
+        return ronda.getQuienCantoTruco();
+    }
 }
 
 

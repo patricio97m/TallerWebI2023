@@ -17,6 +17,7 @@ public class Ronda {
     int estadoTruco;
     int trucoAQuerer;
     boolean cantoTruco;
+    Jugador quienCantoTruco;
     int estadoEnvido;
     int envidoAQuerer;
     boolean cantoFaltaEnvido;
@@ -30,6 +31,7 @@ public class Ronda {
     public Ronda(){
         estadoTruco = 1;
         estadoEnvido = 0;
+        quienCantoTruco = Jugador.NA;
         cantoTruco = false;
         cantoEnvido = false;
         trucoAQuerer = 0;
@@ -130,5 +132,13 @@ public class Ronda {
         else{
             resultadoTirada3 = jugador;
         }
+    }
+
+    public Jugador getQuienCantoTruco() {
+        return quienCantoTruco;
+    }
+
+    public void setQuienCantoTruco(Jugador quienCantoTruco) {
+        this.quienCantoTruco = quienCantoTruco;
     }
 }

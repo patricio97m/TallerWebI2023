@@ -1,5 +1,6 @@
 package com.tallerwebi.dominio;
 
+import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
 import com.tallerwebi.infraestructura.RepositorioPartida;
 
@@ -139,8 +140,9 @@ public class ServicioIAImpl implements ServicioIA {
 
         int estadoTruco = partida.getEstadoTruco();
         int trucoAQuerer = partida.getTrucoAQuerer();
+        boolean puedeCantarTruco = partida.puedeCantarTruco(Jugador.IA);
 
-        if(estadoTruco+trucoAQuerer < 4) {
+        if(estadoTruco+trucoAQuerer < 4 && puedeCantarTruco){
             return true;
         } else{
             return false;
