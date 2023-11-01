@@ -89,6 +89,7 @@ function actualizarVista(partida, idPartida) {
     actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
+    actualizarBotones(puedeCantarTruco);
 
     if(turnoIA)setTimeout(function() {
         recibirCambios(idPartida);
@@ -227,8 +228,14 @@ function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, ca
             cartasJugadorPropias.append('<div class="col-4 carta"><img src="/spring/img/cards/lugar-vacio.png "class="img-fluid"></div>');
         }
     }
+}
 
-    function actualizarBotones(){
-
+function actualizarBotones(puedeCantarTruco){
+    const botonTruco = $('#Truco');
+    if(puedeCantarTruco){
+        botonTruco.style.display = "block"
+    }
+    else{
+        botonTruco.style.display = "hidden"
     }
 }
