@@ -103,27 +103,57 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         partida.setUltimaJugada(jugada);
 
-        if(jugador == Jugador.IA){
-            partida.setTurnoIA(false);
-        }
-        else{
-            partida.setTurnoIA(true);
-        }
-
-
         if(tipoJugada == TipoJugada.ENVIDO){
-            calcularCambiosEnvido(idPartida, index);
+            try {
+				calcularCambiosEnvido(idPartida, index, jugador);
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+			} catch (JugadaInvalidaException e) {
+				e.printStackTrace();
+			}
         }
         else if(tipoJugada == TipoJugada.TRUCO){
-            calcularCambiosTruco(idPartida, jugador);
+            try {
+				calcularCambiosTruco(idPartida, jugador);
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+			} catch (JugadaInvalidaException e) {
+				e.printStackTrace();
+			}
         }
         else if(tipoJugada == TipoJugada.RESPUESTA){
-            calcularCambiosRespuesta(idPartida, index, jugador);
+            if(jugador == Jugador.IA){
+                partida.setTurnoIA(false);
+            }
+            else{
+                partida.setTurnoIA(true);
+            }
+            calcularCambiosRespuesta(idPartida, index, jugador); 
         }
         else if(tipoJugada == TipoJugada.CARTA){
+            if(jugador == Jugador.IA){
+                partida.setTurnoIA(false);
+            }
+            else{
+                partida.setTurnoIA(true);
+            }
             calcularCambiosCarta(idPartida, index, jugador);
         }
         else if(tipoJugada == TipoJugada.MAZO){
+            if(jugador == Jugador.IA){
+                partida.setTurnoIA(false);
+            }
+            else{
+                partida.setTurnoIA(true);
+            }
             calcularCambiosMazo(idPartida, jugador);
         }
         else{
@@ -282,28 +312,34 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
                 partida.setTrucoAQuerer(0);
                 partida.setCantoTruco(false);
+                partida.setEstadoEnvido(-1);
             }
                
         }
     }
 
-    private void calcularCambiosEnvido(Long idPartida, Integer index) {
+    private void calcularCambiosEnvido(Long idPartida, Integer index, Jugador jugador) throws JugadaInvalidaException {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
-        if(partida.getCantoEnvido()){
+        if(partida.getEstadoEnvido() >= 0){
+            if(partida.getCantoEnvido()){
             partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
-        }
-        else{
-            partida.setCantoEnvido(true);
-        }
+            }
+            else{
+                partida.setCantoEnvido(true);
+            }
 
-        if(index < 4){
-            //Envido o Real Envido
-            partida.setEnvidoAQuerer(index.intValue());
+            if(index < 4){
+                //Envido o Real Envido
+                partida.setEnvidoAQuerer(index.intValue());
+            }
+            else{
+                //Falta Envido
+                partida.setCantoFaltaEnvido(true);
+                partida.setEnvidoAQuerer(partida.getLimitePuntos() - partida.getPuntosGanador());
+            }
         }
         else{
-            //Falta Envido
-            partida.setCantoFaltaEnvido(true);
-            partida.setEnvidoAQuerer(partida.getLimitePuntos() - partida.getPuntosGanador());
+            throw new JugadaInvalidaException("El jugador " + jugador + " intento cantar envido cuando no era posible");
         }
     }
 
