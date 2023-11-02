@@ -231,11 +231,11 @@ function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, ca
 }
 
 function actualizarBotones(puedeCantarTruco){
-    const botonTruco = $('#Truco');
-    if(puedeCantarTruco){
-        botonTruco.style.display = "block"
-    }
-    else{
-        botonTruco.style.display = "hidden"
-    }
+    //const botonTruco = document.getElementById("Truco");
+    //if(puedeCantarTruco){
+    //    botonTruco.style.display = 'block'
+    //}
+    //else{
+    //    botonTruco.style.display = 'hidden'
+    //}
 }

@@ -228,6 +228,7 @@ public class Partida{
         else if(quienEsMano == Jugador.J1){
             quienEsMano = Jugador.IA;
         }
+        turnoIA = (Jugador.IA == quienEsMano);
     }
 
     public int getTrucoAQuerer() {

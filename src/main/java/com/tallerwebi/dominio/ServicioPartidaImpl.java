@@ -50,7 +50,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public void nuevaRonda(Partida partida){
         reiniciarRonda(partida);
         repartirCartas(partida);
-        partida.cambiarQuienEsMano();
+        if((partida.getPuntosJugador() + partida.getPuntosIa()) != 0){
+            partida.cambiarQuienEsMano();
+        }
     }
 
     @Override
@@ -437,6 +439,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"cantoEnvido\":" + partida.getCantoEnvido() + ","
                 + "\"cantoFaltaEnvido\":" + partida.getCantoFaltaEnvido() + ","
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
+                + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
                 + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
 
