@@ -404,6 +404,10 @@ public class Partida{
     public Jugador getQuienCantoTruco(){
         return ronda.getQuienCantoTruco();
     }
+
+	public String getPuntosEnvido(Jugador j1) {
+		return null;
+	}
 }
 
 

@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Entity
 public class Mano{
 
@@ -30,6 +33,7 @@ public class Mano{
     private Carta carta3;
 
     private short valorEnvido;
+    private static final Logger logger = LogManager.getLogger(Mano.class);
 
     public Mano(ArrayList<Carta> cartasDelJugador) {
         setCartas(cartasDelJugador);
@@ -98,10 +102,20 @@ public class Mano{
     }
 
     private short calcularEnvido() {
+        logger.error("Se calcula el envido");
+        logger.error("La primer carta es: " + carta1.getNumero() + " de " + carta1.getPalo());
+        logger.error("La segunda carta es: " + carta2.getNumero() + " de " + carta2.getPalo());
+        logger.error("La tercer carta es: " + carta3.getNumero() + " de " + carta3.getPalo());
+
+        logger.error("El palo de Carta 1 es igual al palo de Carta 2: " + (carta1.getPalo() == carta2.getPalo()));
+        logger.error("El palo de Carta 2 es igual al palo de Carta 3: " + (carta2.getPalo() == carta3.getPalo()));
+        logger.error("El palo de Carta 1 es igual al palo de Carta 3: " + (carta1.getPalo() == carta3.getPalo()));
+        logger.error("El palo de Carta 1 es igual al palo de Carta 1: " + (carta1.getPalo() == carta1.getPalo()));
         short valorEnvido = 0;
-        if(carta1.getPalo() == carta2.getPalo()){
+        if(carta1.getPalo().equals(carta2.getPalo())){
             valorEnvido += 20;
-            if(carta1.getPalo() == carta3.getPalo()){
+            if(carta1.getPalo().equals(carta3.getPalo())){
+                logger.error("El palo de las 3 cartas es el mismo");
                 short[] listaValores = new short[3];
                 listaValores[0] = carta1.getValorEnvido();
                 listaValores[1] = carta2.getValorEnvido();
@@ -111,18 +125,21 @@ public class Mano{
                 valorEnvido += listaValores[2] + listaValores[1];
             }
             else{
+                logger.error("El palo de la carta 1 y 2 es el mismo");
                 valorEnvido += (carta1.getValorEnvido() + carta2.getValorEnvido());
             }
         }
-        else if(carta1.getPalo() == carta3.getPalo()){
+        else if(carta1.getPalo().equals(carta3.getPalo())){
             valorEnvido += 20;
             valorEnvido += (carta1.getValorEnvido() + carta3.getValorEnvido());  
         }
-        else if(carta2.getPalo() == carta3.getPalo()){
+        else if(carta2.getPalo().equals(carta3.getPalo())){
+            logger.error("El palo de la carta 2 y 3 es el mismo");
             valorEnvido += 20;
             valorEnvido += (carta2.getValorEnvido() + carta3.getValorEnvido());
         }
         else{
+            logger.error("El palo de las 3 cartas es distinto");
             short[] listaValores = new short[3];
             listaValores[0] = carta1.getValorEnvido();
             listaValores[1] = carta2.getValorEnvido();
@@ -131,6 +148,7 @@ public class Mano{
             Arrays.sort(listaValores);
             valorEnvido = listaValores[2];
         }
+        logger.error("El valorEnvido final es: " + valorEnvido);
         return valorEnvido;
     }
     

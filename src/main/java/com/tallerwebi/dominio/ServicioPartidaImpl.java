@@ -27,7 +27,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
     @Autowired
     public ServicioPartidaImpl(RepositorioPartida repositorioPartida, ServicioIA servicioIa){
-        System.setProperty("log4j.configurationFile", "ruta/al/archivo/log4j2.xml");
         this.repositorioPartida = repositorioPartida;
         this.servicioIa = servicioIa;
     }
@@ -266,12 +265,22 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         if(index == 0){
             if(partida.getCantoEnvido()){
-                if(jugador == Jugador.IA){
-                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                if(partida.getEstadoEnvido() == 0){
+                    if(jugador == Jugador.IA){
+                        partida.setPuntosJugador(partida.getPuntosJugador() + 1);
+                    }
+                    else if(jugador == Jugador.J1){
+                        partida.setPuntosIa(partida.getPuntosIa() + 1);
+                    }
+                }else{
+                    if(jugador == Jugador.IA){
+                        partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                    }
+                    else if(jugador == Jugador.J1){
+                        partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+                    }
                 }
-                else if(jugador == Jugador.J1){
-                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
-                }
+                
                 partida.setCantoEnvido(false);
                 partida.setEstadoEnvido(-1);
             }
@@ -474,6 +483,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"envidoAQuerer\":" + partida.getEnvidoAQuerer() + ","
                 + "\"cantoEnvido\":" + partida.getCantoEnvido() + ","
                 + "\"cantoFaltaEnvido\":" + partida.getCantoFaltaEnvido() + ","
+                + "\"puntosEnvidoIA\":" + partida.getManoDeLaIa().getValorEnvido() + ","
+                + "\"puntosEnvidoJugador\":" + partida.getManoDelJugador().getValorEnvido() + ","
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
                 + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
                 + "\"ganador\":\"" + partida.getGanador() + "\""

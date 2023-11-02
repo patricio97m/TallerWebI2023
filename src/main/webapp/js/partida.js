@@ -4,16 +4,13 @@ $(document).ready(function() {
         backdrop: 'static',
         keyboard: false
     });
-    let puedeJugarCarta = true;
  
     $(".body").on("click", ".carta-jugador", function(){
-        if(puedeJugarCarta){
-            let tipoJugada = "Carta";
-            let indice = parseInt($(this).data("indice-carta"));
-            const idPartida = obtenerCookie("idPartida");
-            console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
-            enviarJugada(tipoJugada, indice, idPartida);
-        }
+        let tipoJugada = "Carta";
+        let indice = parseInt($(this).data("indice-carta"));
+        const idPartida = obtenerCookie("idPartida");
+        console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
+        enviarJugada(tipoJugada, indice, idPartida);
     });
 
     $(".body").on("click", ".boton-jugada", function(){
@@ -82,11 +79,11 @@ function actualizarVista(partida, idPartida) {
     let envidoAQuerer = partida.envidoAQuerer;
     let cantoEnvido =  partida.cantoEnvido;
     let cantoFaltaEnvido = partida.cantoFaltaEnvido;
+    let puntosEnvidoIA = partida.puntosEnvidoIA;
+    let puntosEnvidoJugador = partida.puntosEnvidoJugador;
     let ganador = partida.ganador;
 
-    puedeJugarCarta = !(cantoEnvido || cantoTruco);
-
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
@@ -108,7 +105,7 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
