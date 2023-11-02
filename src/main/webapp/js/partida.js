@@ -1,3 +1,4 @@
+//A ver si se arregla
 $(document).ready(function() {
     console.log("JS Cargado");
     $('#miModal').modal({
