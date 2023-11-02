@@ -83,7 +83,7 @@ function actualizarVista(partida, idPartida) {
     let puntosEnvidoJugador = partida.puntosEnvidoJugador;
     let ganador = partida.ganador;
 
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
@@ -105,7 +105,7 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
@@ -126,20 +126,20 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
     if (turnoIA == false) { //Acá habría que arreglar para que salte el modal
         if(cantoEnvido){
                 //Acá haría falta verificar si se cantó envido primero
-            if (envido == 1){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
+            if (envidoAQuerer == 2){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta envido" );
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
             }
-            else if (envido == 2){ // aca se muestran los botones quiero, no quiero y falta envido
+            else if (envidoAQuerer == 3){ // aca se muestran los botones quiero, no quiero y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta real envido" );
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide();
             }
-            else if (envido == 3){ // aca se muestran los botones quiero y no quiero
+            else if (envidoAQuerer > 3){ // aca se muestran los botones quiero y no quiero
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta falta envido" );
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();

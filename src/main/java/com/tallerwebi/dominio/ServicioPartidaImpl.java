@@ -138,21 +138,14 @@ public class ServicioPartidaImpl implements ServicioPartida{
             calcularCambiosRespuesta(idPartida, index, jugador); 
         }
         else if(tipoJugada == TipoJugada.CARTA){
-            if(jugador == Jugador.IA){
-                partida.setTurnoIA(false);
+            try{
+                calcularCambiosCarta(idPartida, index, jugador);
             }
-            else{
-                partida.setTurnoIA(true);
+            catch(JugadaInvalidaException e){
+				e.printStackTrace();
             }
-            calcularCambiosCarta(idPartida, index, jugador);
         }
         else if(tipoJugada == TipoJugada.MAZO){
-            if(jugador == Jugador.IA){
-                partida.setTurnoIA(false);
-            }
-            else{
-                partida.setTurnoIA(true);
-            }
             calcularCambiosMazo(idPartida, jugador);
         }
         else{
@@ -213,9 +206,12 @@ public class ServicioPartidaImpl implements ServicioPartida{
         nuevaRonda(partida);
     }
 
-    private void calcularCambiosCarta(Long idPartida, Integer index, Jugador jugador) {
+    private void calcularCambiosCarta(Long idPartida, Integer index, Jugador jugador) throws JugadaInvalidaException {
         logger.info("Se jugó una carta");
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        if(partida.getCantoEnvido() || partida.getCantoTruco()){
+            throw new JugadaInvalidaException("No se puede jugar una carta si se esta cantando envido primero");
+        }
         int tiradaActual = partida.getTiradaActual();
         Mano manoDelJugador;
         Mano cartasJugadasDelJugador;
@@ -233,6 +229,13 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         cartasJugadasDelJugador.setCarta(tiradaActual, manoDelJugador.getCarta(index));
         manoDelJugador.setCarta(index, null);
+        
+        if(jugador == Jugador.IA){
+            partida.setTurnoIA(false);
+        }
+        else{
+            partida.setTurnoIA(true);
+        }
 
         if(cartasJugadasDelRival.getCarta(tiradaActual) != null){
             logger.info("El rival ya jugó una carta en esta Tirada");
