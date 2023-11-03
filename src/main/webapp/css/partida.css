@@ -57,6 +57,10 @@ body{
  /*   border-radius: 0.5em; */
 }
 
+.puntosEnvido{
+    background-color: var(--white);
+}
+
 .btn-group > button{
     border: 1px solid #ccc;
 }
@@ -246,4 +250,10 @@ body{
         color: #000;
         width: 15%;
     }
+
+
+    .puntosEnvido{
+        background-color: var(--white);
+    }
+
 }

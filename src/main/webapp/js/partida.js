@@ -62,6 +62,7 @@ function recibirCambios(idPartida) {
 }
 
 function actualizarVista(partida, idPartida) {
+
     console.log(partida)
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
     let ultimaJugada = partida.ultimaJugada;
@@ -84,14 +85,34 @@ function actualizarVista(partida, idPartida) {
     let puntosEnvidoJugador = partida.puntosEnvidoJugador;
     let ganador = partida.ganador;
 
+    //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
+    //console.log(ultimaJugada);
+    // if (ultimaJugada === "Quiero" && cantoEnvido)
+    if(envido < 0){
+        // Muestra puntos de envido solo si la última jugada es "Quiero" y se cantó envido
+        // Mostrar temporalmente los puntos de envido del jugador y de la IA
+        $('#puntosEnvidoJugador').text('Tus puntos de envido: ' + puntosEnvidoJugador).show();
+        $('#puntosEnvidoIA').text('Puntos de envido de la IA: ' + puntosEnvidoIA).show();
+
+        // Ocultar los puntos de envido después de cierto tiempo (por ejemplo, 3 segundos)
+        setTimeout(function() {
+            $('#puntosEnvidoJugador').hide();
+            $('#puntosEnvidoIA').hide();
+        }, 3000); // 3000 milisegundos (3 segundos)
+    }
+
     actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
 
+
+
     if(turnoIA)setTimeout(function() {
         recibirCambios(idPartida);
     }, 2000); // 2000 milisegundos (2 segundos)
+
+
 }
 
 
