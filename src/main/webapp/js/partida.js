@@ -130,12 +130,14 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
             if (envidoAQuerer == 2){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta envido" );
+                quieroEnvidoButton.show();noQuieroEnvidoButton.show();envidoButton.show();realEnvidoButton.show();faltaEnvidoButton.show();
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
             }
             else if (envidoAQuerer == 3){ // aca se muestran los botones quiero, no quiero y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta real envido" );
+                quieroEnvidoButton.show();noQuieroEnvidoButton.show();faltaEnvidoButton.show();
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide();
@@ -143,6 +145,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
             else if (envidoAQuerer > 3){ // aca se muestran los botones quiero y no quiero
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta falta envido" );
+                quieroEnvidoButton.show();noQuieroEnvidoButton.show();
                 quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
             }
@@ -151,18 +154,21 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
             if (truco == 1 ){// se muestra quiero, no quiero y retruco
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta truco" );
+                quieroTrucoButton.show();noQuieroTrucoButton.show();quieroRetrucoButton.show();
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
             }
             else if (truco == 2){ // se muestra quiero, no quiero y vale cuatro
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta retruco" );
+                quieroTrucoButton.show();noQuieroTrucoButton.show();quieroValeCuatroButton.show();
                 volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
             }
             else if (truco == 3){ // se muestra quiero, no quiero
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta vale cuatro" );
+                quieroTrucoButton.show();noQuieroTrucoButton.show();
                 volverAlMenuButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide();quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
             }
@@ -178,6 +184,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
         // Si hay un ganador, muestra el mensaje del ganador en el modal
         $('#miModal').modal('show');
         $('#miModal .modal-body h5').text("El ganador es " + ganador);
+        volverAlMenuButton.show();
         quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
     }
 }
