@@ -1,4 +1,3 @@
-//A ver si se arregla
 $(document).ready(function() {
     console.log("JS Cargado");
     $('#miModal').modal({
@@ -88,17 +87,17 @@ function actualizarVista(partida, idPartida) {
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
     // if (ultimaJugada === "Quiero" && cantoEnvido)
-    if(envido < 0){
+    if(envido < 0 && ultimaJugada=="Quiero"){
         // Muestra puntos de envido solo si la última jugada es "Quiero" y se cantó envido
         // Mostrar temporalmente los puntos de envido del jugador y de la IA
-        $('#puntosEnvidoJugador').text('Tus puntos de envido: ' + puntosEnvidoJugador).show();
-        $('#puntosEnvidoIA').text('Puntos de envido de la IA: ' + puntosEnvidoIA).show();
+        $('#puntosEnvidoJugador').text('Tu envido: ' + puntosEnvidoJugador).show();
+        $('#puntosEnvidoIA').text('Envido IA: ' + puntosEnvidoIA).show();
 
         // Ocultar los puntos de envido después de cierto tiempo (por ejemplo, 3 segundos)
         setTimeout(function() {
             $('#puntosEnvidoJugador').hide();
             $('#puntosEnvidoIA').hide();
-        }, 3000); // 3000 milisegundos (3 segundos)
+        }, 10000); // 10000 milisegundos (10 segundos)
     }
 
     actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer);
