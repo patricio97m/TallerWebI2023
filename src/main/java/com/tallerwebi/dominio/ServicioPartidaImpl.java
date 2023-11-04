@@ -100,6 +100,13 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
+        if(jugador == Jugador.IA && !partida.isTurnoIA()){
+            throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
+        }
+        else if(jugador == Jugador.J1 && partida.isTurnoIA()){
+            throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
+        }
+
         partida.setUltimaJugada(jugada);
 
         if(tipoJugada == TipoJugada.ENVIDO){

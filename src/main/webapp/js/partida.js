@@ -86,8 +86,8 @@ function actualizarVista(partida, idPartida) {
 
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
-    // if (ultimaJugada === "Quiero" && cantoEnvido)
-    if(envido < 0 && ultimaJugada=="Quiero"){
+    // if (ultimaJugada === "Quiero" && no se canto truco)
+    if(truco==1 && ultimaJugada=="Quiero"){
         // Muestra puntos de envido solo si la última jugada es "Quiero" y se cantó envido
         // Mostrar temporalmente los puntos de envido del jugador y de la IA
         $('#puntosEnvidoJugador').text('Tu envido: ' + puntosEnvidoJugador).show();
@@ -151,14 +151,14 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta envido" );
                 quieroEnvidoButton.show();noQuieroEnvidoButton.show();envidoButton.show();realEnvidoButton.show();faltaEnvidoButton.show();
-                quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide(); quieroRetrucoButton.hide();quieroValeCuatroButton.hide()
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
             }
             else if (envidoAQuerer == 3){ // aca se muestran los botones quiero, no quiero y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta real envido" );
                 quieroEnvidoButton.show();noQuieroEnvidoButton.show();faltaEnvidoButton.show();
-                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide()
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();
                 envidoButton.hide(); realEnvidoButton.hide();
             }
@@ -166,7 +166,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta falta envido" );
                 quieroEnvidoButton.show();noQuieroEnvidoButton.show();
-                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
+                quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide()
                 volverAlMenuButton.hide();quieroValeCuatroButton.hide();envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
             }
         }
@@ -205,7 +205,8 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
         $('#miModal').modal('show');
         $('#miModal .modal-body h5').text("El ganador es " + ganador);
         volverAlMenuButton.show();
-        quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();
+        quieroTrucoButton.hide();noQuieroTrucoButton.hide();quieroRetrucoButton.hide();quieroValeCuatroButton.hide()
+        quieroEnvidoButton.hide();noQuieroEnvidoButton.hide();envidoButton.hide(); realEnvidoButton.hide(); faltaEnvidoButton.hide();
     }
 }
 
