@@ -405,9 +405,13 @@ public class Partida{
         return ronda.getQuienCantoTruco();
     }
 
-	public String getPuntosEnvido(Jugador j1) {
-		return null;
-	}
+    public boolean getRecanto() {
+        return ronda.getRecanto();
+    }
+
+    public void setRecanto(boolean recanto) {
+        ronda.setRecanto(recanto);
+    }
 }
 
 

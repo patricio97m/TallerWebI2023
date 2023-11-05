@@ -136,12 +136,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
 			}
         }
         else if(tipoJugada == TipoJugada.RESPUESTA){
-            if(jugador == Jugador.IA){
-                partida.setTurnoIA(false);
-            }
-            else{
-                partida.setTurnoIA(true);
-            }
             calcularCambiosRespuesta(idPartida, index, jugador); 
         }
         else if(tipoJugada == TipoJugada.CARTA){
@@ -274,6 +268,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
         if(index == 0){
+            if(partida.getRecanto()){
+                partida.setRecanto(false);
+            }
+            else{
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+            }
             if(partida.getCantoEnvido()){
                 if(partida.getEstadoEnvido() == 0){
                     if(jugador == Jugador.IA){
@@ -305,6 +310,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
             }
         }
         else{
+            if(partida.getRecanto()){
+                partida.setRecanto(false);
+            }
+            else{
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+            }
             if(partida.getCantoEnvido()){
                 Jugador ganadorEnvido = partida.getGanadorEnvido();
 
@@ -332,16 +348,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 partida.setTrucoAQuerer(0);
                 partida.setCantoTruco(false);
                 partida.setEstadoEnvido(-1);
-            }
-               
+            }     
         }
     }
 
     private void calcularCambiosEnvido(Long idPartida, Integer index, Jugador jugador) throws JugadaInvalidaException {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
         if(partida.getEstadoEnvido() >= 0){
             if(partida.getCantoEnvido()){
-            partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+                partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+                partida.setRecanto(!(partida.getRecanto()));
             }
             else{
                 partida.setCantoEnvido(true);
@@ -366,7 +383,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         if(partida.puedeCantarTruco(jugador)){
             if(partida.getCantoTruco()){
-            partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+                partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+                partida.setRecanto(!(partida.getRecanto()));
             }
             partida.setTrucoAQuerer(1);
             partida.setCantoTruco(true);
@@ -496,6 +514,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"puntosEnvidoIA\":" + partida.getManoDeLaIa().getValorEnvido() + ","
                 + "\"puntosEnvidoJugador\":" + partida.getManoDelJugador().getValorEnvido() + ","
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
+                + "\"recanto\":" + partida.getRecanto() + ","
                 + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
                 + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
