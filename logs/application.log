@@ -1018,3 +1018,564 @@
 2023-11-07 23:59:32,666 INFO o.h.d.Dialect [Scanner-9] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
 2023-11-07 23:59:37,535 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-9] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2023-11-07 23:59:38,581 INFO o.s.w.s.DispatcherServlet [Scanner-9] Completed initialization in 14512 ms
+2023-11-08 00:03:18,581 INFO o.s.w.s.DispatcherServlet [Scanner-10] Initializing Servlet 'dispatcher'
+2023-11-08 00:03:19,353 INFO o.h.Version [Scanner-10] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-08 00:03:19,843 INFO o.h.a.c.Version [Scanner-10] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-08 00:03:20,397 INFO o.h.d.Dialect [Scanner-10] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-08 00:03:21,438 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-10] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-08 00:03:22,107 INFO o.s.w.s.DispatcherServlet [Scanner-10] Completed initialization in 3520 ms
+2023-11-08 00:10:23,491 INFO o.s.w.s.DispatcherServlet [Scanner-11] Initializing Servlet 'dispatcher'
+2023-11-08 00:10:24,342 INFO o.h.Version [Scanner-11] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-08 00:10:24,624 INFO o.h.a.c.Version [Scanner-11] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-08 00:10:25,201 INFO o.h.d.Dialect [Scanner-11] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-08 00:10:28,443 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-11] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-08 00:10:29,299 INFO o.s.w.s.DispatcherServlet [Scanner-11] Completed initialization in 5800 ms
+2023-11-08 00:10:52,677 INFO o.s.w.s.DispatcherServlet [Scanner-12] Initializing Servlet 'dispatcher'
+2023-11-08 00:10:53,481 INFO o.h.Version [Scanner-12] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-08 00:10:53,812 INFO o.h.a.c.Version [Scanner-12] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-08 00:10:54,272 INFO o.h.d.Dialect [Scanner-12] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-08 00:10:56,065 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-12] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-08 00:10:56,673 INFO o.s.w.s.DispatcherServlet [Scanner-12] Completed initialization in 3986 ms
+2023-11-08 00:11:29,921 INFO o.s.w.s.DispatcherServlet [Scanner-13] Initializing Servlet 'dispatcher'
+2023-11-08 00:11:30,570 INFO o.h.Version [Scanner-13] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-08 00:11:31,086 INFO o.h.a.c.Version [Scanner-13] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-08 00:11:31,539 INFO o.h.d.Dialect [Scanner-13] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-08 00:11:32,459 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-13] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-08 00:11:33,259 INFO o.s.w.s.DispatcherServlet [Scanner-13] Completed initialization in 3322 ms
+2023-11-08 00:12:09,883 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,520 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,541 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,544 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,548 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,551 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,555 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:10,622 ERROR c.t.d.Mano [qtp1972846458-53] Se calcula el envido
+2023-11-08 00:12:10,791 ERROR c.t.d.Mano [qtp1972846458-53] La primer carta es: 2 de Copa
+2023-11-08 00:12:10,792 ERROR c.t.d.Mano [qtp1972846458-53] La segunda carta es: 4 de Basto
+2023-11-08 00:12:10,793 ERROR c.t.d.Mano [qtp1972846458-53] La tercer carta es: 3 de Oro
+2023-11-08 00:12:10,983 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:12:10,984 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:12:10,985 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:12:10,985 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:12:10,985 ERROR c.t.d.Mano [qtp1972846458-53] El palo de las 3 cartas es distinto
+2023-11-08 00:12:10,986 ERROR c.t.d.Mano [qtp1972846458-53] El valorEnvido final es: 4
+2023-11-08 00:12:10,986 ERROR c.t.d.Mano [qtp1972846458-53] Se calcula el envido
+2023-11-08 00:12:10,986 ERROR c.t.d.Mano [qtp1972846458-53] La primer carta es: 3 de Espada
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] La segunda carta es: 10 de Espada
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] La tercer carta es: 12 de Basto
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:12:10,987 ERROR c.t.d.Mano [qtp1972846458-53] El palo de la carta 1 y 2 es el mismo
+2023-11-08 00:12:10,988 ERROR c.t.d.Mano [qtp1972846458-53] El valorEnvido final es: 23
+2023-11-08 00:12:11,005 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:11,166 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:11,183 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:11,203 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:11,691 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,507 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,548 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] Se jugó una carta
+2023-11-08 00:12:52,548 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,647 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,726 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,746 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,763 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:52,780 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,171 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,205 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,220 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,238 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,254 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,278 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,308 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,322 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,334 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:55,345 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,719 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,758 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,795 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,838 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,862 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,881 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:12:59,905 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:01,953 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:01,988 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,074 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,092 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,118 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,152 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,169 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,185 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:02,200 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,013 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,052 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,086 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,124 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,139 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,154 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:04,170 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,223 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,272 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,286 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,301 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,315 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-63] Se jugó una carta
+2023-11-08 00:13:06,315 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,329 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-63] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:06,329 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-63] Nadie gano la ronda
+2023-11-08 00:13:06,343 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,374 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,390 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,404 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:06,418 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,540 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,588 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,606 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,621 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,635 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] Se jugó una carta
+2023-11-08 00:13:08,635 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,658 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,685 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,701 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,717 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:08,729 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,707 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,739 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,757 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,760 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,764 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,769 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,772 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,791 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,799 ERROR c.t.d.Mano [qtp1972846458-72] Se calcula el envido
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La primer carta es: 1 de Espada
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La segunda carta es: 5 de Espada
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La tercer carta es: 10 de Espada
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de las 3 cartas es el mismo
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El valorEnvido final es: 26
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] Se calcula el envido
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La primer carta es: 5 de Basto
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La segunda carta es: 2 de Oro
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] La tercer carta es: 3 de Espada
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El palo de las 3 cartas es distinto
+2023-11-08 00:13:10,800 ERROR c.t.d.Mano [qtp1972846458-72] El valorEnvido final es: 5
+2023-11-08 00:13:10,809 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,842 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,859 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,874 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:10,890 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:12,943 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:12,974 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:12,989 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,003 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,016 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] Se jugó una carta
+2023-11-08 00:13:13,016 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,039 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,063 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,078 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,093 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:13,108 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,135 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,176 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,196 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,196 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,196 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,196 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,211 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,214 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] Se calcula el envido
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La primer carta es: 12 de Basto
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La segunda carta es: 3 de Basto
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La tercer carta es: 10 de Basto
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de las 3 cartas es el mismo
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El valorEnvido final es: 23
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] Se calcula el envido
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La primer carta es: 6 de Copa
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La segunda carta es: 1 de Basto
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] La tercer carta es: 12 de Espada
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El palo de las 3 cartas es distinto
+2023-11-08 00:13:16,214 ERROR c.t.d.Mano [qtp1972846458-73] El valorEnvido final es: 6
+2023-11-08 00:13:16,229 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,262 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,279 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,296 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:16,315 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,654 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,699 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-30] Se jugó una carta
+2023-11-08 00:13:20,700 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,729 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,830 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,862 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,879 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:20,895 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:22,942 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:22,978 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:22,994 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,012 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,014 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] Se jugó una carta
+2023-11-08 00:13:23,026 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,030 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:23,030 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] Nadie gano la ronda
+2023-11-08 00:13:23,046 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,080 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,080 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,096 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:23,114 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,184 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,217 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,231 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,456 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,498 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-61] Se jugó una carta
+2023-11-08 00:13:25,498 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,522 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,547 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,776 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,796 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:25,814 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:31,966 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,000 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] Se jugó una carta
+2023-11-08 00:13:32,000 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,020 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:32,020 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] Nadie gano la ronda
+2023-11-08 00:13:32,037 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,065 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,080 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,095 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:32,111 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:34,469 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:34,508 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] Se jugó una carta
+2023-11-08 00:13:34,509 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:34,538 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:34,986 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:35,042 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:35,058 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:35,075 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,138 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,173 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,188 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,202 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,216 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-73] Se jugó una carta
+2023-11-08 00:13:37,216 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,229 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-73] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:37,230 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-73] El jugador gano la ronda
+2023-11-08 00:13:37,232 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,234 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,237 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,259 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,267 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,272 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] Se calcula el envido
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La primer carta es: 5 de Oro
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La segunda carta es: 2 de Oro
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La tercer carta es: 10 de Espada
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El palo de la carta 1 y 2 es el mismo
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] El valorEnvido final es: 27
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] Se calcula el envido
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La primer carta es: 12 de Copa
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La segunda carta es: 4 de Espada
+2023-11-08 00:13:37,282 ERROR c.t.d.Mano [qtp1972846458-73] La tercer carta es: 3 de Basto
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El palo de las 3 cartas es distinto
+2023-11-08 00:13:37,283 ERROR c.t.d.Mano [qtp1972846458-73] El valorEnvido final es: 4
+2023-11-08 00:13:37,299 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,327 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,343 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,357 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:37,373 WARN o.h.o.deprecation [qtp1972846458-73] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:39,416 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:39,482 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:39,497 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,026 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,044 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-75] Se jugó una carta
+2023-11-08 00:13:40,044 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,068 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,097 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,112 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,127 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:40,144 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,310 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,614 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] Se jugó una carta
+2023-11-08 00:13:43,614 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,633 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:43,633 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-53] Nadie gano la ronda
+2023-11-08 00:13:43,648 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,676 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,693 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,709 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:43,726 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,036 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,079 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-30] Se jugó una carta
+2023-11-08 00:13:45,079 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,113 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,143 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,158 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,174 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:45,191 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,248 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,275 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,290 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,307 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,330 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,356 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,373 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,387 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:47,404 WARN o.h.o.deprecation [qtp1972846458-68] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,266 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,305 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,340 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,375 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,391 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,409 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:55,426 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,494 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,520 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,536 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,550 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,565 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-74] Se jugó una carta
+2023-11-08 00:13:57,565 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,579 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-74] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:13:57,579 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-74] Nadie gano la ronda
+2023-11-08 00:13:57,593 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,656 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,671 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,685 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:57,700 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,749 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,771 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,784 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,799 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,814 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-74] Se jugó una carta
+2023-11-08 00:13:59,814 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,836 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,859 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,874 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,886 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:13:59,899 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,228 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,262 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] Se jugó una carta
+2023-11-08 00:14:03,263 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,280 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:14:03,280 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-57] La IA gano la ronda
+2023-11-08 00:14:03,284 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,288 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,291 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,294 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,297 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,301 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] Se calcula el envido
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] La primer carta es: 6 de Basto
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] La segunda carta es: 5 de Copa
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] La tercer carta es: 11 de Oro
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El palo de las 3 cartas es distinto
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] El valorEnvido final es: 6
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] Se calcula el envido
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] La primer carta es: 10 de Espada
+2023-11-08 00:14:03,309 ERROR c.t.d.Mano [qtp1972846458-57] La segunda carta es: 5 de Basto
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] La tercer carta es: 1 de Espada
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:03,310 ERROR c.t.d.Mano [qtp1972846458-57] El valorEnvido final es: 21
+2023-11-08 00:14:03,329 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,362 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,378 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,454 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:03,495 WARN o.h.o.deprecation [qtp1972846458-57] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,750 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,793 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-75] Se jugó una carta
+2023-11-08 00:14:07,794 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,823 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,858 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,873 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,890 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:07,905 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:09,944 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:09,973 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:09,987 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,002 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,017 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,041 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,072 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,088 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,102 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:10,116 WARN o.h.o.deprecation [qtp1972846458-63] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,525 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,568 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,603 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,638 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,657 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,674 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:12,688 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,724 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,754 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,768 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,784 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,799 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,814 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] Se jugó una carta
+2023-11-08 00:14:14,815 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,830 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:14:14,830 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] Nadie gano la ronda
+2023-11-08 00:14:14,842 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,872 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,889 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,904 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:14,920 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:16,961 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:16,991 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,006 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,021 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,035 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,048 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-71] Se jugó una carta
+2023-11-08 00:14:17,048 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,071 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,092 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,107 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,123 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:17,139 WARN o.h.o.deprecation [qtp1972846458-71] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,887 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,925 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-75] Se jugó una carta
+2023-11-08 00:14:20,925 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,948 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-75] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:14:20,948 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-75] La IA gano la ronda
+2023-11-08 00:14:20,950 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,955 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,958 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,962 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,967 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,969 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] Se calcula el envido
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La primer carta es: 4 de Copa
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La segunda carta es: 6 de Basto
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La tercer carta es: 1 de Copa
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El valorEnvido final es: 25
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] Se calcula el envido
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La primer carta es: 10 de Oro
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La segunda carta es: 3 de Espada
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] La tercer carta es: 4 de Oro
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:20,975 ERROR c.t.d.Mano [qtp1972846458-75] El valorEnvido final es: 24
+2023-11-08 00:14:20,995 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:21,025 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:21,043 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:21,060 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:21,076 WARN o.h.o.deprecation [qtp1972846458-75] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,121 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,173 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,187 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,201 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,221 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,247 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,258 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,272 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:23,285 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,541 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,585 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,610 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,638 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,654 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,672 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:25,688 WARN o.h.o.deprecation [qtp1972846458-53] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,733 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,759 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,773 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,789 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,804 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,818 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-74] Se jugó una carta
+2023-11-08 00:14:27,818 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,840 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,866 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,882 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,897 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:27,910 WARN o.h.o.deprecation [qtp1972846458-74] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,452 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,489 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-61] Se jugó una carta
+2023-11-08 00:14:29,489 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,505 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-61] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:14:29,505 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-61] Nadie gano la ronda
+2023-11-08 00:14:29,519 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,545 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,557 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,571 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:29,584 WARN o.h.o.deprecation [qtp1972846458-61] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,630 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,654 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,667 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,681 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,694 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,709 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-72] Se jugó una carta
+2023-11-08 00:14:31,710 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,735 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,759 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,773 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,787 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:31,802 WARN o.h.o.deprecation [qtp1972846458-72] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,238 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,273 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-30] Se jugó una carta
+2023-11-08 00:14:38,273 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,297 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-30] El rival ya jugó una carta en esta Tirada
+2023-11-08 00:14:38,297 INFO c.t.d.ServicioPartidaImpl [qtp1972846458-30] La IA gano la ronda
+2023-11-08 00:14:38,301 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,305 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,311 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,315 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,317 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,320 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,329 ERROR c.t.d.Mano [qtp1972846458-30] Se calcula el envido
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La primer carta es: 2 de Espada
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La segunda carta es: 6 de Copa
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La tercer carta es: 3 de Copa
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de la carta 2 y 3 es el mismo
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El valorEnvido final es: 29
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] Se calcula el envido
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La primer carta es: 1 de Oro
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La segunda carta es: 7 de Copa
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] La tercer carta es: 11 de Oro
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 2: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 2 es igual al palo de Carta 3: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 3: false
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El palo de Carta 1 es igual al palo de Carta 1: true
+2023-11-08 00:14:38,330 ERROR c.t.d.Mano [qtp1972846458-30] El valorEnvido final es: 21
+2023-11-08 00:14:38,346 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,375 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,391 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,405 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 00:14:38,421 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead

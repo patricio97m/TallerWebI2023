@@ -330,6 +330,15 @@ public class Partida{
             if(jugadorGanador != Jugador.NA){
                 return jugadorGanador;
             }
+            else if(ronda.getResultadoTirada(1) == Jugador.Empate){
+                jugadorGanador = ganoSegundaOTercera();
+                if(jugadorGanador != Jugador.NA){
+                    return jugadorGanador;
+                }
+                else{
+                    return Jugador.NA;
+                }
+            }
             else if(ronda.getResultadoTirada(2) == Jugador.Empate){
                 if(ronda.getResultadoTirada(1) != Jugador.Empate){
                     return ronda.getResultadoTirada(1);

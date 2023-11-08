@@ -211,7 +211,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         logger.info("Se jugó una carta");
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         if(partida.getCantoEnvido() || partida.getCantoTruco()){
-            throw new JugadaInvalidaException("No se puede jugar una carta si se esta cantando envido primero");
+            throw new JugadaInvalidaException("No se puede jugar una carta si hay un canto pendiente");
         }
         int tiradaActual = partida.getTiradaActual();
         Mano manoDelJugador;
