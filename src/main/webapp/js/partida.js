@@ -79,7 +79,6 @@ function actualizarVista(partida, idPartida) {
     let truco = partida.truco;
     let trucoAQuerer = partida.trucoAQuerer;
     let cantoTruco = partida.cantoTruco;
-    puedeCantarTruco = partida.puedeCantarTruco;
     let envido = partida.envido;
     let envidoAQuerer = partida.envidoAQuerer;
     let cantoEnvido =  partida.cantoEnvido;
@@ -87,7 +86,8 @@ function actualizarVista(partida, idPartida) {
     let puntosEnvidoIA = partida.puntosEnvidoIA;
     let puntosEnvidoJugador = partida.puntosEnvidoJugador;
     let ganador = partida.ganador;
-    let quienEsMano = partida.quienEsMano;
+    let tiradaActual = partida.tiradaActual;
+    let puedeCantarTruco = partida.puedeCantarTruco;
 
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
@@ -105,7 +105,7 @@ function actualizarVista(partida, idPartida) {
         }, 10000); // 10000 milisegundos (10 segundos)
     }
 
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, tiradaActual, puedeCantarTruco);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
@@ -131,7 +131,7 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, tiradaActual, puedeCantarTruco) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
@@ -147,18 +147,20 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     const volverAlMenuButton = $('#miModal #volverAlMenu');
     const popover = $('#ultimaJugada');
     const popoverBody = $('.popover-body');
+    const trucoButtonInferior = $('#Truco');
+    const envidoButtonInferior = $('#envidoButtonInferior');
 
 
     if (ultimaJugada === 'Quiero' && ultimoJugador === 'IA') {
         popover.show();
-        popoverBody.text("IA: " + ultimaJugada);
+        popoverBody.text("IA: QUIERO");
 
         setTimeout(function() {
             popover.hide();
         }, 3000);
     } else if (ultimaJugada === 'No Quiero' && ultimoJugador === 'IA') {
         popover.show();
-        popoverBody.text("IA: " + ultimaJugada);
+        popoverBody.text("IA: NO QUIERO");
 
         setTimeout(function() {
             popover.hide();
@@ -166,6 +168,23 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     } else {
         popover.hide();
     }
+
+    if (tiradaActual > 1){
+        envidoButtonInferior.prop('disabled', true);
+    }else envidoButtonInferior.prop('disabled', false);
+
+    if (!puedeCantarTruco){
+        trucoButtonInferior.prop('disabled', true);
+    }else trucoButtonInferior.prop('disabled', false);
+
+    if (truco === 2 && puedeCantarTruco){
+        trucoButtonInferior.text("Retruco");
+    } else if (truco === 3 && puedeCantarTruco){
+        trucoButtonInferior.text("Vale cuatro");
+    }else if(truco === 4) {
+        trucoButtonInferior.text("Vale cuatro");
+    }
+    else trucoButtonInferior.text("Truco");
 
     puntosJugadorElement.text(puntosJugador + ' Puntos');
     puntosIaElement.text(puntosIa + ' Puntos');
