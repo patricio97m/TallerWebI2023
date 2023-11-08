@@ -110,13 +110,9 @@ function actualizarVista(partida, idPartida) {
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
 
-
-
     if(turnoIA)setTimeout(function() {
         recibirCambios(idPartida);
-    }, 2000); // 2000 milisegundos (2 segundos)
-
-
+    }, 1500); // (1.5 segundos)
 }
 
 
@@ -169,7 +165,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
         popover.hide();
     }
 
-    if (tiradaActual > 1){
+    if (tiradaActual > 1 || envido < 0){
         envidoButtonInferior.prop('disabled', true);
     }else envidoButtonInferior.prop('disabled', false);
 
@@ -189,9 +185,8 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     puntosJugadorElement.text(puntosJugador + ' Puntos');
     puntosIaElement.text(puntosIa + ' Puntos');
 
-    if (turnoIA == false) { //Acá habría que arreglar para que salte el modal
+    if (turnoIA == false) {
         if(cantoEnvido){
-                //Acá haría falta verificar si se cantó envido primero
             if (envidoAQuerer == 2){// aca se muestran los botones quiero, no quiero, envido, real envido y falta envido
                 $('#miModal').modal('show');
                 $('#miModal .modal-body h5').text("La IA canta envido" );
