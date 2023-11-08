@@ -1,9 +1,12 @@
 $(document).ready(function() {
     console.log("JS Cargado");
+
     $('#miModal').modal({
         backdrop: 'static',
         keyboard: false
     });
+
+    $('#ultimaJugada').hide();
  
     $(".body").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
@@ -83,6 +86,7 @@ function actualizarVista(partida, idPartida) {
     let puntosEnvidoIA = partida.puntosEnvidoIA;
     let puntosEnvidoJugador = partida.puntosEnvidoJugador;
     let ganador = partida.ganador;
+    let quienEsMano = partida.quienEsMano;
 
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
@@ -100,7 +104,7 @@ function actualizarVista(partida, idPartida) {
         }, 10000); // 10000 milisegundos (10 segundos)
     }
 
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
@@ -126,7 +130,7 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
@@ -140,6 +144,27 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
     const realEnvidoButton = $('#miModal #realEnvido');
     const faltaEnvidoButton = $('#miModal #faltaEnvido');
     const volverAlMenuButton = $('#miModal #volverAlMenu');
+    const popover = $('#ultimaJugada');
+    const popoverBody = $('.popover-body');
+
+
+    if (ultimaJugada === 'Quiero' && turnoIA === false ) {
+        popover.show();
+        popoverBody.text("IA: " + ultimaJugada);
+
+        setTimeout(function() {
+            popover.hide();
+        }, 3000);
+    } else if (ultimaJugada === 'No Quiero' && turnoIA === false) {
+        popover.show();
+        popoverBody.text("IA: " + ultimaJugada);
+
+        setTimeout(function() {
+            popover.hide();
+        }, 3000);
+    } else {
+        popover.hide();
+    }
 
     puntosJugadorElement.text(puntosJugador + ' Puntos');
     puntosIaElement.text(puntosIa + ' Puntos');

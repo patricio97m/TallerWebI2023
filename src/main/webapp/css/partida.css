@@ -208,6 +208,14 @@ body{
     width: 90%;
 }
 
+.popover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 @media (max-width: 768px) {
     .cartasJugadasIA {
         width: 100vh;
