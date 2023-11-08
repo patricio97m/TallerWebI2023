@@ -58,7 +58,7 @@ public class Partida{
     private Jugador ganador;
     private boolean turnoIA;
     private String ultimaJugada;
-
+    private Jugador ultimoJugador;
 
     public Long getId() {
         return id;
@@ -130,6 +130,14 @@ public class Partida{
             this.ultimaJugada = "Error al leer Ultima Jugada";
         }
 
+    }
+
+    public Jugador getUltimoJugador() {
+        return ultimoJugador;
+    }
+
+    public void setUltimoJugador(Jugador ultimoJugador) {
+        this.ultimoJugador = ultimoJugador;
     }
 
     public boolean isTurnoIA() {

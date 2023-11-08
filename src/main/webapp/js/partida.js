@@ -68,6 +68,7 @@ function actualizarVista(partida, idPartida) {
     console.log(partida)
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
     let ultimaJugada = partida.ultimaJugada;
+    let ultimoJugador = partida.ultimoJugador;
     let turnoIA = partida.turnoIA;
     let manoDelJugador = partida.manoDelJugador;
     let cartasRestantesIa = partida.cartasRestantesIa;
@@ -104,7 +105,7 @@ function actualizarVista(partida, idPartida) {
         }, 10000); // 10000 milisegundos (10 segundos)
     }
 
-    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano);
+    actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano);
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
@@ -130,7 +131,7 @@ function obtenerCookie(nombreCookie) {0
     return null;
 }
 
-function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano) {
+function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJugador, ganador, truco, envido, cantoEnvido, cantoTruco, puntosEnvidoIA, puntosEnvidoJugador, envidoAQuerer, quienEsMano) {
     const puntosJugadorElement = $('#puntosJugador');
     const puntosIaElement = $('#puntosIa');
     // Así se deberían llamar los botones para hacer la lógica de quiero y no quiero
@@ -148,14 +149,14 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ganador
     const popoverBody = $('.popover-body');
 
 
-    if (ultimaJugada === 'Quiero' && turnoIA === false ) {
+    if (ultimaJugada === 'Quiero' && ultimoJugador === 'IA') {
         popover.show();
         popoverBody.text("IA: " + ultimaJugada);
 
         setTimeout(function() {
             popover.hide();
         }, 3000);
-    } else if (ultimaJugada === 'No Quiero' && turnoIA === false) {
+    } else if (ultimaJugada === 'No Quiero' && ultimoJugador === 'IA') {
         popover.show();
         popoverBody.text("IA: " + ultimaJugada);
 

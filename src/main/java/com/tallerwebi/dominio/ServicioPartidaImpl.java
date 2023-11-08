@@ -107,8 +107,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
             throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
         }
 
-        partida.setUltimaJugada(jugada);
-
         if(tipoJugada == TipoJugada.ENVIDO){
             try {
 				calcularCambiosEnvido(idPartida, index, jugador);
@@ -153,6 +151,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
             throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
         }
 
+        partida.setUltimaJugada(jugada);
+        partida.setUltimoJugador(jugador);
         partida.chequearSiHayUnGanador();
     }
 
@@ -332,10 +332,10 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 }
                 
                 if(ganadorEnvido == Jugador.IA){
-                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
                 }
                 else if(ganadorEnvido == Jugador.J1){
-                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
                 }
 
                 partida.setEnvidoAQuerer(0);
@@ -466,7 +466,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public ModelMap getDetallesPartida(Long idPartida) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         ModelMap model = new ModelMap();
-        model.put("Ultima Jugada", partida.getUltimaJugada());
+        model.put("ultimaJugada", partida.getUltimaJugada());
         model.put("turnoIA", partida.isTurnoIA());
         model.put("manoDelJugador", getManoDelJugador(idPartida));
         model.put("cartasRestantesIa", 3 - (getCartasJugadasIa(idPartida).size()));
@@ -495,6 +495,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         // Construye manualmente una cadena JSON
         String json = "{"
                 + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimoJugador\":\"" + partida.getUltimoJugador() + "\","
                 + "\"turnoIA\":" + partida.isTurnoIA() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
