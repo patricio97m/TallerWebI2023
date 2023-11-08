@@ -1,5 +1,6 @@
-package com.tallerwebi.presentacion;
+package controladores;
 import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.presentacion.ControladorPartida;
 import org.dom4j.rule.Mode;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

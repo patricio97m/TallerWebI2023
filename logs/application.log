@@ -10769,3 +10769,6 @@
 2023-11-03 19:01:15,409 WARN o.h.o.deprecation [qtp530131514-20] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-03 19:01:15,412 WARN o.h.o.deprecation [qtp530131514-20] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-03 19:01:15,415 WARN o.h.o.deprecation [qtp530131514-20] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-08 17:56:26,519 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-08 18:05:36,852 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-08 18:05:45,151 ERROR c.t.d.Mano [main] Se calcula el envido
