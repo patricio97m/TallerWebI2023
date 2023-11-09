@@ -2,7 +2,21 @@ package com.tallerwebi.dominio;
 
 import com.tallerwebi.enums.TipoJugada;
 
+import java.util.Objects;
+
 public class Jugada {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugada jugada = (Jugada) o;
+        return tipoJugada == jugada.tipoJugada && Objects.equals(index, jugada.index);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tipoJugada, index);
+    }
 
     TipoJugada tipoJugada;
 

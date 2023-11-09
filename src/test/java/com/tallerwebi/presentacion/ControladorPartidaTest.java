@@ -1,6 +1,11 @@
 package com.tallerwebi.presentacion;
+import com.tallerwebi.dominio.Jugada;
 import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
+import com.tallerwebi.enums.Jugador;
+import com.tallerwebi.enums.TipoJugada;
 import org.dom4j.rule.Mode;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -32,8 +37,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 public class ControladorPartidaTest {
 
-    ServicioPartida servicioPartida = mock(ServicioPartida.class);
-    ControladorPartida controladorPartida = new ControladorPartida(servicioPartida);
+    private ControladorPartida controladorPartida;
+    private ServicioPartida servicioPartida;
+
+    @BeforeEach
+    public void init() {
+        servicioPartida = mock(ServicioPartida.class);
+        controladorPartida = new ControladorPartida(servicioPartida);
+    }
+
     @Test
     public void siLaPartidaSeIniciaSePuedeIr() {
 
@@ -573,18 +585,18 @@ public class ControladorPartidaTest {
         HttpServletResponse responseMock = new MockHttpServletResponse();
 
 
-       ModelAndView mav = whenInicioPartida(request,response);
+        ModelAndView mav = whenInicioPartida(request,response);
         thenSePuedeIrALaPartida(mav);
 
     }
 
     private void thenSePuedeIrALaPartida(ModelAndView mav) {
-      // assertThat(mav.getViewName()).isEqualTo("partida");
+        // assertThat(mav.getViewName()).isEqualTo("partida");
         assertThat(mav.getViewName(), equalToIgnoringCase("partida"));
     }
 
     private ModelAndView whenInicioPartida(HttpServletRequest request, HttpServletResponse response) {
-       return controladorPartida.irAPartida(request,response);
+        return controladorPartida.irAPartida(request,response);
     }
 
 
@@ -605,4 +617,30 @@ public class ControladorPartidaTest {
         Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null);
         assertEquals(servicioPartida.getDetallesPartidaJSON(null), retorno);
     }
+    @Test
+    public void queElJugadorPuedaCantarTruco() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("Truco", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.J1);
+    }
+    @Test
+    public void queElJugadorPuedaCantarEnvido() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("Envido", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO), Jugador.J1);
+    }
+    @Test
+    public void queElJugadorSePuedaIrAlMazo() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("Mazo", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.J1);
+    }
+
+
 }
