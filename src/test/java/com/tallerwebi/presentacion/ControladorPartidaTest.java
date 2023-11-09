@@ -41,7 +41,7 @@ public class ControladorPartidaTest {
     @BeforeEach
     public void init() {
         servicioPartida = mock(ServicioPartida.class);
-        controladorPartida = new ControladorPartida(servicioPartidaMock);
+        controladorPartida = new ControladorPartida(servicioPartida);
     }
 
     @Test
