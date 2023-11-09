@@ -23,6 +23,4 @@ public interface ServicioPartida {
     ModelMap getDetallesPartida(Long idPartida);
     String getDetallesPartidaJSON(Long idPartida);
     
-
-    
 }

@@ -155,7 +155,6 @@ public class ServicioIAImpl implements ServicioIA {
     }
     @Override
     public Jugada cantarTruco() {
-
         return new Jugada(TipoJugada.TRUCO);
     }
     @Override
