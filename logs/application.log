@@ -1579,3 +1579,17 @@
 2023-11-08 00:14:38,391 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-08 00:14:38,405 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-08 00:14:38,421 WARN o.h.o.deprecation [qtp1972846458-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-09 01:17:17,582 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 02:37:54,408 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:38:48,097 INFO c.t.d.ServicioPartidaImpl [main] Se jugó una carta
+2023-11-09 03:38:48,259 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:38:48,346 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:40:47,833 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:41:55,994 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:44:38,238 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:45:06,860 INFO c.t.d.ServicioPartidaImpl [main] Se jugó una carta
+2023-11-09 03:45:57,321 INFO c.t.d.ServicioPartidaImpl [main] Se jugó una carta
+2023-11-09 03:45:57,452 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:45:57,582 ERROR c.t.d.Mano [main] Se calcula el envido
+2023-11-09 03:47:23,909 INFO c.t.d.ServicioPartidaImpl [main] Se jugó una carta
+2023-11-09 03:47:24,051 ERROR c.t.d.Mano [main] Se calcula el envido

@@ -176,7 +176,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
 
     //Getters y métodos auxiliares
-
+    
     private void calcularCambiosMazo(Long idPartida, Jugador jugador) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 

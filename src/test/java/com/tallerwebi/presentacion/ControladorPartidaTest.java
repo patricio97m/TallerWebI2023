@@ -609,7 +609,7 @@ public class ControladorPartidaTest {
 
     @Test 
     public void queRecibirCambiosRetornaLosDetallesDePartidaQueTraeServicioPartida(){
-        String valorEsperado = "Hola";
+        String valorEsperado = "Valor Esperado";
         doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null);
 
         String retorno = controladorPartida.recibirCambios(null);
