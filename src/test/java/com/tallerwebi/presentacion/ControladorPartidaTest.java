@@ -25,7 +25,9 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 public class ControladorPartidaTest {
@@ -585,4 +587,22 @@ public class ControladorPartidaTest {
        return controladorPartida.irAPartida(request,response);
     }
 
+
+    @Test
+    public void queRecibirCambiosHaceQueElServicioPartidaCalculeUnaJugada(){
+        controladorPartida.recibirCambios(null);
+
+        Mockito.verify(servicioPartida, Mockito.times(1)).calcularJugadaIA(null);
+    }
+
+    @Test 
+    public void queRecibirCambiosRetornaLosDetallesDePartidaQueTraeServicioPartida(){
+        String valorEsperado = "Hola";
+        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null);
+
+        String retorno = controladorPartida.recibirCambios(null);
+
+        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null);
+        assertEquals(servicioPartida.getDetallesPartidaJSON(null), retorno);
+    }
 }
