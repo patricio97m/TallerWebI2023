@@ -31,8 +31,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 public class ControladorPartidaTest {
 
     private ControladorPartida controladorPartida;
@@ -622,5 +622,39 @@ public class ControladorPartidaTest {
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.J1);
     }
 
+    @Test
+    public void queElJugadorPuedaJugarCarta() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("Carta", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 0), Jugador.J1);
+    }
+    @Test
+    public void queElJugadorPuedaCantarQuiero() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("Quiero", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
+    }
+    @Test
+    public void queElJugadorPuedaCantarNoQuiero() throws JugadaInvalidaException {
+        // Ejecución
+        controladorPartida.enviarJugada("NoQuiero", 0, null);
+
+        // Validación
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+    }
+    @Test
+    public void queEnviarJugadaRetornaLosDetallesDePartidaQueTraeServicioPartida(){
+        String valorEsperado = "";
+        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null);
+
+        String retorno = controladorPartida.recibirCambios(null);
+
+        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null);
+        assertEquals(servicioPartida.getDetallesPartidaJSON(null), retorno);
+    }
 
 }
