@@ -18,16 +18,16 @@ public class ServicioPartidaTest {
     ServicioPartida servicioPartida = new ServicioPartidaImpl(repositorioPartida,servicioIA);
 
    @Test
-   public void siNoEncuentraUnaPartidaCreaUnaNueva(){
+   public void buscarPartidaExistente(){
 
 
        when(repositorioPartida.buscarPartidaPorId(1L)).thenReturn(new Partida());
 
        boolean partidaEncontrada = whenBuscaPartida();
-       thenNoEncuentraLaPartida(partidaEncontrada);
+       thenEncuentraLaPartida(partidaEncontrada);
    }
 
-    private void thenNoEncuentraLaPartida(boolean partidaEncontrada) {
+    private void thenEncuentraLaPartida(boolean partidaEncontrada) {
        assertThat(partidaEncontrada,is(true));
        verify(repositorioPartida,times(1)).buscarPartidaPorId(1L);
     }
@@ -45,7 +45,7 @@ public class ServicioPartidaTest {
     }
 
     private void thenSeGuardaLaPartida(Long idPartida) {
-       assertThat(idPartida,is(notNullValue()));
+       assertThat(idPartida,is(notNull()));
     }
 
     private Long whenSeIniciaLaPartida() {
