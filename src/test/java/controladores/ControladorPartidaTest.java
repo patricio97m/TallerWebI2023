@@ -1,10 +1,11 @@
-package com.tallerwebi.presentacion;
+package controladores;
 import com.tallerwebi.dominio.Jugada;
 import com.tallerwebi.dominio.ServicioPartida;
 import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
 import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
-import org.dom4j.rule.Mode;
+import com.tallerwebi.presentacion.ControladorPartida;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

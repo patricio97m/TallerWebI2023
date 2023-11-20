@@ -102,15 +102,6 @@ public class Mano{
     }
 
     private short calcularEnvido() {
-        logger.error("Se calcula el envido");
-        logger.error("La primer carta es: " + carta1.getNumero() + " de " + carta1.getPalo());
-        logger.error("La segunda carta es: " + carta2.getNumero() + " de " + carta2.getPalo());
-        logger.error("La tercer carta es: " + carta3.getNumero() + " de " + carta3.getPalo());
-
-        logger.error("El palo de Carta 1 es igual al palo de Carta 2: " + (carta1.getPalo() == carta2.getPalo()));
-        logger.error("El palo de Carta 2 es igual al palo de Carta 3: " + (carta2.getPalo() == carta3.getPalo()));
-        logger.error("El palo de Carta 1 es igual al palo de Carta 3: " + (carta1.getPalo() == carta3.getPalo()));
-        logger.error("El palo de Carta 1 es igual al palo de Carta 1: " + (carta1.getPalo() == carta1.getPalo()));
         short valorEnvido = 0;
         if(carta1.getPalo().equals(carta2.getPalo())){
             valorEnvido += 20;
