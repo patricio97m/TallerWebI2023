@@ -87,7 +87,7 @@
                         <button type="button" class="boton-jugada btn btn-warning" id="envido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
                         <button type="button" class="boton-jugada btn btn-primary" id="realEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
                         <button type="button" class="boton-jugada btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=100>Falta envido</button>
-                        <a type="submit" href="torneo" class="boton btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</a>
+                        <a href="/spring/home" class="boton btn btn-secondary" id="volverAlMenu">Volver al menú</a>
                     </div>
                 </div>
             </div>
@@ -154,12 +154,18 @@
             </div>
 
             <!-- Botones de truco, envido y mazo -->
-            <div class="row justify-content-center mt-5">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" id="Truco" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
-                    <button type="button" id="envidoButtonInferior" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
-                </div>
+            <div class="btn-group btn-tipos-envido" role="group">
+                <!-- Tipos de envido -->
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="envidoButtonInferior" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
+                <button type="button" id="realEnvidoButtonInferior" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="faltaEnvidoButtonInferior" th:data-tipo-jugada="Envido" th:data-indice=4>Falta envido</button>
+            </div>
+
+            <!-- Tipo de jugada -->
+            <div class="btn-group btn-tipos-jugadas" role="group">
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="Truco" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
+                <button type="button" id="mostrarBotonesEnvido" class="btn btn-light btn-lg">Envido</button>
+                <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
             </div>
         </div>
 

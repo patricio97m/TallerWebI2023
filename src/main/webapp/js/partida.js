@@ -7,6 +7,14 @@ $(document).ready(function() {
     });
 
     $('#ultimaJugada').hide();
+
+    // Oculta los botones de tipo de envido
+    $(".btn-tipos-envido").hide();
+
+    // Maneja el clic en el botón mostrarBotonesEnvido
+    $("#mostrarBotonesEnvido").on("click", function() {
+        $(".btn-tipos-envido").toggle();
+    });
  
     $(".body").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
@@ -23,6 +31,8 @@ $(document).ready(function() {
         console.log("Jugada: " + tipoJugada + " indice: " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
     });
+
+
 });
 
 function enviarJugada(tipoJugada, indice, idPartida){
@@ -144,7 +154,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     const popover = $('#ultimaJugada');
     const popoverBody = $('.popover-body');
     const trucoButtonInferior = $('#Truco');
-    const envidoButtonInferior = $('#envidoButtonInferior');
+    const mostrarBotonesEnvido = $('#mostrarBotonesEnvido');
 
 
     if (ultimaJugada === 'Quiero' && ultimoJugador === 'IA') {
@@ -166,11 +176,15 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     }
 
     if (tiradaActual > 1 || envido < 0){
-        envidoButtonInferior.prop('disabled', true);
-    }else envidoButtonInferior.prop('disabled', false);
+        mostrarBotonesEnvido.prop('disabled', true);
+        $(".btn-tipos-envido").hide();
+    }else {
+        mostrarBotonesEnvido.prop('disabled', false);
+    }
 
     if (!puedeCantarTruco){
         trucoButtonInferior.prop('disabled', true);
+        $(".btn-tipos-envido").hide();
     }else trucoButtonInferior.prop('disabled', false);
 
     if (truco === 2 && puedeCantarTruco){
