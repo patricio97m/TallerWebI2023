@@ -6,6 +6,12 @@ $(document).ready(function() {
         keyboard: false
     });
 
+    $(".ocultar-boton").hide();
+
+    $("#mostrar-ayudas").click(function() {
+        $(".ocultar-boton").toggle();
+    });
+
     $('#ultimaJugada').hide();
 
     // Oculta los botones de tipo de envido
@@ -15,7 +21,21 @@ $(document).ready(function() {
     $("#mostrarBotonesEnvido").on("click", function() {
         $(".btn-tipos-envido").toggle();
     });
- 
+
+    $("#repartir-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("Repartir cartas" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite volver a repartir las cartas" );
+    });
+    $("#intercambiar-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("Intercambiar cartas" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite intercambiar tus cartas con las del oponente" );
+    });
+    $("#3-puntos-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("3 puntos" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantanemente" );
+    });
+
+
     $(".body").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
         let indice = parseInt($(this).data("indice-carta"));
