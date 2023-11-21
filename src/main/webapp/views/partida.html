@@ -86,11 +86,31 @@
                         <button type="button" class="boton-jugada btn btn-warning" id="envido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
                         <button type="button" class="boton-jugada btn btn-primary" id="realEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
                         <button type="button" class="boton-jugada btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=100>Falta envido</button>
-                        <a type="submit" href="torneo" class="boton btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</a>
+                        <a href="/spring/home" class="boton btn btn-secondary" id="volverAlMenu">Volver al menú</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal de ayudas -->
+        <div class="modal fade" id="modalAyudas" tabindex="-1" data-backdrop="static">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Usar</button>
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="contenedorPartida">
 
@@ -118,8 +138,6 @@
                 <div class="popover-body">
                 </div>
             </div>
-
-
 
             <!-- Cartas del oponente -->
             <div class="row justify-content-center mt-5 cartasDeLaIA">
@@ -153,12 +171,18 @@
             </div>
 
             <!-- Botones de truco, envido y mazo -->
-            <div class="row justify-content-center mt-5">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" id="Truco" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
-                    <button type="button" id="envidoButtonInferior" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
-                </div>
+            <div class="btn-group btn-tipos-envido" role="group">
+                <!-- Tipos de envido -->
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="envidoButtonInferior" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
+                <button type="button" id="realEnvidoButtonInferior" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="faltaEnvidoButtonInferior" th:data-tipo-jugada="Envido" th:data-indice=4>Falta envido</button>
+            </div>
+
+            <!-- Tipo de jugada -->
+            <div class="btn-group btn-tipos-jugadas" role="group">
+                <button type="button" class="btn btn-light btn-lg boton-jugada" id="Truco" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
+                <button type="button" id="mostrarBotonesEnvido" class="btn btn-light btn-lg">Envido</button>
+                <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
             </div>
         </div>
 
@@ -166,6 +190,15 @@
             <img th:src="@{/img/cartasMazo.png}" class="mazoimagen">
         </div>
 
+        <!-- Botones de ayudas -->
+        <div class="position-fixed bottom-0 end-0 p-2 d-flex flex-column">
+            <div class="d-flex flex-column" id="boton-ayudas-container">
+                <button class="btn boton-ayudas ocultar-boton mb-1" id="repartir-ayuda" type="button" title="Volver a repartir" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda" >2</span></button>
+                <button class="btn boton-ayudas ocultar-boton mb-1" id="intercambiar-ayuda" type="button" title="Intercambiar cartas con tu oponente" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda">1</span></button>
+                <button class="btn boton-ayudas ocultar-boton mb-1" type="button" id="3-puntos-ayuda" title="Sumar +3 puntos" data-bs-toggle="modal" data-bs-target="#modalAyudas">+3<span class="cantidad-ayuda">5</span></button>
+            </div>
+            <button class="btn boton-ayudas" type="button" id="mostrar-ayudas" title="Ver ayudas"></button>
+        </div>
     </main>
 
     <!-- Boostrap core js -->

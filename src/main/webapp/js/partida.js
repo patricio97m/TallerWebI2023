@@ -6,8 +6,36 @@ $(document).ready(function() {
         keyboard: false
     });
 
+    $(".ocultar-boton").hide();
+
+    $("#mostrar-ayudas").click(function() {
+        $(".ocultar-boton").toggle();
+    });
+
     $('#ultimaJugada').hide();
- 
+
+    // Oculta los botones de tipo de envido
+    $(".btn-tipos-envido").hide();
+
+    // Maneja el clic en el botón mostrarBotonesEnvido
+    $("#mostrarBotonesEnvido").on("click", function() {
+        $(".btn-tipos-envido").toggle();
+    });
+
+    $("#repartir-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("Repartir cartas" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite volver a repartir las cartas" );
+    });
+    $("#intercambiar-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("Intercambiar cartas" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite intercambiar tus cartas con las del oponente" );
+    });
+    $("#3-puntos-ayuda").on("click", function() {
+        $('#modalAyudas .modal-header h5').text("3 puntos" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantanemente" );
+    });
+
+
     $(".body").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
         let indice = parseInt($(this).data("indice-carta"));
@@ -23,6 +51,8 @@ $(document).ready(function() {
         console.log("Jugada: " + tipoJugada + " indice: " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);
     });
+
+
 });
 
 function enviarJugada(tipoJugada, indice, idPartida){
@@ -144,7 +174,7 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     const popover = $('#ultimaJugada');
     const popoverBody = $('.popover-body');
     const trucoButtonInferior = $('#Truco');
-    const envidoButtonInferior = $('#envidoButtonInferior');
+    const mostrarBotonesEnvido = $('#mostrarBotonesEnvido');
 
 
     if (ultimaJugada === 'Quiero' && ultimoJugador === 'IA') {
@@ -166,11 +196,15 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     }
 
     if (tiradaActual > 1 || envido < 0){
-        envidoButtonInferior.prop('disabled', true);
-    }else envidoButtonInferior.prop('disabled', false);
+        mostrarBotonesEnvido.prop('disabled', true);
+        $(".btn-tipos-envido").hide();
+    }else {
+        mostrarBotonesEnvido.prop('disabled', false);
+    }
 
     if (!puedeCantarTruco){
         trucoButtonInferior.prop('disabled', true);
+        $(".btn-tipos-envido").hide();
     }else trucoButtonInferior.prop('disabled', false);
 
     if (truco === 2 && puedeCantarTruco){
