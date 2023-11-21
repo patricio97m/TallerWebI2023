@@ -49,7 +49,7 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida, @RequestParam("idUsuario") Long idUsuario) {
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
@@ -89,6 +89,13 @@ public class ControladorPartida {
         else if(Objects.equals(tipoJugada, "NoQuiero")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(Objects.equals(tipoJugada, "Potenciador")){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
