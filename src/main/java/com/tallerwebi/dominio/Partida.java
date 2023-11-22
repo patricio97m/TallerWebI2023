@@ -58,7 +58,7 @@ public class Partida{
     private Jugador ganador;
     private boolean turnoIA;
     private String ultimaJugada;
-
+    private Jugador ultimoJugador;
 
     public Long getId() {
         return id;
@@ -130,6 +130,14 @@ public class Partida{
             this.ultimaJugada = "Error al leer Ultima Jugada";
         }
 
+    }
+
+    public Jugador getUltimoJugador() {
+        return ultimoJugador;
+    }
+
+    public void setUltimoJugador(Jugador ultimoJugador) {
+        this.ultimoJugador = ultimoJugador;
     }
 
     public boolean isTurnoIA() {
@@ -322,6 +330,15 @@ public class Partida{
             if(jugadorGanador != Jugador.NA){
                 return jugadorGanador;
             }
+            else if(ronda.getResultadoTirada(1) == Jugador.Empate){
+                jugadorGanador = ganoSegundaOTercera();
+                if(jugadorGanador != Jugador.NA){
+                    return jugadorGanador;
+                }
+                else{
+                    return Jugador.NA;
+                }
+            }
             else if(ronda.getResultadoTirada(2) == Jugador.Empate){
                 if(ronda.getResultadoTirada(1) != Jugador.Empate){
                     return ronda.getResultadoTirada(1);
@@ -405,9 +422,13 @@ public class Partida{
         return ronda.getQuienCantoTruco();
     }
 
-	public String getPuntosEnvido(Jugador j1) {
-		return null;
-	}
+    public boolean getRecanto() {
+        return ronda.getRecanto();
+    }
+
+    public void setRecanto(boolean recanto) {
+        ronda.setRecanto(recanto);
+    }
 }
 
 

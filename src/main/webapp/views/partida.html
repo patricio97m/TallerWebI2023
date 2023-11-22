@@ -87,7 +87,7 @@
                         <button type="button" class="boton-jugada btn btn-warning" id="envido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
                         <button type="button" class="boton-jugada btn btn-primary" id="realEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=3>Real envido</button>
                         <button type="button" class="boton-jugada btn btn-dark" id="faltaEnvido" data-bs-dismiss="modal" th:data-tipo-jugada="Envido" th:data-indice=100>Falta envido</button>
-                        <button type="button" class="boton-jugada btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</button>
+                        <a type="submit" href="torneo" class="boton btn btn-secondary" id="volverAlMenu" data-bs-dismiss="modal">Volver al menú</a>
                     </div>
                 </div>
             </div>
@@ -113,6 +113,10 @@
                         <p id="puntosEnvidoJugador" style="display: none;"></p>
                         <p id="puntosEnvidoIA" style="display: none;"></p>
                     </div>
+                </div>
+            </div>
+            <div id="ultimaJugada" class="popover w-25">
+                <div class="popover-body">
                 </div>
             </div>
 
@@ -153,7 +157,7 @@
             <div class="row justify-content-center mt-5">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-light btn-lg boton-jugada" id="Truco" th:data-tipo-jugada="Truco" th:data-indice=0>Truco</button>
-                    <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
+                    <button type="button" id="envidoButtonInferior" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Envido" th:data-indice=2>Envido</button>
                     <button type="button" class="btn btn-light btn-lg boton-jugada" th:data-tipo-jugada="Mazo" th:data-indice=0>Mazo</button>
                 </div>
             </div>

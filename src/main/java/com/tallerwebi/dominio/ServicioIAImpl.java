@@ -1,5 +1,6 @@
 package com.tallerwebi.dominio;
 
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
 import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
 import com.tallerwebi.infraestructura.RepositorioPartida;
@@ -33,7 +34,11 @@ public class ServicioIAImpl implements ServicioIA {
             if (numero == 0) {
                 short indice = calcularEnvido(idPartida);
                 if (indice != 0) {
-                    return cantarEnvido(idPartida, indice);
+                    try {
+                        return cantarEnvido(idPartida, indice);
+                    } catch (JugadaInvalidaException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
@@ -150,30 +155,23 @@ public class ServicioIAImpl implements ServicioIA {
     }
     @Override
     public Jugada cantarTruco() {
-
         return new Jugada(TipoJugada.TRUCO);
     }
     @Override
-    public Jugada cantarEnvido(Long idPartida,short indice){
+    public Jugada cantarEnvido(Long idPartida,short indice) throws JugadaInvalidaException{
 
         if(indice == 2){
-            if(siPuedeCantarEnvido(idPartida)){
-                return new Jugada(TipoJugada.ENVIDO,2);
-            }
+            return new Jugada(TipoJugada.ENVIDO,2);
         }
         if(indice == 3){
-            if(siPuedeCantarRealEnvido(idPartida)){
-                return new Jugada(TipoJugada.ENVIDO,3);
-            }
+            return new Jugada(TipoJugada.ENVIDO,3);
         }
         if(indice == 100){
-            if(siPuedeCantarFaltaEnvido(idPartida)){
-                return new Jugada(TipoJugada.ENVIDO,100);
-            }
+            return new Jugada(TipoJugada.ENVIDO,100);
         }
 
 
-        return null;
+        throw new JugadaInvalidaException("El indice para cantar envido es invalido");
     }
 
     private boolean siPuedeCantarFaltaEnvido(Long idPartida) {
@@ -218,16 +216,13 @@ public class ServicioIAImpl implements ServicioIA {
 
         short envido = manoIA.getValorEnvido();
 
-        if (envido <= 16) {
-            return 0;
-        }
-        if (envido >= 17 && envido <= 25) {
+        if (envido >= 17 && envido <= 25 && siPuedeCantarEnvido(idPartida)) {
             return 2;
         }
-        if (envido >= 26 && envido <= 30) {
+        if (envido >= 26 && envido <= 30 && siPuedeCantarRealEnvido(idPartida)) {
             return 3;
         }
-        if (envido >= 31 && envido <= 33) {
+        if (envido >= 31 && envido <= 33 && siPuedeCantarFaltaEnvido(idPartida)) {
             return 100;
         }
 

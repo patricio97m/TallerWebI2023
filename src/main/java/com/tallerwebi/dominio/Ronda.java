@@ -22,6 +22,7 @@ public class Ronda {
     int envidoAQuerer;
     boolean cantoFaltaEnvido;
     boolean cantoEnvido;
+    boolean recanto;
 
     int tiradaActual;
     Jugador resultadoTirada1;
@@ -41,6 +42,7 @@ public class Ronda {
         resultadoTirada1 = Jugador.NA;
         resultadoTirada2 = Jugador.NA;
         resultadoTirada3 = Jugador.NA;
+        recanto = false;
     }
 
     public int getTiradaActual() {
@@ -140,5 +142,13 @@ public class Ronda {
 
     public void setQuienCantoTruco(Jugador quienCantoTruco) {
         this.quienCantoTruco = quienCantoTruco;
+    }
+
+    public boolean getRecanto() {
+        return recanto;
+    }
+
+    public void setRecanto(boolean recanto) {
+        this.recanto = recanto;
     }
 }

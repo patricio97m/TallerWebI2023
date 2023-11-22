@@ -1,5 +1,7 @@
 package com.tallerwebi.dominio;
 
+import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
+
 public interface ServicioIA {
 
     public Jugada calcularJugada(Long idPartida);
@@ -8,7 +10,7 @@ public interface ServicioIA {
     public boolean verificarTruco(Long idPartida);
     public Jugada cantarTruco();
 
-    public Jugada cantarEnvido(Long idPartida,short indice);
+    public Jugada cantarEnvido(Long idPartida,short indice) throws JugadaInvalidaException;
 
     public short calcularEnvido(Long idPartida);
     public Jugada tirarMejorCarta(Long idPartida);

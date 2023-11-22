@@ -100,7 +100,12 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
-        partida.setUltimaJugada(jugada);
+        if(jugador == Jugador.IA && !partida.isTurnoIA()){
+            throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
+        }
+        else if(jugador == Jugador.J1 && partida.isTurnoIA()){
+            throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
+        }
 
         if(tipoJugada == TipoJugada.ENVIDO){
             try {
@@ -129,12 +134,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
 			}
         }
         else if(tipoJugada == TipoJugada.RESPUESTA){
-            if(jugador == Jugador.IA){
-                partida.setTurnoIA(false);
-            }
-            else{
-                partida.setTurnoIA(true);
-            }
             calcularCambiosRespuesta(idPartida, index, jugador); 
         }
         else if(tipoJugada == TipoJugada.CARTA){
@@ -152,6 +151,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
             throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
         }
 
+        partida.setUltimaJugada(jugada);
+        partida.setUltimoJugador(jugador);
         partida.chequearSiHayUnGanador();
     }
 
@@ -175,7 +176,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
 
     //Getters y métodos auxiliares
-
+    
     private void calcularCambiosMazo(Long idPartida, Jugador jugador) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
@@ -210,7 +211,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         logger.info("Se jugó una carta");
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         if(partida.getCantoEnvido() || partida.getCantoTruco()){
-            throw new JugadaInvalidaException("No se puede jugar una carta si se esta cantando envido primero");
+            throw new JugadaInvalidaException("No se puede jugar una carta si hay un canto pendiente");
         }
         int tiradaActual = partida.getTiradaActual();
         Mano manoDelJugador;
@@ -267,6 +268,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
 
         if(index == 0){
+            if(partida.getRecanto()){
+                partida.setRecanto(false);
+            }
+            else{
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+            }
             if(partida.getCantoEnvido()){
                 if(partida.getEstadoEnvido() == 0){
                     if(jugador == Jugador.IA){
@@ -298,6 +310,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
             }
         }
         else{
+            if(partida.getRecanto()){
+                partida.setRecanto(false);
+            }
+            else{
+                if(jugador == Jugador.IA){
+                    partida.setTurnoIA(false);
+                }
+                else{
+                    partida.setTurnoIA(true);
+                }
+            }
             if(partida.getCantoEnvido()){
                 Jugador ganadorEnvido = partida.getGanadorEnvido();
 
@@ -309,10 +332,10 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 }
                 
                 if(ganadorEnvido == Jugador.IA){
-                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
+                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
                 }
                 else if(ganadorEnvido == Jugador.J1){
-                    partida.setPuntosIa(partida.getPuntosIa() + partida.getEstadoEnvido());
+                    partida.setPuntosJugador(partida.getPuntosJugador() + partida.getEstadoEnvido());
                 }
 
                 partida.setEnvidoAQuerer(0);
@@ -325,16 +348,17 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 partida.setTrucoAQuerer(0);
                 partida.setCantoTruco(false);
                 partida.setEstadoEnvido(-1);
-            }
-               
+            }     
         }
     }
 
     private void calcularCambiosEnvido(Long idPartida, Integer index, Jugador jugador) throws JugadaInvalidaException {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+
         if(partida.getEstadoEnvido() >= 0){
             if(partida.getCantoEnvido()){
-            partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+                partida.setEstadoEnvido(partida.getEstadoEnvido() + partida.getEnvidoAQuerer());
+                partida.setRecanto(!(partida.getRecanto()));
             }
             else{
                 partida.setCantoEnvido(true);
@@ -359,7 +383,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         if(partida.puedeCantarTruco(jugador)){
             if(partida.getCantoTruco()){
-            partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+                partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
+                partida.setRecanto(!(partida.getRecanto()));
             }
             partida.setTrucoAQuerer(1);
             partida.setCantoTruco(true);
@@ -441,7 +466,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public ModelMap getDetallesPartida(Long idPartida) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
         ModelMap model = new ModelMap();
-        model.put("Ultima Jugada", partida.getUltimaJugada());
+        model.put("ultimaJugada", partida.getUltimaJugada());
         model.put("turnoIA", partida.isTurnoIA());
         model.put("manoDelJugador", getManoDelJugador(idPartida));
         model.put("cartasRestantesIa", 3 - (getCartasJugadasIa(idPartida).size()));
@@ -469,7 +494,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
         // Construye manualmente una cadena JSON
         String json = "{"
-                + "\"Ultima Jugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimoJugador\":\"" + partida.getUltimoJugador() + "\","
                 + "\"turnoIA\":" + partida.isTurnoIA() + ","
                 + "\"manoDelJugador\":" + convertirArrayListAJSON(getManoDelJugador(idPartida)) + ","
                 + "\"cartasRestantesIa\":" + (3 - getCartasJugadasIa(idPartida).size()) + ","
@@ -489,6 +515,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"puntosEnvidoIA\":" + partida.getManoDeLaIa().getValorEnvido() + ","
                 + "\"puntosEnvidoJugador\":" + partida.getManoDelJugador().getValorEnvido() + ","
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
+                + "\"recanto\":" + partida.getRecanto() + ","
                 + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
                 + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
