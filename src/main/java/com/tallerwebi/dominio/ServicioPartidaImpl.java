@@ -95,7 +95,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     @Override
-    public void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador) throws JugadaInvalidaException {
+    public void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador, Usuario usuario) throws JugadaInvalidaException {
         TipoJugada tipoJugada = jugada.getTipoJugada();
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
@@ -148,7 +148,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
             calcularCambiosMazo(idPartida, jugador);
         }
         else if(tipoJugada == TipoJugada.POTENCIADOR){
-            calcularCambiosPotenciador(idPartida, index, jugador);
+            calcularCambiosPotenciador(idPartida, index, jugador, usuario);
         }
         else{
             throw new JugadaInvalidaException("El tipo de jugada realizada no existe");
@@ -163,7 +163,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
     public void calcularJugadaIA(Long idPartida) {
         Jugada jugadaIa = servicioIa.calcularJugada(idPartida);
         try {
-            actualizarCambiosDePartida(idPartida, jugadaIa, Jugador.IA);
+            actualizarCambiosDePartida(idPartida, jugadaIa, Jugador.IA, null);
         } catch (JugadaInvalidaException e) {
             e.printStackTrace();
         }
@@ -180,32 +180,43 @@ public class ServicioPartidaImpl implements ServicioPartida{
 
     //Getters y métodos auxiliares
     
-    private void calcularCambiosPotenciador(Long idPartida, Integer index, Jugador jugador) {
-       Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+    private void calcularCambiosPotenciador(Long idPartida, Integer index, Jugador jugador, Usuario usuario) {
+        Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        if(usuario == null){
+            return;
+        }
+        switch (index.intValue()) {
+            case 1:
+                //REPARTIR CARTAS DE VUELTA
+                if(usuario.getAyudasRepartirCartas() <= 0){
+                    return;
+                }
+                repartirCartas(partida);
+                break;
 
-       switch (index.intValue()) {
-        case 1:
-            //REPARTIR CARTAS DE VUELTA
-            repartirCartas(partida);
-            break;
+            case 2:
+                //INTERCAMBIAR CARTAS CON LA IA
+                if(usuario.getAyudasIntercambiarCartas() <= 0){
+                    return;
+                }
+                Mano manoAuxiliar = partida.getManoDelJugador();
+                partida.setManoDelJugador(partida.getManoDeLaIa());
+                partida.setManoDeLaIa(manoAuxiliar);
 
-        case 2:
-            //INTERCAMBIAR CARTAS CON LA IA
-            Mano manoAuxiliar = partida.getManoDelJugador();
-            partida.setManoDelJugador(partida.getManoDeLaIa());
-            partida.setManoDeLaIa(manoAuxiliar);
+                break;
 
-            break;
-
-        case 3:
-            //SUMAR 3 PUNTOS
-            partida.setPuntosJugador(partida.getPuntosJugador() + 3);
-            break;
-       
-        default:
-            break;
-       }
-    }
+            case 3:
+                //SUMAR 3 PUNTOS
+                if(usuario.getAyudasSumarPuntos() <= 0){
+                    return;
+                }
+                partida.setPuntosJugador(partida.getPuntosJugador() + 3);
+                break;
+            
+            default:
+                break;
+       }    
+    }   
 
     private void calcularCambiosMazo(Long idPartida, Jugador jugador) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);

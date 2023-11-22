@@ -26,7 +26,6 @@ public class ControladorLogin {
 
     @RequestMapping("/login")
     public ModelAndView irALogin(HttpServletRequest request) {
-
         ModelMap modelo = new ModelMap();
         modelo.put("datosLogin", new DatosLogin());
         return new ModelAndView("login", modelo);

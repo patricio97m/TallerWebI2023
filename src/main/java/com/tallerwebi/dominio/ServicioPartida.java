@@ -14,7 +14,7 @@ public interface ServicioPartida {
     void nuevaRonda(Partida partida);
     void reiniciarRonda(Partida partida);
     void repartirCartas(Partida partida);
-    void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador) throws JugadaInvalidaException;
+    void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador, Usuario usuario) throws JugadaInvalidaException;
     void calcularJugadaIA(Long idPartida);
 
     ArrayList<String> getManoDelJugador(Long idPartida);

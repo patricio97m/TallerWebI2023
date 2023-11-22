@@ -620,51 +620,51 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaCantarTruco() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("Truco", 0, null);
+        controladorPartida.enviarJugada(null, "Truco", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
     }
     @Test
     public void queElJugadorPuedaCantarEnvido() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("Envido", 0, null);
+        controladorPartida.enviarJugada(null, "Envido", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO), Jugador.J1, null);
     }
     @Test
     public void queElJugadorSePuedaIrAlMazo() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("Mazo", 0, null);
+        controladorPartida.enviarJugada(null, "Mazo", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.J1, null);
     }
 
     @Test
     public void queElJugadorPuedaJugarCarta() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("Carta", 0, null);
+        controladorPartida.enviarJugada(null, "Carta", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 0), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 0), Jugador.J1, null);
     }
     @Test
     public void queElJugadorPuedaCantarQuiero() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("Quiero", 0, null);
+        controladorPartida.enviarJugada(null, "Quiero", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1, null);
     }
     @Test
     public void queElJugadorPuedaCantarNoQuiero() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada("NoQuiero", 0, null);
+        controladorPartida.enviarJugada(null, "NoQuiero", 0, null);
 
         // Validación
-        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+        Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1, null);
     }
     @Test
     public void queEnviarJugadaRetornaLosDetallesDePartidaQueTraeServicioPartida(){

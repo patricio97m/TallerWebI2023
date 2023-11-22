@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.Jugada;
 import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.Usuario;
 import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
 import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
@@ -49,24 +50,24 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    public String enviarJugada(HttpServletRequest request, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
         if(Objects.equals(tipoJugada, "Truco")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Envido")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Mazo")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
@@ -74,28 +75,29 @@ public class ControladorPartida {
         else if(Objects.equals(tipoJugada, "Carta")){
             System.out.println("Carta");
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Quiero")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "NoQuiero")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Potenciador")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1);
+                Usuario usuario = (Usuario)request.getAttribute("usuarioAutenticado");
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1, usuario);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
