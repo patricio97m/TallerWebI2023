@@ -93,6 +93,13 @@ public class ControladorPartida {
                 e.printStackTrace();
             }
         }
+        else if(Objects.equals(tipoJugada, "Potenciador")){
+            try {
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1);
+            } catch (JugadaInvalidaException e) {
+                e.printStackTrace();
+            }
+        }
     
         return servicioPartida.getDetallesPartidaJSON(idPartida);
     }

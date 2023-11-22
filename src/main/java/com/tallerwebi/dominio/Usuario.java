@@ -19,6 +19,9 @@ public class Usuario {
     private String password;
     private String rol;
     private Boolean activo = false;
+    private int ayudasRepartirCartas = 0;
+    private int ayudasIntercambiarCartas = 0;
+    private int ayudasSumarPuntos = 0;
 
     public Long getId() {
         return id;
@@ -81,5 +84,24 @@ public class Usuario {
 
     public void setGenero(Integer genero) {
         this.genero = genero;
+    }
+
+    public int getAyudasRepartirCartas() {
+        return ayudasRepartirCartas;
+    }
+    public void setAyudasRepartirCartas(int ayudasRepartirCartas) {
+        this.ayudasRepartirCartas = ayudasRepartirCartas;
+    }
+    public int getAyudasIntercambiarCartas() {
+        return ayudasIntercambiarCartas;
+    }
+    public void setAyudasIntercambiarCartas(int ayudasIntercambiarCartas) {
+        this.ayudasIntercambiarCartas = ayudasIntercambiarCartas;
+    }
+    public int getAyudasSumarPuntos() {
+        return ayudasSumarPuntos;
+    }
+    public void setAyudasSumarPuntos(int ayudasSumarPuntos) {
+        this.ayudasSumarPuntos = ayudasSumarPuntos;
     }
 }
