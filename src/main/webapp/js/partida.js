@@ -32,7 +32,7 @@ $(document).ready(function() {
     });
     $("#3-puntos-ayuda").on("click", function() {
         $('#modalAyudas .modal-header h5').text("3 puntos" );
-        $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantanemente" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantaneamente" );
     });
 
 
