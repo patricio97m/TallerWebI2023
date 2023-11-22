@@ -192,6 +192,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                     return;
                 }
                 repartirCartas(partida);
+                usuario.setAyudasRepartirCartas(usuario.getAyudasRepartirCartas() - 1);
                 break;
 
             case 2:
@@ -202,6 +203,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 Mano manoAuxiliar = partida.getManoDelJugador();
                 partida.setManoDelJugador(partida.getManoDeLaIa());
                 partida.setManoDeLaIa(manoAuxiliar);
+                usuario.setAyudasIntercambiarCartas(usuario.getAyudasIntercambiarCartas() - 1);
 
                 break;
 
@@ -209,8 +211,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 //SUMAR 3 PUNTOS
                 if(usuario.getAyudasSumarPuntos() <= 0){
                     return;
-                }
+                }                
                 partida.setPuntosJugador(partida.getPuntosJugador() + 3);
+                usuario.setAyudasSumarPuntos(usuario.getAyudasSumarPuntos() - 1);
                 break;
             
             default:

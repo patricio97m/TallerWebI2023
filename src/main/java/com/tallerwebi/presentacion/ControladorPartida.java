@@ -24,6 +24,7 @@ import com.tallerwebi.enums.TipoJugada;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ControladorPartida {
@@ -37,15 +38,13 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
-
-
-        Long idPartida = obtenerIdPartidaDesdeCookie(request);
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
 
         if (idPartida == null || !servicioPartida.partidaExiste(idPartida)) {
             idPartida = servicioPartida.iniciarPartida();
-            guardarIdPartidaEnCookie(idPartida, response);
+            
+            request.getSession().setAttribute("idPartida", idPartida);
         }
-
         return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
     }
 

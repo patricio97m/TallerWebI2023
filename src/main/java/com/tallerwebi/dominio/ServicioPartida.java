@@ -22,5 +22,4 @@ public interface ServicioPartida {
     ArrayList<String> getCartasJugadasIa(Long idPartida);
     ModelMap getDetallesPartida(Long idPartida);
     String getDetallesPartidaJSON(Long idPartida);
-    
 }
