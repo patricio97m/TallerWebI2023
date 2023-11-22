@@ -25,14 +25,17 @@ $(document).ready(function() {
     $("#repartir-ayuda").on("click", function() {
         $('#modalAyudas .modal-header h5').text("Repartir cartas" );
         $('#modalAyudas .modal-body p').text("Esta habilidad te permite volver a repartir las cartas" );
+        $('#modalAyudas .modal-footer .boton-jugada').data("indice", 1).attr("data-indice", 1);
     });
     $("#intercambiar-ayuda").on("click", function() {
         $('#modalAyudas .modal-header h5').text("Intercambiar cartas" );
-        $('#modalAyudas .modal-body p').text("Esta habilidad te permite intercambiar tus cartas con las del oponente" );
+        $('#modalAyudas .modal-body p').text("Esta habilidad te permite intercambiar tus cartas con las del rival" );
+        $('#modalAyudas .modal-footer .boton-jugada').data("indice", 2).attr("data-indice", 2);   
     });
     $("#3-puntos-ayuda").on("click", function() {
-        $('#modalAyudas .modal-header h5').text("3 puntos" );
+        $('#modalAyudas .modal-header h5').text("3 puntos");
         $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantaneamente" );
+        $('#modalAyudas .modal-footer .boton-jugada').data("indice", 3).attr("data-indice", 3);
     });
 
 
@@ -47,6 +50,7 @@ $(document).ready(function() {
     $(".body").on("click", ".boton-jugada", function(){
         let tipoJugada = $(this).data("tipo-jugada");
         let indice = $(this).data("indice");
+        console.log("Indice: ") + $(this).data("indice")
         const idPartida = obtenerCookie("idPartida");
         console.log("Jugada: " + tipoJugada + " indice: " + indice + " IDPartida: "+ idPartida);
         enviarJugada(tipoJugada, indice, idPartida);

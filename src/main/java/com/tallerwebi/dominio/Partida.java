@@ -126,6 +126,24 @@ public class Partida{
         else if(tipoJugada == TipoJugada.CARTA){
             this.ultimaJugada = null;
         }
+        else if(tipoJugada == TipoJugada.POTENCIADOR){
+            switch (indice) {
+                case 1:
+                    this.ultimaJugada = "Ayuda - Repartir Cartas";
+                    break;
+
+                case 2:
+                    this.ultimaJugada = "Ayuda - Intercambiar Cartas";
+                    break;
+                
+                case 3:
+                    this.ultimaJugada = "Ayuda - Sumar 3 Puntos";
+                    break;
+
+                default:
+                    break;
+            }
+        }
         else{
             this.ultimaJugada = "Error al leer Ultima Jugada";
         }
