@@ -70,7 +70,13 @@ function enviarJugada(tipoJugada, indice, idPartida){
         },
         dataType: "json",
         success: function(response) {
-            actualizarVista(response, idPartida);
+            if (response.redirect) {
+                // Redirige al usuario a la URL proporcionada en el objeto JSON
+                window.location.href = response.redirect;
+            } else {
+                actualizarVista(response, idPartida);
+            }
+            
         },
         error: function(err) {
             console.error("Error al jugar la carta: " + err);

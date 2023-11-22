@@ -1,5 +1,6 @@
 package com.tallerwebi.presentacion;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -50,7 +51,7 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(HttpServletRequest request, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    public String enviarJugada(HttpServletRequest request, HttpServletResponse response, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
@@ -97,7 +98,13 @@ public class ControladorPartida {
         else if(Objects.equals(tipoJugada, "Potenciador")){
             try {
                 Usuario usuario = (Usuario)request.getAttribute("usuarioAutenticado");
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1, usuario);
+                if(usuario != null){
+                    servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1, usuario);
+                }
+                else{
+                    // Devuelve la URL de redirección
+                    return "{\"redirect\": \"/spring/login\"}";
+                }    
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }

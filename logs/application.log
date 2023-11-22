@@ -2750,3 +2750,301 @@ Caused by: org.hsqldb.HsqlException: violación del restricción de integridad: 
 2023-11-22 14:11:41,844 WARN o.h.o.deprecation [qtp1162395591-50] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-22 14:11:41,871 WARN o.h.o.deprecation [qtp1162395591-50] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
 2023-11-22 14:11:41,909 WARN o.h.o.deprecation [qtp1162395591-50] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:48:54,823 INFO o.s.w.s.DispatcherServlet [main] Initializing Servlet 'dispatcher'
+2023-11-22 15:48:55,922 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 15:48:56,327 INFO o.h.a.c.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 15:48:57,176 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 15:48:58,198 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 15:48:59,591 INFO o.s.w.s.DispatcherServlet [main] Completed initialization in 4741 ms
+2023-11-22 15:49:24,687 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,781 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,785 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,790 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,795 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,799 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,811 ERROR c.t.d.Mano [qtp288488701-29] El valorEnvido final es: 23
+2023-11-22 15:49:24,812 ERROR c.t.d.Mano [qtp288488701-29] El palo de las 3 cartas es distinto
+2023-11-22 15:49:24,812 ERROR c.t.d.Mano [qtp288488701-29] El valorEnvido final es: 5
+2023-11-22 15:49:24,832 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,900 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,952 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:24,980 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:49:25,001 WARN o.h.o.deprecation [qtp288488701-29] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:10,961 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,040 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,590 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,714 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,740 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,761 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 15:50:11,781 WARN o.h.o.deprecation [qtp288488701-30] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:00:49,259 INFO o.s.w.s.DispatcherServlet [Scanner-0] Initializing Servlet 'dispatcher'
+2023-11-22 16:00:51,239 INFO o.h.Version [Scanner-0] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:00:51,936 INFO o.h.a.c.Version [Scanner-0] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:00:52,662 INFO o.h.d.Dialect [Scanner-0] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:00:54,616 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-0] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:00:57,763 INFO o.s.w.s.DispatcherServlet [Scanner-0] Completed initialization in 8504 ms
+2023-11-22 16:01:36,202 INFO o.s.w.s.DispatcherServlet [Scanner-1] Initializing Servlet 'dispatcher'
+2023-11-22 16:01:37,468 INFO o.h.Version [Scanner-1] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:01:38,258 INFO o.h.a.c.Version [Scanner-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:01:39,365 INFO o.h.d.Dialect [Scanner-1] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:01:41,109 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:01:46,682 INFO o.s.w.s.DispatcherServlet [Scanner-1] Completed initialization in 10473 ms
+2023-11-22 16:07:51,002 INFO o.s.w.s.DispatcherServlet [Scanner-2] Initializing Servlet 'dispatcher'
+2023-11-22 16:08:08,255 INFO o.h.Version [Scanner-2] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:08:14,567 INFO o.h.a.c.Version [Scanner-2] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:08:20,616 INFO o.h.d.Dialect [Scanner-2] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:08:31,365 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-2] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:08:31,459 WARN o.s.w.c.s.AnnotationConfigWebApplicationContext [Scanner-2] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controladorPartida' defined in file [C:\Facultad\2do Año\Segundo Cutrimestre\Taller Web I\TallerWebI2023\target\classes\com\tallerwebi\presentacion\ControladorPartida.class]: Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: Method [enviarJugada] was discovered in the .class file but cannot be resolved in the class object
+2023-11-22 16:08:31,459 ERROR o.s.w.s.DispatcherServlet [Scanner-2] Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controladorPartida' defined in file [C:\Facultad\2do Año\Segundo Cutrimestre\Taller Web I\TallerWebI2023\target\classes\com\tallerwebi\presentacion\ControladorPartida.class]: Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: Method [enviarJugada] was discovered in the .class file but cannot be resolved in the class object
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:578) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:632) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:415) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731) ~[?:?]
+	at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:755) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:379) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1449) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.startWebapp(JettyWebAppContext.java:328) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1414) ~[?:?]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:916) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:288) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:524) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:397) ~[?:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyRunMojo.restartWebApp(JettyRunMojo.java:468) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.AbstractJettyMojo$1.filesChanged(AbstractJettyMojo.java:472) ~[?:?]
+	at org.eclipse.jetty.util.Scanner.reportBulkChanges(Scanner.java:848) ~[?:?]
+	at org.eclipse.jetty.util.Scanner.reportDifferences(Scanner.java:765) ~[?:?]
+	at org.eclipse.jetty.util.Scanner.scan(Scanner.java:641) ~[?:?]
+	at org.eclipse.jetty.util.Scanner$1.run(Scanner.java:558) ~[?:?]
+	at java.util.TimerThread.mainLoop(Timer.java:566) ~[?:?]
+	at java.util.TimerThread.run(Timer.java:516) ~[?:?]
+Caused by: java.lang.IllegalStateException: Method [enviarJugada] was discovered in the .class file but cannot be resolved in the class object
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer$LocalVariableTableVisitor.resolveExecutable(LocalVariableTableParameterNameDiscoverer.java:242) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer$LocalVariableTableVisitor.visitEnd(LocalVariableTableParameterNameDiscoverer.java:225) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.readMethod(ClassReader.java:1498) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:718) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:401) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.inspectClass(LocalVariableTableParameterNameDiscoverer.java:107) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.doGetParameterNames(LocalVariableTableParameterNameDiscoverer.java:84) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.getParameterNames(LocalVariableTableParameterNameDiscoverer.java:78) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.PrioritizedParameterNameDiscoverer.getParameterNames(PrioritizedParameterNameDiscoverer.java:67) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:225) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 39 more
+Caused by: java.lang.NoSuchMethodException: com.tallerwebi.presentacion.ControladorPartida.enviarJugada(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String,int,java.lang.Long)
+	at java.lang.Class.getDeclaredMethod(Class.java:2728) ~[?:?]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer$LocalVariableTableVisitor.resolveExecutable(LocalVariableTableParameterNameDiscoverer.java:239) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer$LocalVariableTableVisitor.visitEnd(LocalVariableTableParameterNameDiscoverer.java:225) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.readMethod(ClassReader.java:1498) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:718) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:401) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.inspectClass(LocalVariableTableParameterNameDiscoverer.java:107) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.doGetParameterNames(LocalVariableTableParameterNameDiscoverer.java:84) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.LocalVariableTableParameterNameDiscoverer.getParameterNames(LocalVariableTableParameterNameDiscoverer.java:78) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.PrioritizedParameterNameDiscoverer.getParameterNames(PrioritizedParameterNameDiscoverer.java:67) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:225) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 39 more
+2023-11-22 16:12:06,694 INFO o.s.w.s.DispatcherServlet [main] Initializing Servlet 'dispatcher'
+2023-11-22 16:12:07,853 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:12:08,297 INFO o.h.a.c.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:12:09,304 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:12:10,531 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:12:11,776 INFO o.s.w.s.DispatcherServlet [main] Completed initialization in 5050 ms
+2023-11-22 16:18:47,633 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,354 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,410 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,413 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,419 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,422 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,426 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,438 ERROR c.t.d.Mano [qtp1530144708-31] El palo de las 3 cartas es distinto
+2023-11-22 16:18:48,439 ERROR c.t.d.Mano [qtp1530144708-31] El valorEnvido final es: 4
+2023-11-22 16:18:48,439 ERROR c.t.d.Mano [qtp1530144708-31] El palo de la carta 1 y 2 es el mismo
+2023-11-22 16:18:48,439 ERROR c.t.d.Mano [qtp1530144708-31] El valorEnvido final es: 23
+2023-11-22 16:18:48,458 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,566 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,611 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,644 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:18:48,671 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:22:30,439 INFO o.s.w.s.DispatcherServlet [Scanner-0] Initializing Servlet 'dispatcher'
+2023-11-22 16:22:31,124 INFO o.h.Version [Scanner-0] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:22:31,394 INFO o.h.a.c.Version [Scanner-0] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:22:32,411 INFO o.h.d.Dialect [Scanner-0] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:22:33,690 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-0] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:22:34,744 INFO o.s.w.s.DispatcherServlet [Scanner-0] Completed initialization in 4305 ms
+2023-11-22 16:22:59,965 INFO o.s.w.s.DispatcherServlet [Scanner-1] Initializing Servlet 'dispatcher'
+2023-11-22 16:23:02,791 INFO o.h.Version [Scanner-1] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:23:03,076 INFO o.h.a.c.Version [Scanner-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:23:03,748 INFO o.h.d.Dialect [Scanner-1] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:23:04,902 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:23:05,740 INFO o.s.w.s.DispatcherServlet [Scanner-1] Completed initialization in 5718 ms
+2023-11-22 16:23:17,568 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,772 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,797 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,801 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,804 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,808 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,813 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,822 ERROR c.t.d.Mano [qtp1530144708-28] El palo de la carta 2 y 3 es el mismo
+2023-11-22 16:23:17,826 ERROR c.t.d.Mano [qtp1530144708-28] El valorEnvido final es: 20
+2023-11-22 16:23:17,826 ERROR c.t.d.Mano [qtp1530144708-28] El palo de las 3 cartas es distinto
+2023-11-22 16:23:17,826 ERROR c.t.d.Mano [qtp1530144708-28] El valorEnvido final es: 7
+2023-11-22 16:23:17,840 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,889 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,907 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,926 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:23:17,952 WARN o.h.o.deprecation [qtp1530144708-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,026 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,074 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,112 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,135 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,156 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:24:11,172 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:47,445 INFO o.s.w.s.DispatcherServlet [Scanner-2] Initializing Servlet 'dispatcher'
+2023-11-22 16:30:48,366 INFO o.h.Version [Scanner-2] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:30:48,771 INFO o.h.a.c.Version [Scanner-2] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:30:49,193 INFO o.h.d.Dialect [Scanner-2] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:30:50,128 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-2] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:30:51,021 INFO o.s.w.s.DispatcherServlet [Scanner-2] Completed initialization in 3576 ms
+2023-11-22 16:30:59,524 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,626 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,639 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,639 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,649 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,649 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,656 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,664 ERROR c.t.d.Mano [qtp1530144708-31] El palo de las 3 cartas es distinto
+2023-11-22 16:30:59,664 ERROR c.t.d.Mano [qtp1530144708-31] El valorEnvido final es: 7
+2023-11-22 16:30:59,664 ERROR c.t.d.Mano [qtp1530144708-31] El palo de la carta 1 y 2 es el mismo
+2023-11-22 16:30:59,664 ERROR c.t.d.Mano [qtp1530144708-31] El valorEnvido final es: 27
+2023-11-22 16:30:59,676 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,726 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,744 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,761 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:30:59,795 WARN o.h.o.deprecation [qtp1530144708-31] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:23,072 INFO o.s.w.s.DispatcherServlet [Scanner-3] Initializing Servlet 'dispatcher'
+2023-11-22 16:31:24,175 INFO o.h.Version [Scanner-3] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:31:25,016 INFO o.h.a.c.Version [Scanner-3] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:31:25,384 INFO o.h.d.Dialect [Scanner-3] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:31:26,519 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-3] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:31:28,247 INFO o.s.w.s.DispatcherServlet [Scanner-3] Completed initialization in 5155 ms
+2023-11-22 16:31:31,541 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,655 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,666 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,666 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,681 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,689 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,689 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,699 ERROR c.t.d.Mano [qtp1530144708-38] El palo de las 3 cartas es el mismo
+2023-11-22 16:31:31,699 ERROR c.t.d.Mano [qtp1530144708-38] El valorEnvido final es: 29
+2023-11-22 16:31:31,699 ERROR c.t.d.Mano [qtp1530144708-38] El palo de la carta 1 y 2 es el mismo
+2023-11-22 16:31:31,699 ERROR c.t.d.Mano [qtp1530144708-38] El valorEnvido final es: 24
+2023-11-22 16:31:31,714 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,767 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,782 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,823 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:31:31,834 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:37:42,612 INFO o.s.w.s.DispatcherServlet [Scanner-4] Initializing Servlet 'dispatcher'
+2023-11-22 16:37:44,159 INFO o.h.Version [Scanner-4] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:37:44,984 INFO o.h.a.c.Version [Scanner-4] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:37:45,789 INFO o.h.d.Dialect [Scanner-4] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:37:48,867 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-4] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:37:50,033 INFO o.s.w.s.DispatcherServlet [Scanner-4] Completed initialization in 7397 ms
+2023-11-22 16:38:43,290 INFO o.s.w.s.DispatcherServlet [Scanner-5] Initializing Servlet 'dispatcher'
+2023-11-22 16:38:44,016 INFO o.h.Version [Scanner-5] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:38:44,295 INFO o.h.a.c.Version [Scanner-5] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:38:44,734 INFO o.h.d.Dialect [Scanner-5] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:38:45,904 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-5] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:38:46,681 INFO o.s.w.s.DispatcherServlet [Scanner-5] Completed initialization in 3391 ms
+2023-11-22 16:38:56,548 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,723 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,739 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,739 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,739 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,747 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,747 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,755 ERROR c.t.d.Mano [qtp1530144708-46] El palo de la carta 2 y 3 es el mismo
+2023-11-22 16:38:56,763 ERROR c.t.d.Mano [qtp1530144708-46] El valorEnvido final es: 25
+2023-11-22 16:38:56,763 ERROR c.t.d.Mano [qtp1530144708-46] El valorEnvido final es: 27
+2023-11-22 16:38:56,767 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,834 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,868 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,890 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:38:56,900 WARN o.h.o.deprecation [qtp1530144708-46] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:02,647 INFO o.s.w.s.DispatcherServlet [Scanner-6] Initializing Servlet 'dispatcher'
+2023-11-22 16:39:03,716 INFO o.h.Version [Scanner-6] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:39:04,122 INFO o.h.a.c.Version [Scanner-6] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:39:04,798 INFO o.h.d.Dialect [Scanner-6] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:39:06,479 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-6] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:39:07,568 INFO o.s.w.s.DispatcherServlet [Scanner-6] Completed initialization in 4921 ms
+2023-11-22 16:39:11,312 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,447 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,469 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,469 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,469 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,480 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,480 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,494 ERROR c.t.d.Mano [qtp1530144708-51] El palo de las 3 cartas es distinto
+2023-11-22 16:39:11,494 ERROR c.t.d.Mano [qtp1530144708-51] El valorEnvido final es: 4
+2023-11-22 16:39:11,494 ERROR c.t.d.Mano [qtp1530144708-51] El palo de las 3 cartas es distinto
+2023-11-22 16:39:11,494 ERROR c.t.d.Mano [qtp1530144708-51] El valorEnvido final es: 3
+2023-11-22 16:39:11,513 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,578 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,594 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,620 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:39:11,636 WARN o.h.o.deprecation [qtp1530144708-51] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:40:28,634 INFO o.s.w.s.DispatcherServlet [Scanner-7] Initializing Servlet 'dispatcher'
+2023-11-22 16:40:30,628 INFO o.h.Version [Scanner-7] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:40:30,960 INFO o.h.a.c.Version [Scanner-7] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:40:31,346 INFO o.h.d.Dialect [Scanner-7] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:40:33,081 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-7] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:40:35,874 INFO o.s.w.s.DispatcherServlet [Scanner-7] Completed initialization in 7235 ms
+2023-11-22 16:40:54,934 INFO o.s.w.s.DispatcherServlet [Scanner-8] Initializing Servlet 'dispatcher'
+2023-11-22 16:40:58,724 INFO o.h.Version [Scanner-8] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 16:40:59,035 INFO o.h.a.c.Version [Scanner-8] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 16:40:59,550 INFO o.h.d.Dialect [Scanner-8] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 16:41:01,269 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-8] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 16:41:02,931 INFO o.s.w.s.DispatcherServlet [Scanner-8] Completed initialization in 7997 ms
+2023-11-22 16:41:55,323 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,632 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,700 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,722 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,726 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,729 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,732 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,744 ERROR c.t.d.Mano [qtp1530144708-38] El palo de las 3 cartas es distinto
+2023-11-22 16:41:55,802 ERROR c.t.d.Mano [qtp1530144708-38] El valorEnvido final es: 7
+2023-11-22 16:41:55,803 ERROR c.t.d.Mano [qtp1530144708-38] El valorEnvido final es: 25
+2023-11-22 16:41:55,823 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,933 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,955 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,975 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 16:41:55,990 WARN o.h.o.deprecation [qtp1530144708-38] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
