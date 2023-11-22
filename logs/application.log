@@ -2135,3 +2135,149 @@ Caused by: java.lang.Error: Unresolved compilation problem:
 2023-11-20 19:43:17,631 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Scanner-3] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2023-11-20 19:43:18,543 INFO o.s.w.s.DispatcherServlet [Scanner-3] Completed initialization in 8042 ms
 2023-11-20 19:43:24,974 WARN o.s.w.s.PageNotFound [qtp576557994-29] No mapping for GET /spring/procesarPago
+2023-11-22 11:28:49,150 INFO o.s.w.s.DispatcherServlet [main] Initializing Servlet 'dispatcher'
+2023-11-22 11:28:50,949 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 11:28:51,372 INFO o.h.a.c.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 11:28:54,556 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 11:28:56,011 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 11:28:58,579 WARN o.s.w.c.s.AnnotationConfigWebApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceInitializer' defined in com.tallerwebi.config.DatabaseInitializationConfig: Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of class path resource [data.sql]: INSERT INTO Usuario(id, email, password, rol, activo) VALUES (null, 'test@unlam.edu.ar', 'test', 'ADMIN', true); nested exception is java.sql.SQLIntegrityConstraintViolationException: violación del restricción de integridad: restricción ('check') NOT NULL; SYS_CT_10137 table: USUARIO column: AYUDASINTERCAMBIARCARTAS
+2023-11-22 11:28:58,579 ERROR o.s.w.s.DispatcherServlet [main] Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceInitializer' defined in com.tallerwebi.config.DatabaseInitializationConfig: Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of class path resource [data.sql]: INSERT INTO Usuario(id, email, password, rol, activo) VALUES (null, 'test@unlam.edu.ar', 'test', 'ADMIN', true); nested exception is java.sql.SQLIntegrityConstraintViolationException: violación del restricción de integridad: restricción ('check') NOT NULL; SYS_CT_10137 table: USUARIO column: AYUDASINTERCAMBIARCARTAS
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:578) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:632) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:415) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731) ~[?:?]
+	at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:755) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:379) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1449) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.startWebapp(JettyWebAppContext.java:328) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1414) ~[?:?]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:916) ~[?:?]
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:288) ~[?:?]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:524) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:397) ~[?:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:169) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:117) ~[?:?]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:97) ~[?:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:169) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:117) ~[?:?]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:97) ~[?:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:169) ~[?:?]
+	at org.eclipse.jetty.server.Server.start(Server.java:423) ~[?:?]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:110) ~[?:?]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:97) ~[?:?]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:387) ~[?:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:449) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:310) ~[?:?]
+	at org.eclipse.jetty.maven.plugin.JettyRunMojo.execute(JettyRunMojo.java:150) ~[?:?]
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:328) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:316) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:174) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:75) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:162) ~[?:?]
+	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39) ~[?:?]
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:159) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53) ~[?:?]
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:261) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:173) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:101) ~[maven-core-3.0.jar:3.0]
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:906) ~[?:?]
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:283) ~[?:?]
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:206) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:578) ~[?:?]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:283) ~[plexus-classworlds-2.2.3.jar:?]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:226) ~[plexus-classworlds-2.2.3.jar:?]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:407) ~[plexus-classworlds-2.2.3.jar:?]
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:348) ~[plexus-classworlds-2.2.3.jar:?]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of class path resource [data.sql]: INSERT INTO Usuario(id, email, password, rol, activo) VALUES (null, 'test@unlam.edu.ar', 'test', 'ADMIN', true); nested exception is java.sql.SQLIntegrityConstraintViolationException: violación del restricción de integridad: restricción ('check') NOT NULL; SYS_CT_10137 table: USUARIO column: AYUDASINTERCAMBIARCARTAS
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:281) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.execute(DataSourceInitializer.java:111) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.afterPropertiesSet(DataSourceInitializer.java:96) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1858) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1795) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 75 more
+Caused by: java.sql.SQLIntegrityConstraintViolationException: violación del restricción de integridad: restricción ('check') NOT NULL; SYS_CT_10137 table: USUARIO column: AYUDASINTERCAMBIARCARTAS
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.jdbc.JDBCStatement.execute(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:260) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.execute(DataSourceInitializer.java:111) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.afterPropertiesSet(DataSourceInitializer.java:96) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1858) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1795) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 75 more
+Caused by: org.hsqldb.HsqlException: violación del restricción de integridad: restricción ('check') NOT NULL; SYS_CT_10137 table: USUARIO column: AYUDASINTERCAMBIARCARTAS
+	at org.hsqldb.error.Error.error(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.Table.enforceRowConstraints(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.Table.insertSingleRow(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.StatementDML.insertSingleRow(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.StatementInsert.getResult(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.StatementDMQL.execute(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.Session.executeDirectStatement(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.Session.execute(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.hsqldb.jdbc.JDBCStatement.execute(Unknown Source) ~[hsqldb-2.3.2.jar:2.3.2]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:260) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.execute(DataSourceInitializer.java:111) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.jdbc.datasource.init.DataSourceInitializer.afterPropertiesSet(DataSourceInitializer.java:96) ~[spring-jdbc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1858) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1795) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 75 more
+2023-11-22 11:39:24,060 INFO o.s.w.s.DispatcherServlet [main] Initializing Servlet 'dispatcher'
+2023-11-22 11:39:25,110 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.24.Final
+2023-11-22 11:39:26,819 INFO o.h.a.c.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-22 11:39:27,602 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2023-11-22 11:39:28,895 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-22 11:39:29,829 INFO o.s.w.s.DispatcherServlet [main] Completed initialization in 5751 ms
+2023-11-22 11:41:26,042 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,745 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,751 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,755 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,760 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,766 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:27,774 ERROR c.t.d.Mano [qtp1162395591-28] El palo de las 3 cartas es distinto
+2023-11-22 11:41:27,775 ERROR c.t.d.Mano [qtp1162395591-28] El valorEnvido final es: 7
+2023-11-22 11:41:27,775 ERROR c.t.d.Mano [qtp1162395591-28] El valorEnvido final es: 27
+2023-11-22 11:41:27,791 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:28,046 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:28,075 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:28,095 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-22 11:41:28,114 WARN o.h.o.deprecation [qtp1162395591-28] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead

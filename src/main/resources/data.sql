@@ -1,4 +1,4 @@
-INSERT INTO Usuario(id, email, password, rol, activo) VALUES (null, 'test@unlam.edu.ar', 'test', 'ADMIN', true);
+INSERT INTO Usuario(id, email, password, rol, activo, ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos) VALUES (null, 'test@unlam.edu.ar', 'test', 'ADMIN', true, 0, 0, 0);
 INSERT INTO Carta (palo, numero, valorTruco, valorEnvido, id)VALUES ('Espada', 1, 13, 1, 0), ('Basto', 1, 12, 1, 1), ('Copa', 1, 7, 1, 2), ('Oro', 1, 7, 1, 3), 
 ('Espada', 2, 8, 2, 4), ('Basto', 2, 8, 2, 5), ('Copa', 2, 8, 2, 6), ('Oro', 2, 8, 2, 7), ('Espada', 3, 9, 3, 8), ('Basto', 3, 9, 3, 9), ('Copa', 3, 9, 3, 10), ('Oro', 3, 9, 3, 11), 
 ('Espada', 4, 0, 4, 12), ('Basto', 4, 0, 4, 13), ('Copa', 4, 0, 4, 14), ('Oro', 4, 0, 4, 15), ('Espada', 5, 1, 5, 16), ('Basto', 5, 1, 5, 17), ('Copa', 5, 1, 5, 18), ('Oro', 5, 1, 5, 19), 
