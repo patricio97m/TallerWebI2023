@@ -107,6 +107,8 @@ function actualizarVista(partida) {
     if(seRepartieronCartas){
         //ANIMACION DE REPARTIR LAS CARTAS
         console.log("Se Repartieron Cartas")
+        animarCartas();
+
     }
     let ultimaJugada = partida.ultimaJugada;
     let ultimoJugador = partida.ultimoJugador;
@@ -299,6 +301,8 @@ function actualizarDatos(puntosJugador, puntosIa, turnoIA, ultimaJugada, ultimoJ
     }
 }
 
+
+
 function actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador) {
     // Actualiza las cartas del oponente
     var cartasOponente = $(".cartasDeLaIA");
@@ -360,6 +364,16 @@ function animarCartas() {
     // Obtén todas las cartas del jugador
     var cartas = document.querySelectorAll('.cartasDelJugador');
     var cartasReverso = document.querySelectorAll('.cartasDelJugadorReverso');
+
+    // Remueve las clases existentes para permitir que la animación se repita
+    cartasReverso.forEach(function (cartasReverso) {
+        cartasReverso.classList.remove('mover');
+        cartasReverso.classList.remove('displayNone');
+    });
+
+    cartas.forEach(function (carta) {
+        carta.classList.remove('displayBlock');
+    });
 
     // Agrega la clase de animación a cada carta
     cartasReverso.forEach(function (cartasReverso) {
