@@ -212,7 +212,7 @@ body{
 
 /* Clase que aplica la animación */
 .mover {
-    animation: moverCarta 1s forwards;
+    animation: moverCarta 4s forwards;
 }
 .transicion {
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;

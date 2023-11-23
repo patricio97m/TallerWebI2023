@@ -388,13 +388,13 @@ function animarCartas() {
         cartas.forEach(function (carta) {
             carta.classList.add('displayBlock');
         });
-    }, 1000);
+    }, 4000);
 
     setTimeout(function () {
         cartasReverso.forEach(function (cartasReverso) {
             cartasReverso.classList.add('displayNone');
         });
-    }, 1000);
+    }, 4000);
 }
 
 function actualizarAyudas(ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos){
