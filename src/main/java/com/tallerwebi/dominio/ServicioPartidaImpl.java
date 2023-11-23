@@ -536,6 +536,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("envidoAQuerer", partida.getEnvidoAQuerer());
         model.put("cantoEnvido", partida.getCantoEnvido());
         model.put("cantoFaltaEnvido", partida.getCantoFaltaEnvido());
+        model.put("seRepartieronCartas",partida.isSeRepartieronCartas());
         model.put("ayudasRepartirCartas", ayudasRepartirCartas);
         model.put("ayudasIntercambiarCartas", ayudasIntercambiarCartas);
         model.put("ayudasSumarPuntos", ayudasSumarPuntos);

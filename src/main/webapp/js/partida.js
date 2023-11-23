@@ -1,6 +1,10 @@
 $(document).ready(function() {
     console.log("JS Cargado");
 
+    if (seRepartieronLasCartas){
+        animarCartas();
+    }
+
     $('#miModal').modal({
         backdrop: 'static',
         keyboard: false
