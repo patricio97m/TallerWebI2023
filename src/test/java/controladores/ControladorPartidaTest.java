@@ -620,7 +620,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaCantarTruco() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "Truco", 0, null);
+        controladorPartida.enviarJugada(null, null, "Truco", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
@@ -628,7 +628,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaCantarEnvido() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "Envido", 0, null);
+        controladorPartida.enviarJugada(null, null, "Envido", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO), Jugador.J1, null);
@@ -636,7 +636,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorSePuedaIrAlMazo() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "Mazo", 0, null);
+        controladorPartida.enviarJugada(null, null, "Mazo", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.J1, null);
@@ -645,7 +645,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaJugarCarta() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "Carta", 0, null);
+        controladorPartida.enviarJugada(null, null, "Carta", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 0), Jugador.J1, null);
@@ -653,7 +653,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaCantarQuiero() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "Quiero", 0, null);
+        controladorPartida.enviarJugada(null, null, "Quiero", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1, null);
@@ -661,7 +661,7 @@ public class ControladorPartidaTest {
     @Test
     public void queElJugadorPuedaCantarNoQuiero() throws JugadaInvalidaException {
         // Ejecución
-        controladorPartida.enviarJugada(null, null, "NoQuiero", 0, null);
+        controladorPartida.enviarJugada(null, null, "NoQuiero", 0);
 
         // Validación
         Mockito.verify(servicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1, null);

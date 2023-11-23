@@ -24,7 +24,6 @@ import com.tallerwebi.enums.TipoJugada;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class ControladorPartida {
@@ -50,7 +49,8 @@ public class ControladorPartida {
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(HttpServletRequest request, HttpServletResponse response, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    public String enviarJugada(HttpServletRequest request, HttpServletResponse response, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice) {
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
@@ -114,28 +114,9 @@ public class ControladorPartida {
 
     @PostMapping("/recibirCambios")
     @ResponseBody
-    public String recibirCambios(@RequestParam("idPartida") Long idPartida){
+    public String recibirCambios(HttpServletRequest request){
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
         servicioPartida.calcularJugadaIA(idPartida);
         return servicioPartida.getDetallesPartidaJSON(idPartida);
-    }
-
-    private Long obtenerIdPartidaDesdeCookie(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("idPartida".equals(cookie.getName())) {
-                    return Long.parseLong(cookie.getValue());
-                }
-            }
-        }
-        return null;
-    }
-
-    private void guardarIdPartidaEnCookie(Long idPartida, HttpServletResponse response) {
-        Cookie cookie = new Cookie("idPartida", idPartida.toString());
-        cookie.setMaxAge(1800); // La cookie desaparece en media hora
-
-        response.addCookie(cookie);
     }
 }

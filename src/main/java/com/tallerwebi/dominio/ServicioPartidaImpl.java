@@ -92,6 +92,8 @@ public class ServicioPartidaImpl implements ServicioPartida{
         partida.setManoDeLaIa(manoDeLaIa);
         partida.setCartasJugadasJugador(cartasJugadasJugador);
         partida.setCartasJugadasIa(cartasJugadasIa);
+
+        partida.setSeRepartieronCartas(true);
     }
 
     @Override
@@ -99,6 +101,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
         TipoJugada tipoJugada = jugada.getTipoJugada();
         Integer index = jugada.getIndex();
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        partida.setSeRepartieronCartas(false);
 
         if(jugador == Jugador.IA && !partida.isTurnoIA()){
             throw new JugadaInvalidaException("No puede hacer una jugada en el turno del rival");
@@ -385,7 +388,6 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 partida.setEnvidoAQuerer(0);
                 partida.setCantoEnvido(false);
                 partida.setEstadoEnvido(-1);
-                
             }
             else if(partida.getCantoTruco()){
                 partida.setEstadoTruco(partida.getEstadoTruco() + partida.getTrucoAQuerer());
@@ -561,6 +563,7 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"tiradaActual\":" + partida.getTiradaActual() + ","
                 + "\"recanto\":" + partida.getRecanto() + ","
                 + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
+                + "\"seRepartieronCartas\":" + partida.isSeRepartieronCartas() + ","
                 + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
 
