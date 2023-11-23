@@ -164,10 +164,17 @@
 
             <button onclick="animarCartas()">Animar Cartas</button>
             <!-- Cartas del jugador -->
-            <div class="row justify-content-center mt-5 cartasDelJugador">
+            <div class="row justify-content-center mt-5 cartasDelJugador displayNone">
                 <div class="col-4 carta" th:each="carta, Stat: ${manoDelJugador}">
                     <img th:if="${carta == 'NULL'}" th:src="@{/img/cards/lugar-vacio.png}" class="img-fluid">
                     <img th:if="${carta != 'NULL'}" th:src="@{${'/img/cards/' + carta + '.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}">
+                </div>
+            </div>
+            <!-- Cartas del jugador Reverso-->
+            <div class="row justify-content-center mt-5 cartasDelJugadorReverso">
+                <div class="col-4 carta" th:each="carta, Stat: ${manoDelJugador}">
+                    <img th:if="${carta == 'NULL'}" th:src="@{/img/cards/reverso.png}" class="img-fluid">
+                    <img th:if="${carta != 'NULL'}" th:src="@{${'/img/cards/reverso.png'}}" class="img-fluid shake carta-jugador" th:data-indice-carta="${Stat.count}">
                 </div>
             </div>
 

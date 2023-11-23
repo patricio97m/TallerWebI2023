@@ -170,7 +170,26 @@ body{
     z-index: 1;
 }
 
+.displayNone{
+    display: none;
+}
+
+.displayBlock{
+    display: flex;
+}
+
 .cartasDelJugador{
+    position: absolute;
+    top: 85.90%;
+    left: 50%;
+    /* background-color: #f00; */
+    color: #000;
+    padding: 5px 10px;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.cartasDelJugadorReverso{
     position: absolute;
     top: 85.90%;
     left: 50%;
@@ -187,13 +206,16 @@ body{
         transform: translate(-28%, -176%);
     }
     to {
-        transform: translate(-48%, -65%);
+        transform: translate(-50%, -50%);
     }
 }
 
 /* Clase que aplica la animación */
 .mover {
     animation: moverCarta 1s forwards;
+}
+.transicion {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 

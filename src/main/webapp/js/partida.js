@@ -347,9 +347,22 @@ function actualizarBotones(puedeCantarTruco){
 function animarCartas() {
     // Obtén todas las cartas del jugador
     var cartas = document.querySelectorAll('.cartasDelJugador');
+    var cartasReverso = document.querySelectorAll('.cartasDelJugadorReverso');
 
     // Agrega la clase de animación a cada carta
-    cartas.forEach(function(carta) {
-        carta.classList.add('mover');
+    cartasReverso.forEach(function(cartasReverso) {
+        cartasReverso.classList.add('mover');
     });
+
+    setTimeout(function() {
+        cartas.forEach(function(carta) {
+            carta.classList.add('displayBlock');
+        });
+    }, 1000);
+
+    setTimeout(function() {
+        cartasReverso.forEach(function(cartasReverso) {
+            cartasReverso.classList.add('displayNone');
+        });
+    }, 1000);
 }
