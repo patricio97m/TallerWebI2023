@@ -212,10 +212,45 @@ body{
 
 /* Clase que aplica la animación */
 .mover {
-    animation: moverCarta 4s forwards;
+    animation: moverCarta 1s forwards;
 }
 .transicion {
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#repartiendoCartasModal {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+    max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+}
+
+#repartiendoCartasModal h5{
+    text-align: center;
+}
+.repartiendo-cartas-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.repartirGif{
+    width: 25%;
+}
+
+.modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bs-modal-header-padding);
+    border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+    border-top-left-radius: var(--bs-modal-inner-border-radius);
+    border-top-right-radius: var(--bs-modal-inner-border-radius);
+    flex-direction: column;
 }
 
 
