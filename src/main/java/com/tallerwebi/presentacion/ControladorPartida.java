@@ -1,5 +1,6 @@
 package com.tallerwebi.presentacion;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.Jugada;
 import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.Usuario;
 import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
 import com.tallerwebi.enums.Jugador;
 import com.tallerwebi.enums.TipoJugada;
@@ -35,38 +37,39 @@ public class ControladorPartida {
 
     @RequestMapping("/partida")
     public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
-
-
-        Long idPartida = obtenerIdPartidaDesdeCookie(request);
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
 
         if (idPartida == null || !servicioPartida.partidaExiste(idPartida)) {
             idPartida = servicioPartida.iniciarPartida();
-            guardarIdPartidaEnCookie(idPartida, response);
+            
+            request.getSession().setAttribute("idPartida", idPartida);
         }
-
-        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
+        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida, usuario));
     }
 
     @PostMapping("/enviarJugada")
     @ResponseBody
-    public String enviarJugada(@RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice, @RequestParam("idPartida") Long idPartida) {
+    public String enviarJugada(HttpServletRequest request, HttpServletResponse response, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice) {
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
         if(Objects.equals(tipoJugada, "Truco")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Envido")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.ENVIDO, indice), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Mazo")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.MAZO), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
@@ -74,60 +77,48 @@ public class ControladorPartida {
         else if(Objects.equals(tipoJugada, "Carta")){
             System.out.println("Carta");
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.CARTA, indice), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Quiero")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 1), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "NoQuiero")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1);
+                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.RESPUESTA, 0), Jugador.J1, null);
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
         else if(Objects.equals(tipoJugada, "Potenciador")){
             try {
-                servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1);
+                if(usuario != null){
+                    servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1, usuario);
+                }
+                else{
+                    // Devuelve la URL de redirección
+                    return "{\"redirect\": \"/spring/login\"}";
+                }    
             } catch (JugadaInvalidaException e) {
                 e.printStackTrace();
             }
         }
     
-        return servicioPartida.getDetallesPartidaJSON(idPartida);
+        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
     }
 
     @PostMapping("/recibirCambios")
     @ResponseBody
-    public String recibirCambios(@RequestParam("idPartida") Long idPartida){
+    public String recibirCambios(HttpServletRequest request){
+        Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
         servicioPartida.calcularJugadaIA(idPartida);
-        return servicioPartida.getDetallesPartidaJSON(idPartida);
-    }
-
-    private Long obtenerIdPartidaDesdeCookie(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("idPartida".equals(cookie.getName())) {
-                    return Long.parseLong(cookie.getValue());
-                }
-            }
-        }
-        return null;
-    }
-
-    private void guardarIdPartidaEnCookie(Long idPartida, HttpServletResponse response) {
-        Cookie cookie = new Cookie("idPartida", idPartida.toString());
-        cookie.setMaxAge(1800); // La cookie desaparece en media hora
-
-        response.addCookie(cookie);
+        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
     }
 }

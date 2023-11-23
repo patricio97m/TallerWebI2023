@@ -76,7 +76,7 @@ public class ServicioPartidaTest {
         doReturn(jugadaAUsar).when(servicioIA).calcularJugada(null);
         spyServicioPartida.calcularJugadaIA(null);
 
-        Mockito.verify(spyServicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, jugadaAUsar, Jugador.IA);
+        Mockito.verify(spyServicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, jugadaAUsar, Jugador.IA, null);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class ServicioPartidaTest {
 
         doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
 
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.IA);
+        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.IA, null);
         //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosTruco(null, Jugador.IA);
         //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
     }
@@ -116,7 +116,7 @@ public class ServicioPartidaTest {
 
         doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
 
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO, 2), Jugador.IA);
+        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO, 2), Jugador.IA, null);
         //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosEnvido(null, 2, Jugador.IA);
         //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
     }
@@ -129,7 +129,7 @@ public class ServicioPartidaTest {
 
         doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
 
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 1), Jugador.IA);
+        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 1), Jugador.IA, null);
         //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosCarta(null, 1, Jugador.IA);
         //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
     }
@@ -142,7 +142,7 @@ public class ServicioPartidaTest {
 
         doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
 
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA), Jugador.IA);
+        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA), Jugador.IA, null);
         //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosRespuesta(null, 0, Jugador.IA);
         //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
     }

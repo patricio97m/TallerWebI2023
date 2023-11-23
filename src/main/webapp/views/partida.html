@@ -201,9 +201,9 @@
         <!-- Botones de ayudas -->
         <div class="position-fixed bottom-0 end-0 p-2 d-flex flex-column">
             <div class="d-flex flex-column" id="boton-ayudas-container">
-                <button class="btn boton-ayudas ocultar-boton mb-1" id="repartir-ayuda" type="button" title="Volver a repartir" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda" >2</span></button>
-                <button class="btn boton-ayudas ocultar-boton mb-1" id="intercambiar-ayuda" type="button" title="Intercambiar cartas con el rival" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda">1</span></button>
-                <button class="btn boton-ayudas ocultar-boton mb-1" id="3-puntos-ayuda" type="button" title="Sumar +3 puntos" data-bs-toggle="modal" data-bs-target="#modalAyudas">+3<span class="cantidad-ayuda">5</span></button>
+                <button class="btn boton-ayudas ocultar-boton mb-1" id="repartir-ayuda" type="button" title="Volver a repartir" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda" th:text="${ayudasRepartirCartas}"></span></button>
+                <button class="btn boton-ayudas ocultar-boton mb-1" id="intercambiar-ayuda" type="button" title="Intercambiar cartas con el rival" data-bs-toggle="modal" data-bs-target="#modalAyudas"><span class="cantidad-ayuda" th:text="${ayudasIntercambiarCartas}"></span></button>
+                <button class="btn boton-ayudas ocultar-boton mb-1" id="3-puntos-ayuda" type="button" title="Sumar +3 puntos" data-bs-toggle="modal" data-bs-target="#modalAyudas">+3<span class="cantidad-ayuda" th:text="${ayudasSumarPuntos}"></span></button>
             </div>
             <button class="btn boton-ayudas" type="button" id="mostrar-ayudas" title="Ver ayudas"></button>
         </div>

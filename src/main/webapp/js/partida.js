@@ -42,35 +42,38 @@ $(document).ready(function() {
     $(".body").on("click", ".carta-jugador", function(){
         let tipoJugada = "Carta";
         let indice = parseInt($(this).data("indice-carta"));
-        const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada: " + tipoJugada + " " + " indice: " + indice + " IDPartida: "+ idPartida);
-        enviarJugada(tipoJugada, indice, idPartida);
+        console.log("Jugada: " + tipoJugada + " " + " indice: " + indice);
+        enviarJugada(tipoJugada, indice);
     });
 
     $(".body").on("click", ".boton-jugada", function(){
         let tipoJugada = $(this).data("tipo-jugada");
         let indice = $(this).data("indice");
         console.log("Indice: ") + $(this).data("indice")
-        const idPartida = obtenerCookie("idPartida");
-        console.log("Jugada: " + tipoJugada + " indice: " + indice + " IDPartida: "+ idPartida);
-        enviarJugada(tipoJugada, indice, idPartida);
+        console.log("Jugada: " + tipoJugada + " indice: " + indice);
+        enviarJugada(tipoJugada, indice);
     });
 
 
 });
 
-function enviarJugada(tipoJugada, indice, idPartida){
+function enviarJugada(tipoJugada, indice){
     $.ajax({
         type: "POST",
         url: "/spring/enviarJugada",
         data: {
             tipoJugada: tipoJugada,
-            indice: indice,
-            idPartida: idPartida
+            indice: indice
         },
         dataType: "json",
         success: function(response) {
-            actualizarVista(response, idPartida);
+            if (response.redirect) {
+                // Redirige al usuario a la URL proporcionada en el objeto JSON
+                window.location.href = response.redirect;
+            } else {
+                actualizarVista(response);
+            }
+            
         },
         error: function(err) {
             console.error("Error al jugar la carta: " + err);
@@ -79,16 +82,15 @@ function enviarJugada(tipoJugada, indice, idPartida){
     });
 }
 
-function recibirCambios(idPartida) {
+function recibirCambios() {
     $.ajax({
         type: "POST",
         url: "/spring/recibirCambios",
         data:{
-            idPartida: idPartida
         },
         dataType: "json",
         success: function(response) {
-            actualizarVista(response, idPartida);
+            actualizarVista(response);
         },
         error: function(err) {
             console.error("Error al recibir cambios: " + err);
@@ -97,10 +99,15 @@ function recibirCambios(idPartida) {
     });
 }
 
-function actualizarVista(partida, idPartida) {
+function actualizarVista(partida) {
 
     console.log(partida)
     // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
+    let seRepartieronCartas = partida.seRepartieronCartas;
+    if(seRepartieronCartas){
+        //ANIMACION DE REPARTIR LAS CARTAS
+        console.log("Se Repartieron Cartas")
+    }
     let ultimaJugada = partida.ultimaJugada;
     let ultimoJugador = partida.ultimoJugador;
     let turnoIA = partida.turnoIA;
@@ -122,6 +129,9 @@ function actualizarVista(partida, idPartida) {
     let ganador = partida.ganador;
     let tiradaActual = partida.tiradaActual;
     let puedeCantarTruco = partida.puedeCantarTruco;
+    let ayudasRepartirCartas = partida.ayudasRepartirCartas;
+    let ayudasIntercambiarCartas = partida.ayudasIntercambiarCartas;
+    let ayudasSumarPuntos = partida.ayudasSumarPuntos;
 
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
@@ -143,9 +153,10 @@ function actualizarVista(partida, idPartida) {
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
+    actualizarAyudas(ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos);
 
     if(turnoIA)setTimeout(function() {
-        recibirCambios(idPartida);
+        recibirCambios();
     }, 1500); // (1.5 segundos)
 }
 
@@ -344,25 +355,33 @@ function actualizarBotones(puedeCantarTruco){
     //}
 }
 
+
 function animarCartas() {
     // Obtén todas las cartas del jugador
     var cartas = document.querySelectorAll('.cartasDelJugador');
     var cartasReverso = document.querySelectorAll('.cartasDelJugadorReverso');
 
     // Agrega la clase de animación a cada carta
-    cartasReverso.forEach(function(cartasReverso) {
+    cartasReverso.forEach(function (cartasReverso) {
         cartasReverso.classList.add('mover');
     });
 
-    setTimeout(function() {
-        cartas.forEach(function(carta) {
+    setTimeout(function () {
+        cartas.forEach(function (carta) {
             carta.classList.add('displayBlock');
         });
     }, 1000);
 
-    setTimeout(function() {
-        cartasReverso.forEach(function(cartasReverso) {
+    setTimeout(function () {
+        cartasReverso.forEach(function (cartasReverso) {
             cartasReverso.classList.add('displayNone');
         });
     }, 1000);
+}
+
+function actualizarAyudas(ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos){
+    $("#repartir-ayuda span").text(ayudasRepartirCartas);
+    $("#intercambiar-ayuda span").text(ayudasIntercambiarCartas);
+    $("#3-puntos-ayuda span").text(ayudasSumarPuntos);
+
 }
