@@ -38,19 +38,21 @@ public class ControladorPartida {
     @RequestMapping("/partida")
     public ModelAndView irAPartida(HttpServletRequest request, HttpServletResponse response) {
         Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
 
         if (idPartida == null || !servicioPartida.partidaExiste(idPartida)) {
             idPartida = servicioPartida.iniciarPartida();
             
             request.getSession().setAttribute("idPartida", idPartida);
         }
-        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida));
+        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida, usuario));
     }
 
     @PostMapping("/enviarJugada")
     @ResponseBody
     public String enviarJugada(HttpServletRequest request, HttpServletResponse response, @RequestParam("tipoJugada") String tipoJugada, @RequestParam("indice") int indice) {
         Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
         if(Objects.equals(tipoJugada, "Truco")){
             try {
                 servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.TRUCO), Jugador.J1, null);
@@ -96,7 +98,6 @@ public class ControladorPartida {
         }
         else if(Objects.equals(tipoJugada, "Potenciador")){
             try {
-                Usuario usuario = (Usuario)request.getAttribute("usuarioAutenticado");
                 if(usuario != null){
                     servicioPartida.actualizarCambiosDePartida(idPartida, new Jugada(TipoJugada.POTENCIADOR, indice), Jugador.J1, usuario);
                 }
@@ -109,14 +110,15 @@ public class ControladorPartida {
             }
         }
     
-        return servicioPartida.getDetallesPartidaJSON(idPartida);
+        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
     }
 
     @PostMapping("/recibirCambios")
     @ResponseBody
     public String recibirCambios(HttpServletRequest request){
         Long idPartida = (Long)request.getSession().getAttribute("idPartida");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
         servicioPartida.calcularJugadaIA(idPartida);
-        return servicioPartida.getDetallesPartidaJSON(idPartida);
+        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
     }
 }

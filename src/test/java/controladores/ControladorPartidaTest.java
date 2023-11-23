@@ -610,12 +610,12 @@ public class ControladorPartidaTest {
     @Test 
     public void queRecibirCambiosRetornaLosDetallesDePartidaQueTraeServicioPartida(){
         String valorEsperado = "Valor Esperado";
-        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null);
+        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null, null);
 
         String retorno = controladorPartida.recibirCambios(null);
 
-        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null);
-        assertEquals(servicioPartida.getDetallesPartidaJSON(null), retorno);
+        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null, null);
+        assertEquals(servicioPartida.getDetallesPartidaJSON(null, null), retorno);
     }
     @Test
     public void queElJugadorPuedaCantarTruco() throws JugadaInvalidaException {
@@ -669,12 +669,12 @@ public class ControladorPartidaTest {
     @Test
     public void queEnviarJugadaRetornaLosDetallesDePartidaQueTraeServicioPartida(){
         String valorEsperado = "";
-        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null);
+        doReturn(valorEsperado).when(servicioPartida).getDetallesPartidaJSON(null, null);
 
         String retorno = controladorPartida.recibirCambios(null);
 
-        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null);
-        assertEquals(servicioPartida.getDetallesPartidaJSON(null), retorno);
+        Mockito.verify(servicioPartida, Mockito.times(1)).getDetallesPartidaJSON(null, null);
+        assertEquals(servicioPartida.getDetallesPartidaJSON(null, null), retorno);
     }
 
 }

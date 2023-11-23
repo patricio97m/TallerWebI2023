@@ -20,6 +20,6 @@ public interface ServicioPartida {
     ArrayList<String> getManoDelJugador(Long idPartida);
     ArrayList<String> getCartasJugadasJugador(Long idPartida);
     ArrayList<String> getCartasJugadasIa(Long idPartida);
-    ModelMap getDetallesPartida(Long idPartida);
-    String getDetallesPartidaJSON(Long idPartida);
+    ModelMap getDetallesPartida(Long idPartida, Usuario usuario);
+    String getDetallesPartidaJSON(Long idPartida, Usuario usuario);
 }

@@ -509,8 +509,16 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     @Override
-    public ModelMap getDetallesPartida(Long idPartida) {
+    public ModelMap getDetallesPartida(Long idPartida, Usuario usuario) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
+        int ayudasRepartirCartas = 0;
+        int ayudasIntercambiarCartas = 0;
+        int ayudasSumarPuntos = 0;
+        if(usuario != null){
+            ayudasRepartirCartas = usuario.getAyudasRepartirCartas();
+            ayudasIntercambiarCartas = usuario.getAyudasIntercambiarCartas();
+            ayudasSumarPuntos = usuario.getAyudasSumarPuntos();
+        }
         ModelMap model = new ModelMap();
         model.put("ultimaJugada", partida.getUltimaJugada());
         model.put("turnoIA", partida.isTurnoIA());
@@ -528,6 +536,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
         model.put("envidoAQuerer", partida.getEnvidoAQuerer());
         model.put("cantoEnvido", partida.getCantoEnvido());
         model.put("cantoFaltaEnvido", partida.getCantoFaltaEnvido());
+        model.put("ayudasRepartirCartas", ayudasRepartirCartas);
+        model.put("ayudasIntercambiarCartas", ayudasIntercambiarCartas);
+        model.put("ayudasSumarPuntos", ayudasSumarPuntos);
         model.put("ganador", partida.getGanador());
         return model;
 
@@ -535,9 +546,16 @@ public class ServicioPartidaImpl implements ServicioPartida{
     }
 
     @Override
-    public String getDetallesPartidaJSON(Long idPartida) {
+    public String getDetallesPartidaJSON(Long idPartida, Usuario usuario) {
         Partida partida = repositorioPartida.buscarPartidaPorId(idPartida);
-
+        int ayudasRepartirCartas = 0;
+        int ayudasIntercambiarCartas = 0;
+        int ayudasSumarPuntos = 0;
+        if(usuario != null){
+            ayudasRepartirCartas = usuario.getAyudasRepartirCartas();
+            ayudasIntercambiarCartas = usuario.getAyudasIntercambiarCartas();
+            ayudasSumarPuntos = usuario.getAyudasSumarPuntos();
+        }
         // Construye manualmente una cadena JSON
         String json = "{"
                 + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
@@ -564,6 +582,9 @@ public class ServicioPartidaImpl implements ServicioPartida{
                 + "\"recanto\":" + partida.getRecanto() + ","
                 + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
                 + "\"seRepartieronCartas\":" + partida.isSeRepartieronCartas() + ","
+                + "\"ayudasRepartirCartas\":" + ayudasRepartirCartas + ","
+                + "\"ayudasIntercambiarCartas\":" + ayudasIntercambiarCartas + ","
+                + "\"ayudasSumarPuntos\":" + ayudasSumarPuntos + ","
                 + "\"ganador\":\"" + partida.getGanador() + "\""
                 + "}";
 

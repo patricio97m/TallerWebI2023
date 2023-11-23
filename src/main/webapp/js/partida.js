@@ -129,6 +129,9 @@ function actualizarVista(partida) {
     let ganador = partida.ganador;
     let tiradaActual = partida.tiradaActual;
     let puedeCantarTruco = partida.puedeCantarTruco;
+    let ayudasRepartirCartas = partida.ayudasRepartirCartas;
+    let ayudasIntercambiarCartas = partida.ayudasIntercambiarCartas;
+    let ayudasSumarPuntos = partida.ayudasSumarPuntos;
 
     //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
     //console.log(ultimaJugada);
@@ -150,6 +153,7 @@ function actualizarVista(partida) {
     console.log("Canto = " + ultimaJugada);
     actualizarCartas(manoDelJugador, cartasRestantesIa, cartasJugadasIa, cartasJugadasJugador);
     actualizarBotones(puedeCantarTruco);
+    actualizarAyudas(ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos);
 
     if(turnoIA)setTimeout(function() {
         recibirCambios();
@@ -349,4 +353,10 @@ function actualizarBotones(puedeCantarTruco){
     //else{
     //    botonTruco.style.display = 'hidden'
     //}
+}
+
+function actualizarAyudas(ayudasRepartirCartas, ayudasIntercambiarCartas, ayudasSumarPuntos){
+    $("#repartir-ayuda span").text(ayudasRepartirCartas);
+    $("#intercambiar-ayuda span").text(ayudasIntercambiarCartas);
+    $("#3-puntos-ayuda span").text(ayudasSumarPuntos);
 }
