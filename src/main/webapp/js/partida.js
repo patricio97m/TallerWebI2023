@@ -1,9 +1,8 @@
 $(document).ready(function() {
     console.log("JS Cargado");
 
-    if (seRepartieronLasCartas){
-        animarCartas();
-    }
+    animarCartas();
+
 
     $('#miModal').modal({
         backdrop: 'static',
@@ -120,7 +119,6 @@ function actualizarVista(partida) {
         //ANIMACION DE REPARTIR LAS CARTAS
         console.log("Se Repartieron Cartas")
         animarCartas();
-
     }
     let ultimaJugada = partida.ultimaJugada;
     let ultimoJugador = partida.ultimoJugador;
