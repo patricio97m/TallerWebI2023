@@ -105,7 +105,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
                         <button type="button" class="btn btn-success boton-jugada" data-bs-dismiss="modal" th:data-tipo-jugada="Potenciador" th:data-indice=0>Usar</button>
-                        <button type="button" class="btn btn-info" id="btn-comprarAyuda" data-bs-dismiss="modal">Comprar</button>
+                        <a href="http://localhost:8080/spring/realizarCompra" type="button" class="btn btn-info" id="btn-comprarAyuda" data-bs-dismiss="modal">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -214,10 +214,10 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script th:inline="javascript">
-    let seRepartieronLasCartas = /*[[${seRepartieronCartas}]]*/'';
+    <script th:inline="javascript">
+        let seRepartieronLasCartas = /*[[${seRepartieronCartas}]]*/'';
 
-</script>
+    </script>
 
     <script type="text/javascript" th:src="@{/js/partida.js}"></script>
 </body>

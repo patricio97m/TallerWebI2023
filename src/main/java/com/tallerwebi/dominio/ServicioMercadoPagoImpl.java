@@ -20,7 +20,23 @@ public class ServicioMercadoPagoImpl implements ServicioMercadoPago{
     }
 
     @Override
-    public Preference crearPreferencia() {
+    public Preference crearPreferencia(int potenciadorElegido) {
+        String nombrePotenciador = "Potenciador de Truco";
+        switch (potenciadorElegido) {
+            case 1:
+                nombrePotenciador = "Potenciador - Repartir Cartas";
+                break;
+            case 2:
+                nombrePotenciador = "Potenciador - Intercambiar Cartas";
+                break;
+            case 3:
+                nombrePotenciador = "Potenciador - Sumar Puntos";
+                break;
+        
+            default:
+                break;
+        }
+
         Preference preference = new Preference();
 
         BackUrls backurls = new BackUrls()
@@ -29,7 +45,7 @@ public class ServicioMercadoPagoImpl implements ServicioMercadoPago{
         preference.setBackUrls(backurls);
 
         Item item = new Item()
-        .setTitle("Potenciador de Prueba")
+        .setTitle(nombrePotenciador)
         .setQuantity(1)
         .setUnitPrice((float)100.00);
 
@@ -42,75 +58,3 @@ public class ServicioMercadoPagoImpl implements ServicioMercadoPago{
 
     
 }
-
-
-// PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
-//         .id("item-ID-1234")
-//         .title("Meu produto")
-//         .currencyId("BRL")
-//         .pictureUrl("https://www.mercadopago.com/org-img/MP3/home/logomp3.gif")
-//         .description("Descrição do Item")
-//         .categoryId("art")
-//         .quantity(1)
-//         .unitPrice(new BigDecimal("75.76"))
-//         .build();
-
-//         ArrayList<PreferenceItemRequest> items = new ArrayList<>();
-//         items.add(itemRequest);
-
-//         IdentificationRequest identification = IdentificationRequest.builder()
-//         .type("DNI")
-//         .number("19119119100")
-//         .build();
-
-//         AddressRequest address = AddressRequest.builder()
-//         .streetName("Street")
-//         .streetNumber("123")
-//         .zipCode("06233200")
-//         .build();
-
-//         PhoneRequest phone = PhoneRequest.builder()
-//         .areaCode("11")
-//         .number("4444-4444")
-//         .build();
-
-//         PreferencePayerRequest payer = PreferencePayerRequest.builder()
-//         .name("João")
-//         .surname("Silva")
-//         .email("user@email.com")
-//         .phone(phone)
-//         .address(address)
-//         .identification(identification)
-//         .build();
-
-//         PreferenceBackUrlsRequest backUrls = PreferenceBackUrlsRequest.builder()
-//         .success("https://www.success.com")
-//         .failure("http://www.failure.com")
-//         .build();
-
-//         PreferencePaymentMethodsRequest paymentMethods = PreferencePaymentMethodsRequest.builder()
-//         .installments(1)
-//         .build();
-
-//         DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
-//         OffsetDateTime expirationDateFrom = OffsetDateTime.parse("2016-02-01T12:00:00.000-04:00", formatter);
-//         OffsetDateTime expirationDateTo = OffsetDateTime.parse("2016-02-28T12:00:00.000-04:00", formatter);
-
-
-//         //CREACION DE LA PREFERENCIA
-//         PreferenceRequest preferenceRequest = PreferenceRequest.builder()
-//                 .items(items)
-//                 .payer(payer)
-//                 .backUrls(backUrls)
-//                 .autoReturn("approved")
-//                 .binaryMode(true)
-//                 .paymentMethods(paymentMethods)
-//                 .notificationUrl("https://www.your-site.com/ipn")
-//                 .statementDescriptor("MEUNEGOCIO")
-//                 .externalReference("Reference_1234")
-//                 .expires(true)
-//                 .expirationDateFrom(expirationDateFrom)
-//                 .expirationDateTo(expirationDateTo)
-//                 .build();
-
-//         return preferenceRequest;

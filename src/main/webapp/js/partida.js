@@ -30,17 +30,25 @@ $(document).ready(function() {
         $('#modalAyudas .modal-header h5').text("Repartir cartas" );
         $('#modalAyudas .modal-body p').text("Esta habilidad te permite volver a repartir las cartas" );
         $('#modalAyudas .modal-footer .boton-jugada').data("indice", 1).attr("data-indice", 1);
+        $('#btn-comprarAyuda').attr("href", "http://localhost:8080/spring/realizarCompra?potenciadorElegido=1");
     });
     $("#intercambiar-ayuda").on("click", function() {
         $('#modalAyudas .modal-header h5').text("Intercambiar cartas" );
         $('#modalAyudas .modal-body p').text("Esta habilidad te permite intercambiar tus cartas con las del rival" );
         $('#modalAyudas .modal-footer .boton-jugada').data("indice", 2).attr("data-indice", 2);   
+        $('#btn-comprarAyuda').attr("href", "http://localhost:8080/spring/realizarCompra?potenciadorElegido=2");
     });
     $("#3-puntos-ayuda").on("click", function() {
         $('#modalAyudas .modal-header h5').text("3 puntos");
         $('#modalAyudas .modal-body p').text("Esta habilidad te permite sumarte 3 puntos instantaneamente" );
         $('#modalAyudas .modal-footer .boton-jugada').data("indice", 3).attr("data-indice", 3);
+        $('#btn-comprarAyuda').attr("href", "http://localhost:8080/spring/realizarCompra?potenciadorElegido=3");
     });
+
+    $('#btn-comprarAyuda').on("click", function(){
+        window.location.href = $('#btn-comprarAyuda').attr("href")
+    })
+    
 
 
     $(".body").on("click", ".carta-jugador", function(){
