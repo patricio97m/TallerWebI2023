@@ -16,6 +16,7 @@
 
     <!-- Cargando la Fuente Personalizada -->
     <link rel="stylesheet" th:href="@{/css/fontsLinking.css}" />
+
 </head>
 
 <body class="body">
@@ -106,6 +107,18 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
                         <button type="button" class="btn btn-success boton-jugada" data-bs-dismiss="modal" th:data-tipo-jugada="Potenciador" th:data-indice=0>Usar</button>
                         <a href="http://localhost:8080/spring/realizarCompra" type="button" class="btn btn-info" id="btn-comprarAyuda" data-bs-dismiss="modal">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Repartir cartas -->
+        <div class="modal fade" id="repartiendoCartasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLabel2">Repartiendo Cartas</h5>
+                        <img class="repartirGif" src="img/NAIPES.gif">
                     </div>
                 </div>
             </div>

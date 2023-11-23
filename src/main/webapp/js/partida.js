@@ -373,6 +373,17 @@ function actualizarBotones(puedeCantarTruco){
 
 
 function animarCartas() {
+
+    $('#repartiendoCartasModal').modal('show');
+
+    setTimeout(function () {
+        // Oculta el modal después de 3 segundos (ajusta según sea necesario)
+        $('#repartiendoCartasModal').modal('hide');
+        $('#puntosEnvidoJugador').hide();
+        $('#puntosEnvidoIA').hide();
+    }, 3000); // Cambié el tiempo a 3000 milisegundos (3 segundos)
+
+    setTimeout(function (){
     // Obtén todas las cartas del jugador
     var cartas = document.querySelectorAll('.cartasDelJugador');
     var cartasReverso = document.querySelectorAll('.cartasDelJugadorReverso');
@@ -402,6 +413,7 @@ function animarCartas() {
         cartasReverso.forEach(function (cartasReverso) {
             cartasReverso.classList.add('displayNone');
         });
+    }, 2000);
     }, 1000);
 }
 
