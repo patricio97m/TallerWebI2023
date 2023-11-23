@@ -178,9 +178,24 @@ body{
     color: #000;
     padding: 5px 10px;
     width: 70%;
-    transform: translate(-50%, -50%);
+    transform: translate(-28%, -176%);
     z-index: 2;
 }
+/* Clase de animación */
+@keyframes moverCarta {
+    from {
+        transform: translate(-28%, -176%);
+    }
+    to {
+        transform: translate(-48%, -65%);
+    }
+}
+
+/* Clase que aplica la animación */
+.mover {
+    animation: moverCarta 1s forwards;
+}
+
 
 .cartasJugadasJugador{
     position: absolute;
@@ -193,6 +208,7 @@ body{
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+
 
 .cartasJugadasIA{
     position: absolute;

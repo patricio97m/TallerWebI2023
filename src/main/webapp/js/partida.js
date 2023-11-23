@@ -343,3 +343,13 @@ function actualizarBotones(puedeCantarTruco){
     //    botonTruco.style.display = 'hidden'
     //}
 }
+
+function animarCartas() {
+    // Obtén todas las cartas del jugador
+    var cartas = document.querySelectorAll('.cartasDelJugador');
+
+    // Agrega la clase de animación a cada carta
+    cartas.forEach(function(carta) {
+        carta.classList.add('mover');
+    });
+}
