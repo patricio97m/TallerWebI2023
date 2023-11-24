@@ -142,6 +142,22 @@ public class Mano{
         logger.error("El valorEnvido final es: " + valorEnvido);
         return valorEnvido;
     }
+
+    public int size() {
+        int size = 0;
+        
+        if(carta1 != null){
+            size++;
+        }
+        if(carta2 != null){
+            size++;
+        }
+        if(carta3 != null){
+            size++;
+        }
+
+        return size;
+    }
     
 }
 

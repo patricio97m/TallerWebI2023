@@ -16,10 +16,5 @@ public interface ServicioPartida {
     void repartirCartas(Partida partida);
     void actualizarCambiosDePartida(Long idPartida, Jugada jugada, Jugador jugador, Usuario usuario) throws JugadaInvalidaException;
     void calcularJugadaIA(Long idPartida);
-
-    ArrayList<String> getManoDelJugador(Long idPartida);
-    ArrayList<String> getCartasJugadasJugador(Long idPartida);
-    ArrayList<String> getCartasJugadasIa(Long idPartida);
-    ModelMap getDetallesPartida(Long idPartida, Usuario usuario);
-    String getDetallesPartidaJSON(Long idPartida, Usuario usuario);
+    Partida buscarPartida(Long idPartida);
 }

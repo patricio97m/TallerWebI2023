@@ -113,7 +113,6 @@ function recibirCambios() {
 function actualizarVista(partida) {
 
     console.log(partida)
-    // Ya se debería de poder leer todos los datos que venga en el metodo getDetallesPartida()
     let seRepartieronCartas = partida.seRepartieronCartas;
     if(seRepartieronCartas){
         //ANIMACION DE REPARTIR LAS CARTAS
@@ -145,8 +144,6 @@ function actualizarVista(partida) {
     let ayudasIntercambiarCartas = partida.ayudasIntercambiarCartas;
     let ayudasSumarPuntos = partida.ayudasSumarPuntos;
 
-    //ultimaJugada siempre es undefined por lo que no puedo corroborar si es envido
-    //console.log(ultimaJugada);
     // if (ultimaJugada === "Quiero" && no se canto truco)
     if(truco==1 && ultimaJugada=="Quiero"){
         // Muestra puntos de envido solo si la última jugada es "Quiero" y se cantó envido

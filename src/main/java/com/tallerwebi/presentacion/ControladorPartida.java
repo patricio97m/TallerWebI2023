@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.Jugada;
+import com.tallerwebi.dominio.Mano;
+import com.tallerwebi.dominio.Partida;
 import com.tallerwebi.dominio.ServicioPartida;
 import com.tallerwebi.dominio.Usuario;
 import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
@@ -45,7 +47,96 @@ public class ControladorPartida {
             
             request.getSession().setAttribute("idPartida", idPartida);
         }
-        return new ModelAndView("partida", servicioPartida.getDetallesPartida(idPartida, usuario));
+
+        ModelMap model = convertirPartidaAModelMap(servicioPartida.buscarPartida(idPartida), usuario);
+        return new ModelAndView("partida", model);
+    }
+
+    private ModelMap convertirPartidaAModelMap(Partida partida, Usuario usuario) {
+        int ayudasRepartirCartas = 0;
+        int ayudasIntercambiarCartas = 0;
+        int ayudasSumarPuntos = 0;
+        if(usuario != null){
+            ayudasRepartirCartas = usuario.getAyudasRepartirCartas();
+            ayudasIntercambiarCartas = usuario.getAyudasIntercambiarCartas();
+            ayudasSumarPuntos = usuario.getAyudasSumarPuntos();
+        }
+        
+        ModelMap model = new ModelMap();
+        model.put("ultimaJugada", partida.getUltimaJugada());
+        model.put("ultimoJugador", partida.getUltimoJugador());
+        model.put("turnoIa", partida.isTurnoIA());
+        model.put("manoDelJugador", convertirManoAStrings(partida.getManoDelJugador()));
+        model.put("cartasRestantesIa", (3 - partida.getCartasJugadasIa().size()));
+        model.put("cartasJugadasIa", convertirManoAStrings(partida.getCartasJugadasIa()));
+        model.put("cartasJugadasJugador", convertirManoAStrings(partida.getCartasJugadasJugador()));
+        model.put("puntosIa", partida.getPuntosIa());
+        model.put("puntosJugador", partida.getPuntosJugador());
+        model.put("truco", partida.getEstadoTruco());
+        model.put("trucoAQuerer", partida.getTrucoAQuerer());
+        model.put("cantoTruco", partida.getCantoTruco());
+        model.put("puedeCantarTruco", partida.puedeCantarTruco(Jugador.J1));
+        model.put("quienCantoTruco", partida.getQuienCantoTruco());
+        model.put("envido", partida.getEstadoEnvido());
+        model.put("envidoAQuerer", partida.getEnvidoAQuerer());
+        model.put("cantoEnvido", partida.getCantoEnvido());
+        model.put("cantoFaltaEnvido", partida.getCantoFaltaEnvido());
+        model.put("puntosEnvidoIa", partida.getManoDeLaIa().getValorEnvido());
+        model.put("puntosEnvidoJugador", partida.getManoDelJugador().getValorEnvido());
+        model.put("tiradaActual", partida.getTiradaActual());
+        model.put("recanto", partida.getRecanto());
+        model.put("quienEsMano", partida.getQuienEsMano());
+        model.put("seRepartieronCartas", partida.isSeRepartieronCartas());
+        model.put("ayudasRepartirCartas", ayudasRepartirCartas);
+        model.put("ayudasIntercambiarCartas", ayudasIntercambiarCartas);
+        model.put("ayudasSumarPuntos", ayudasSumarPuntos);
+        model.put("ganador", partida.getGanador());
+
+        return model;
+    }
+
+    private String convertirPartidaAJson(Partida partida, Usuario usuario){
+        int ayudasRepartirCartas = 0;
+        int ayudasIntercambiarCartas = 0;
+        int ayudasSumarPuntos = 0;
+        if(usuario != null){
+            ayudasRepartirCartas = usuario.getAyudasRepartirCartas();
+            ayudasIntercambiarCartas = usuario.getAyudasIntercambiarCartas();
+            ayudasSumarPuntos = usuario.getAyudasSumarPuntos();
+        }
+        // Construye manualmente una cadena JSON
+        String json = "{"
+                + "\"ultimaJugada\":\"" + partida.getUltimaJugada() + "\","
+                + "\"ultimoJugador\":\"" + partida.getUltimoJugador() + "\","
+                + "\"turnoIA\":" + partida.isTurnoIA() + ","
+                + "\"manoDelJugador\":" + convertirArrayListAJSON(convertirManoAStrings(partida.getManoDelJugador())) + ","
+                + "\"cartasRestantesIa\":" + (3 - partida.getCartasJugadasIa().size()) + ","
+                + "\"cartasJugadasIa\":" + convertirArrayListAJSON(convertirManoAStrings(partida.getCartasJugadasIa())) + ","
+                + "\"cartasJugadasJugador\":" + convertirArrayListAJSON(convertirManoAStrings(partida.getCartasJugadasJugador())) + ","
+                + "\"puntosJugador\":" + partida.getPuntosJugador() + ","
+                + "\"puntosIa\":" + partida.getPuntosIa() + ","
+                + "\"truco\":" + partida.getEstadoTruco() + ","
+                + "\"trucoAQuerer\":" + partida.getTrucoAQuerer() + ","
+                + "\"cantoTruco\":" + partida.getCantoTruco() + ","
+                + "\"puedeCantarTruco\":" + partida.puedeCantarTruco(Jugador.J1) + ","
+                + "\"quienCantoTruco\":\"" + partida.getQuienCantoTruco() + "\","
+                + "\"envido\":" + partida.getEstadoEnvido() + ","
+                + "\"envidoAQuerer\":" + partida.getEnvidoAQuerer() + ","
+                + "\"cantoEnvido\":" + partida.getCantoEnvido() + ","
+                + "\"cantoFaltaEnvido\":" + partida.getCantoFaltaEnvido() + ","
+                + "\"puntosEnvidoIA\":" + partida.getManoDeLaIa().getValorEnvido() + ","
+                + "\"puntosEnvidoJugador\":" + partida.getManoDelJugador().getValorEnvido() + ","
+                + "\"tiradaActual\":" + partida.getTiradaActual() + ","
+                + "\"recanto\":" + partida.getRecanto() + ","
+                + "\"quienEsMano\":\"" + partida.getQuienEsMano() + "\","
+                + "\"seRepartieronCartas\":" + partida.isSeRepartieronCartas() + ","
+                + "\"ayudasRepartirCartas\":" + ayudasRepartirCartas + ","
+                + "\"ayudasIntercambiarCartas\":" + ayudasIntercambiarCartas + ","
+                + "\"ayudasSumarPuntos\":" + ayudasSumarPuntos + ","
+                + "\"ganador\":\"" + partida.getGanador() + "\""
+                + "}";
+
+        return json;
     }
 
     @PostMapping("/enviarJugada")
@@ -110,7 +201,7 @@ public class ControladorPartida {
             }
         }
     
-        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
+        return convertirPartidaAJson(servicioPartida.buscarPartida(idPartida), usuario);
     }
 
     @PostMapping("/recibirCambios")
@@ -119,6 +210,39 @@ public class ControladorPartida {
         Long idPartida = (Long)request.getSession().getAttribute("idPartida");
         Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioAutenticado");
         servicioPartida.calcularJugadaIA(idPartida);
-        return servicioPartida.getDetallesPartidaJSON(idPartida, usuario);
+        return convertirPartidaAJson(servicioPartida.buscarPartida(idPartida), usuario);
+    }
+
+
+
+
+    //METODOS AUXILIARES
+
+    private String convertirArrayListAJSON(ArrayList<String> arrayList) {
+        StringBuilder json = new StringBuilder("[");
+        for (String item : arrayList) {
+            json.append("\"").append(item).append("\",");
+        }
+        if (arrayList.size() > 0) {
+            json.deleteCharAt(json.length() - 1); // Elimina la última coma
+        }
+        json.append("]");
+        return json.toString();
+    }
+
+    public ArrayList<String> convertirManoAStrings(Mano mano) {
+        ArrayList<Carta> cartasDeLaMano = mano.getCartas();
+        ArrayList<String> nombreCartasDeLaMano = new ArrayList<String>();
+        for (Carta carta : cartasDeLaMano) {
+            if(carta != null){
+                String nombre = carta.getPalo() + carta.getNumero();
+                nombreCartasDeLaMano.add(nombre);
+            }
+            else{
+                nombreCartasDeLaMano.add("NULL");
+            }
+            
+        }
+        return nombreCartasDeLaMano;
     }
 }
