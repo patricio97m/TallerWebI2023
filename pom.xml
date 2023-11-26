@@ -22,8 +22,7 @@
     </properties>
 
     <dependencies>
-        
-        
+
         <dependency>
             <groupId>com.mercadopago</groupId>
             <artifactId>sdk-java</artifactId>
