@@ -1,4 +1,4 @@
-package repositorio;
+package com.tallerwebi.repositorio;
 
 import com.tallerwebi.dominio.Carta;
 import com.tallerwebi.dominio.Mano;

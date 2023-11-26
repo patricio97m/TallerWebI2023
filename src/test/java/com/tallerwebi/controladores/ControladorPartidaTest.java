@@ -1,4 +1,4 @@
-package controladores;
+package com.tallerwebi.controladores;
 import com.tallerwebi.dominio.*;
 
 import com.tallerwebi.presentacion.ControladorPartida;
