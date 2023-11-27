@@ -1,117 +1,125 @@
 package com.tallerwebi.controladores;
-import com.tallerwebi.dominio.*;
 
-import com.tallerwebi.presentacion.ControladorPartida;
-
-import org.checkerframework.checker.units.qual.A;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.*;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
-import static org.hamcrest.Matchers.equalToIgnoringCase;
-import static org.mockito.Mockito.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.tallerwebi.dominio.Carta;
+import com.tallerwebi.dominio.Mano;
+import com.tallerwebi.dominio.Partida;
+import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.Usuario;
+import com.tallerwebi.presentacion.ControladorPartida;
 
 public class ControladorPartidaTest {
 
+    @Mock
+    private ServicioPartida servicioPartidaMock;
+
+    @InjectMocks
     private ControladorPartida controladorPartida;
-    private ServicioPartida servicioPartida;
 
-    private Usuario usuarioMock;
-
+    @Mock
     private HttpServletRequest requestMock;
 
+    @Mock
     private HttpServletResponse responseMock;
 
+    @Mock
+    private HttpSession httpSessionMock;
+
+    @Mock
+    private Usuario usuarioMock;
+
+    @Mock
     private Partida partidaMock;
 
-    private HttpSession sessionMock;
-
+    @Mock
     private Mano manoMock;
 
     @BeforeEach
     public void init() {
-        servicioPartida = mock(ServicioPartida.class);
-        controladorPartida = new ControladorPartida(servicioPartida);
-        usuarioMock = mock(Usuario.class);
-        requestMock = mock(HttpServletRequest.class);
-        responseMock = mock(HttpServletResponse.class);
-        partidaMock = mock(Partida.class);
-        sessionMock = mock(HttpSession.class);
-        manoMock = mock(Mano.class);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void irAPartida(){
+    public void siElIdPartidaEsNuloSeCreaUnaNuevaPartida() {
+        Long idPartida = 1L;
+        when(httpSessionMock.getAttribute("idPartida")).thenReturn(null);
+        when(servicioPartidaMock.iniciarPartida()).thenReturn(idPartida); // Simulamos la creación de una nueva partida
+        when(servicioPartidaMock.partidaExiste(idPartida)).thenReturn(true); // Simulamos que la partida existe
+        when(servicioPartidaMock.buscarPartida(idPartida)).thenReturn(partidaMock);
+        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock);        
+        when(requestMock.getSession()).thenReturn(httpSessionMock);
 
-        //Preparacion
-        Usuario usuarioEncontradoMock = mock(Usuario.class);
-        usuarioEncontradoMock.setNombre("Carlos");
-        usuarioEncontradoMock.setRol("Admin");
-        usuarioEncontradoMock.setEmail("carlosMaslaton@gmail.com");
-        usuarioEncontradoMock.setGenero(1);
-        usuarioEncontradoMock.setPassword("FrutillaFrozen23");
-        usuarioEncontradoMock.setId(1L);
+        ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
 
-        Partida partidaEncontradaMock = mock(Partida.class);
-
-        Carta carta1 = new Carta();
-        carta1.setNumero((short) 1);
-        carta1.setValorEnvido((short) 1);
-        carta1.setPalo("Oro");
-        carta1.setId(1L);
-        carta1.setValorTruco((short) 1);
-
-        Carta carta2 = new Carta();
-        carta2.setNumero((short) 2);
-        carta2.setValorEnvido((short) 2);
-        carta2.setPalo("Oro");
-        carta2.setId(2L);
-        carta2.setValorTruco((short) 2);
-
-        Carta carta3 = new Carta();
-        carta1.setNumero((short) 3);
-        carta1.setValorEnvido((short) 3);
-        carta1.setPalo("Oro");
-        carta1.setId(3L);
-        carta1.setValorTruco((short) 3);
-
-        when(partidaEncontradaMock.getId()).thenReturn(1L);
-        when(requestMock.getSession()).thenReturn(sessionMock);
-        when(sessionMock.getAttribute("idPartida")).thenReturn(1L);
-        when((Long)requestMock.getSession().getAttribute("idPartida")).thenReturn(1L);
-
-        when(sessionMock.getAttribute("usuarioAutenticado")).thenReturn(usuarioEncontradoMock);
-        when((Usuario)requestMock.getSession().getAttribute("usuarioAutenticado")).thenReturn(usuarioEncontradoMock);
-
-        when(servicioPartida.buscarPartida(anyLong())).thenReturn(partidaEncontradaMock);
-
-        ArrayList<Carta> cartas = new ArrayList<>();
-        cartas.add(carta1);
-        cartas.add(carta2);
-        cartas.add(carta3);
-        when(manoMock.getCartas()).thenReturn(cartas);
-
-        //Error NullPointerException en el metodo ConvertirLaManoAStrings
-
-
-
-
-        //Ejecucion
-        ModelAndView mav = controladorPartida.irAPartida(requestMock,responseMock);
-
-        //Validacion
-        assertThat(mav.getViewName(), equalToIgnoringCase("partida"));
-
-
-
+        assertThat(modelAndView.getViewName(), is("partida"));
+        assertThat(modelAndView.getModel(), notNullValue());
+        verify(httpSessionMock, times(1)).setAttribute("idPartida", idPartida);
     }
 
+    @Test
+    public void siElIdPartidaNoCorrespondeAUnaPartidaExistenteSeCreaUnaNueva() {
+        Long idPartidaNoExistente = 123L;
+        Long idPartida = 1L;
+        when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaNoExistente);
+        when(servicioPartidaMock.partidaExiste(idPartidaNoExistente)).thenReturn(false);
+        when(servicioPartidaMock.iniciarPartida()).thenReturn(idPartida); // Simulamos la creación de una nueva partida
+        when(servicioPartidaMock.buscarPartida(idPartida)).thenReturn(partidaMock);
+        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock); 
+        when(requestMock.getSession()).thenReturn(httpSessionMock);
 
+        ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
+
+        assertThat(modelAndView.getViewName(), is("partida"));
+        assertThat(modelAndView.getModel(), notNullValue());
+        verify(httpSessionMock, times(1)).setAttribute("idPartida", idPartida);
+    }
+
+    @Test
+    public void siElUsuarioTieneUnIdPartidaValidoSeDevuelvenLosDatosDeLaMisma() {
+        Long idPartidaExistente = 789L;
+        when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaExistente);
+        when(servicioPartidaMock.partidaExiste(idPartidaExistente)).thenReturn(true);
+        when(servicioPartidaMock.buscarPartida(idPartidaExistente)).thenReturn(partidaMock);
+        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock); 
+        when(requestMock.getSession()).thenReturn(httpSessionMock);
+        when(requestMock.getSession().getAttribute("usuarioAutenticado")).thenReturn(usuarioMock);
+
+        ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
+
+        assertThat(modelAndView.getViewName(), is("partida"));
+        assertThat(modelAndView.getModel(), notNullValue());
+        // Puedes agregar más validaciones específicas para los mocks de Partida y Usuario
+    }
 }
+
