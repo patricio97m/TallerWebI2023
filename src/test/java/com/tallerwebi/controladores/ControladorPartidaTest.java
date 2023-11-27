@@ -121,5 +121,58 @@ public class ControladorPartidaTest {
         assertThat(modelAndView.getModel(), notNullValue());
         // Puedes agregar más validaciones específicas para los mocks de Partida y Usuario
     }
+
+    @Test
+    public void siElUsuarioEsNuloElNumeroDeAyudasEsCero(){
+        Long idPartidaExistente = 789L;
+        when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaExistente);
+        when(servicioPartidaMock.partidaExiste(idPartidaExistente)).thenReturn(true);
+        when(servicioPartidaMock.buscarPartida(idPartidaExistente)).thenReturn(partidaMock);
+        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock); 
+        when(requestMock.getSession()).thenReturn(httpSessionMock);
+        when(requestMock.getSession().getAttribute("usuarioAutenticado")).thenReturn(null);
+
+        ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
+
+        // Verificar que el modelo contiene la cantidad correcta de ayudas
+        ModelMap model = (ModelMap)modelAndView.getModel();
+        assertThat(model.get("ayudasRepartirCartas"), is(0));
+        assertThat(model.get("ayudasIntercambiarCartas"), is(0));
+        assertThat(model.get("ayudasSumarPuntos"), is(0));
+    }
+
+    @Test 
+    public void siElUsuarioExisteSeUsaElNumeroDeAyudasQueTiene(){
+        Long idPartidaExistente = 789L;
+        when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaExistente);
+        when(servicioPartidaMock.partidaExiste(idPartidaExistente)).thenReturn(true);
+        when(servicioPartidaMock.buscarPartida(idPartidaExistente)).thenReturn(partidaMock);
+        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock); 
+        when(requestMock.getSession()).thenReturn(httpSessionMock);
+        when(requestMock.getSession().getAttribute("usuarioAutenticado")).thenReturn(usuarioMock);
+        
+        when(usuarioMock.getAyudasRepartirCartas()).thenReturn(1);
+        when(usuarioMock.getAyudasIntercambiarCartas()).thenReturn(2);
+        when(usuarioMock.getAyudasSumarPuntos()).thenReturn(3);
+
+        ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
+
+        // Verificar que el modelo contiene la cantidad correcta de ayudas
+        ModelMap model = (ModelMap)modelAndView.getModel();
+        assertThat(model.get("ayudasRepartirCartas"), is(1));
+        assertThat(model.get("ayudasIntercambiarCartas"), is(2));
+        assertThat(model.get("ayudasSumarPuntos"), is(3));
+    }
+
+    @Test
+    public void elModelMapConLosDatosDePartidaContiene(){
+
+    }
 }
 
