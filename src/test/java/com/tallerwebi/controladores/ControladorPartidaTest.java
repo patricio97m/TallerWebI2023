@@ -471,6 +471,12 @@ public class ControladorPartidaTest {
         assertThat(model.get("ganador"), is(Jugador.NA));
     }
 
+    @Test
+    
+    
+
+    //Metodos Auxiliares
+
     public void prepararPartida(){
         Long idPartidaExistente = 789L;
         when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaExistente);

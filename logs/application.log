@@ -1664,3 +1664,4 @@
 2023-11-24 17:13:38,674 ERROR c.t.d.Mano [qtp950255736-88] El palo de las 3 cartas es distinto
 2023-11-24 17:13:38,674 ERROR c.t.d.Mano [qtp950255736-88] El valorEnvido final es: 7
 2023-11-24 17:13:38,681 WARN o.h.o.deprecation [qtp950255736-88] HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+2023-11-28 16:22:56,041 INFO c.t.d.ServicioPartidaImpl [main] Se jugó una carta

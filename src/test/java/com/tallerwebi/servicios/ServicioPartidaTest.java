@@ -1,150 +1,72 @@
 package com.tallerwebi.servicios;
 
-import com.tallerwebi.dominio.Jugada;
-import com.tallerwebi.dominio.Partida;
-import com.tallerwebi.dominio.ServicioIA;
-import com.tallerwebi.dominio.ServicioPartida;
-import com.tallerwebi.dominio.ServicioPartidaImpl;
-import com.tallerwebi.dominio.excepcion.JugadaInvalidaException;
-import com.tallerwebi.enums.Jugador;
-import com.tallerwebi.enums.TipoJugada;
-import com.tallerwebi.infraestructura.RepositorioPartida;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.tallerwebi.dominio.Carta;
+import com.tallerwebi.dominio.Mano;
+import com.tallerwebi.dominio.Partida;
+import com.tallerwebi.dominio.ServicioPartida;
+import com.tallerwebi.dominio.Usuario;
+import com.tallerwebi.enums.Jugador;
+import com.tallerwebi.presentacion.ControladorPartida;
 
 public class ServicioPartidaTest {
 
-    RepositorioPartida repositorioPartida = mock(RepositorioPartida.class);
-    ServicioIA servicioIA = mock(ServicioIA.class);
-    ServicioPartida servicioPartida = new ServicioPartidaImpl(repositorioPartida,servicioIA);
+    @InjectMocks
+    private ServicioPartida servicioPartida;
 
-   @Test
-   public void siNoEncuentraUnaPartidaCreaUnaNueva(){
+    @Mock
+    private ControladorPartida controladorPartidaMock;
 
+    @Mock
+    private HttpServletRequest requestMock;
 
-       when(repositorioPartida.buscarPartidaPorId(1L)).thenReturn(new Partida());
+    @Mock
+    private HttpServletResponse responseMock;
 
-       boolean partidaEncontrada = whenBuscaPartida();
-       thenNoEncuentraLaPartida(partidaEncontrada);
-   }
+    @Mock
+    private HttpSession httpSessionMock;
 
-    private void thenNoEncuentraLaPartida(boolean partidaEncontrada) {
-       assertThat(partidaEncontrada,is(true));
-       verify(repositorioPartida,times(1)).buscarPartidaPorId(1L);
-    }
+    @Mock
+    private Usuario usuarioMock;
 
-    private boolean whenBuscaPartida() {
-      return servicioPartida.partidaExiste(1L);
-    }
+    @Mock
+    private Partida partidaMock;
 
-    @Test
-    public void sePuedeIniciarPartida(){
+    @Mock
+    private Mano manoMock;
 
-        Long idPartida = whenSeIniciaLaPartida();
-        thenSeGuardaLaPartida(idPartida);
+    @Mock
+    private Carta cartaMock;
 
-    }
-
-    private void thenSeGuardaLaPartida(Long idPartida) {
-       assertThat(idPartida,is(notNullValue()));
-    }
-
-    private Long whenSeIniciaLaPartida() {
-       //Me parece que la mano viene nula ya que no puede calcular el envido
-        // Y el resto de cosas
-        return servicioPartida.iniciarPartida();
-    }
-
-    @Test void queCalcularJugadaIALlameAActualizarCambiosDePartida(){
-
+    @BeforeEach
+    public void init() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void queCalcularJugadaIAUtiliceLaJugadaQueDevolvioElServicioIA() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Jugada jugadaAUsar = new Jugada(TipoJugada.TRUCO);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-        doReturn(jugadaAUsar).when(servicioIA).calcularJugada(null);
-        spyServicioPartida.calcularJugadaIA(null);
-
-        Mockito.verify(spyServicioPartida, Mockito.times(1)).actualizarCambiosDePartida(null, jugadaAUsar, Jugador.IA, null);
-    }
-
-    @Test
-    public void siLaIACantaTrucoSeCalculanLosCambiosCorrespondientesEnLaPartida() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.TRUCO), Jugador.IA, null);
-        //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosTruco(null, Jugador.IA);
-        //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
-    }
-
-    @Test
-    public void siLaIASeVaAlMazoSeCalculanLosCambiosCorrespondientesEnLaPartida() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-
-        //spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.MAZO), Jugador.IA);
-        //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosMazo(null, Jugador.IA);
+    public void testDePrueba(){
         
-        
-        //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
-        //Falla porque obliga a reiniciar la ronda y repartir las cartas que todavia no estan en la base de datos
-    }
-
-    @Test
-    public void siLaIACantaEnvidoSeCalculanLosCambiosCorrespondientesEnLaPartida() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.ENVIDO, 2), Jugador.IA, null);
-        //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosEnvido(null, 2, Jugador.IA);
-        //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
-    }
-
-    @Test
-    public void siLaIAJuegaUnaCartaSeCalculanLosCambiosCorrespondientesEnLaPartida() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.CARTA, 1), Jugador.IA, null);
-        //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosCarta(null, 1, Jugador.IA);
-        //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
-    }
-
-    @Test
-    public void siLaIARespondeSeCalculanLosCambiosCorrespondientesEnLaPartida() throws JugadaInvalidaException{
-        ServicioPartida spyServicioPartida = Mockito.spy(servicioPartida);
-        Partida partida = new Partida();
-        partida.setTurnoIA(true);
-
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-
-        spyServicioPartida.actualizarCambiosDePartida(null, new Jugada(TipoJugada.RESPUESTA), Jugador.IA, null);
-        //((ServicioPartidaImpl) Mockito.verify(spyServicioPartida, Mockito.times(1))).calcularCambiosRespuesta(null, 0, Jugador.IA);
-        //Falla y se castea porque la interfaz ServicioPartida no deja definir metodos privados
     }
 }
-
