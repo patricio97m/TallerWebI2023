@@ -19,10 +19,11 @@ public class ServicioIATest {
 
     @Test
     public void calcularJugadaDevuelveUnaJugadaValida(){
+        Long idPartida = (long)123;
         Partida partida = new Partida();
         partida.setTurnoIA(true);
 
-        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(null);
-        assertThat(servicioIa.calcularJugada(null),is(notNullValue()));
+        doReturn(partida).when(repositorioPartida).buscarPartidaPorId(idPartida);
+        assertThat(servicioIa.calcularJugada(idPartida),is(notNullValue()));
     }
 }
