@@ -92,14 +92,11 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
     public void guardarNuevaPartida() {
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        Long idPartida = 1L;
+        Partida partidaGuardada = sessionFactory.getCurrentSession().get(Partida.class, idPartida);
 
-        repositorioPartida.guardarNuevaPartida(partidaMock);
-
-      Partida partidaGuardada = sessionFactory.getCurrentSession().get(Partida.class, idPartida);
-
-       assertThat(partidaMock.getId(),is(partidaGuardada.getId()));
+        assertThat(partidaMock, is(partidaGuardada));
 
     }
 
@@ -108,14 +105,11 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
     public void guardarNuevaMano() {
-
-        Long idMano = 1L;
-
-        repositorioPartida.guardarNuevaMano(manoMock);
+        Long idMano = repositorioPartida.guardarNuevaMano(manoMock);
 
         Mano manoGuardada = sessionFactory.getCurrentSession().get(Mano.class, idMano);
 
-        assertThat(manoMock.getId(),is(manoGuardada.getId()));
+        assertThat(manoMock,is(manoGuardada));
     }
 
     @DirtiesContext
@@ -124,14 +118,11 @@ public class RepositorioPartidaTest{
     @Test
     public void guardarNuevaRonda() {
 
-        Long idRonda = 1L;
-
-        repositorioPartida.guardarNuevaRonda(rondaMock);
+        Long idRonda = repositorioPartida.guardarNuevaRonda(rondaMock);
 
         Ronda rondaGuardada = sessionFactory.getCurrentSession().get(Ronda.class, idRonda);
 
-
-        assertThat(rondaMock.getId(),is(rondaGuardada.getId()));
+        assertThat(rondaMock,is(rondaGuardada));
     }
 
     @DirtiesContext
@@ -139,14 +130,9 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
     public void buscarPartidaPorId() {
-
-
-        Long idPartida = 1L;
-
-        repositorioPartida.guardarNuevaPartida(partidaMock);
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
         Partida partidaBuscada = repositorioPartida.buscarPartidaPorId(idPartida);
-
 
         assertThat(partidaBuscada.getId(), is(partidaMock.getId()));
     }
@@ -155,55 +141,40 @@ public class RepositorioPartidaTest{
     @Transactional
     @Rollback
     @Test
-    public void  buscarCartasDelJugador() {
-
+    public void buscarCartasDelJugador() {
         when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
 
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        partidaMock.setManoDelJugador(manoMock);
+        Mano manoBuscada = repositorioPartida.buscarCartasDelJugador(idPartida);
 
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
-
-        Mano manoBuscada = repositorioPartida.buscarCartasDelJugador(idpartida);
-
-        assertThat(manoBuscada, notNullValue());
-    }
-
-   @DirtiesContext
-    @Transactional
-    @Rollback
-    @Test
-    public void buscarCartasDeLaIA() {
-
-        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
-
-        partidaMock.setManoDeLaIa(manoMock);
-
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
-
-        Mano manoBuscada = repositorioPartida.buscarCartasDeLaIa(idpartida);
-
-
-      assertThat(manoBuscada, notNullValue());
+        assertThat(manoBuscada, is(manoMock));
     }
 
     @DirtiesContext
     @Transactional
     @Rollback
     @Test
-    public void asignarCartasAlJugador() {
-        when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
+    public void buscarCartasDeLaIA() {
+        when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
 
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        partidaMock.setManoDelJugador(manoMock);
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
+        Mano manoBuscada = repositorioPartida.buscarCartasDeLaIa(idPartida);
 
-       repositorioPartida.asignarCartasAlJugador(idpartida,manoMock);
+        assertThat(manoBuscada, is(manoMock));
+    }
 
-       Mano manoBuscada = repositorioPartida.buscarCartasDelJugador(idpartida);
+    @DirtiesContext
+    @Transactional
+    @Rollback
+    @Test
+    public void asignarCartasAlJugador() {  
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        assertThat(manoBuscada, notNullValue());
+        repositorioPartida.asignarCartasAlJugador(idPartida,manoMock);
 
+        verify(partidaMock, times(1)).setManoDelJugador(manoMock);
     }
 
    @DirtiesContext
@@ -211,19 +182,11 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
    public void asignarCartasALaIA() {
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
+        repositorioPartida.asignarCartasALaIa(idPartida,manoMock);
 
-       when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
-
-
-        partidaMock.setManoDeLaIa(manoMock);
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
-
-       repositorioPartida.asignarCartasALaIa(idpartida,manoMock);
-
-       Mano manoBuscada = repositorioPartida.buscarCartasDeLaIa(idpartida);
-
-        assertThat(manoBuscada, notNullValue());
+        verify(partidaMock, times(1)).setManoDeLaIa(manoMock);
     }
 
 
@@ -232,14 +195,13 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
     public void buscarCartasJugadasJugador() {
-    prepararPartida();
+        when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock);
 
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        Mano manoBuscada = repositorioPartida.buscarCartasJugadasJugador(idpartida);
+        Mano manoBuscada = repositorioPartida.buscarCartasJugadasJugador(idPartida);
 
-
-        assertThat(manoBuscada,notNullValue() );
+        assertThat(manoBuscada, is(manoMock));
     }
 
    @DirtiesContext
@@ -247,26 +209,13 @@ public class RepositorioPartidaTest{
     @Rollback
     @Test
     public void buscarCartasJugadasIa() {
-prepararPartida();
+        when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
 
-        Long idpartida = repositorioPartida.guardarNuevaPartida(partidaMock);
+        Long idPartida = repositorioPartida.guardarNuevaPartida(partidaMock);
 
-        Mano manoBuscada = repositorioPartida.buscarCartasJugadasIa(idpartida);
+        Mano manoBuscada = repositorioPartida.buscarCartasJugadasIa(idPartida);
 
-
-      assertThat(manoBuscada, notNullValue());
+        assertThat(manoBuscada, is(manoMock));
     }
-  public void prepararPartida(){
-      Long idPartidaExistente = 789L;
-      when(httpSessionMock.getAttribute("idPartida")).thenReturn(idPartidaExistente);
-      when(servicioPartidaMock.partidaExiste(idPartidaExistente)).thenReturn(true);
-      when(servicioPartidaMock.buscarPartida(idPartidaExistente)).thenReturn(partidaMock);
-      when(partidaMock.getManoDelJugador()).thenReturn(manoMock);
-      when(partidaMock.getManoDeLaIa()).thenReturn(manoMock);
-      when(partidaMock.getCartasJugadasIa()).thenReturn(manoMock);
-      when(partidaMock.getCartasJugadasJugador()).thenReturn(manoMock);
-      when(requestMock.getSession()).thenReturn(httpSessionMock);
-      when(requestMock.getSession().getAttribute("usuarioAutenticado")).thenReturn(usuarioMock);
-  }
 }
 
