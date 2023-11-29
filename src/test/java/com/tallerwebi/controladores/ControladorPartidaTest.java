@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
@@ -228,6 +229,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("manoDelJugador"), is(resultadoEsperado));
+
+        Mockito.reset();
     }
 
     @Test
@@ -239,6 +242,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cartasRestantesIa"), is(2)); // Suponiendo que son 3 cartas en total
+
+        Mockito.reset();
     }
 
     @Test
@@ -263,6 +268,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cartasJugadasIa"), is(resultadoEsperado));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -287,6 +294,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cartasJugadasJugador"), is(resultadoEsperado));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -297,6 +306,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("puntosIa"), is(15));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -307,6 +318,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("puntosJugador"), is(10));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -317,6 +330,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("truco"), is(2));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -327,6 +342,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("trucoAQuerer"), is(1));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -337,6 +354,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cantoTruco"), is(false));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -347,6 +366,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("puedeCantarTruco"), is(true));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -357,6 +378,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("quienCantoTruco"), is(Jugador.NA));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -367,6 +390,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("envido"), is(0));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -377,6 +402,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("envidoAQuerer"), is(2));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -387,6 +414,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cantoEnvido"), is(false));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -397,6 +426,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("cantoFaltaEnvido"), is(false));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -408,6 +439,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("puntosEnvidoIa"), is(puntosEnvido));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -419,6 +452,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("puntosEnvidoJugador"), is(puntosEnvido));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -429,6 +464,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("tiradaActual"), is(1));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -439,6 +476,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("recanto"), is(true));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -449,6 +488,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("quienEsMano"), is(Jugador.J1));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -459,6 +500,8 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("seRepartieronCartas"), is(false));
+        
+        Mockito.reset();
     }
 
     @Test
@@ -469,12 +512,13 @@ public class ControladorPartidaTest {
         ModelAndView modelAndView = controladorPartida.irAPartida(requestMock, responseMock);
         ModelMap model = (ModelMap) modelAndView.getModel();
         assertThat(model.get("ganador"), is(Jugador.NA));
+        
+        Mockito.reset();
     }
 
-    @Test
-    
-    
 
+
+    
     //Metodos Auxiliares
 
     public void prepararPartida(){
