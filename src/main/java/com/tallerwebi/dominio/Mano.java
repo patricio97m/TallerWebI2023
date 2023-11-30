@@ -158,6 +158,46 @@ public class Mano{
 
         return size;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((carta1 == null) ? 0 : carta1.hashCode());
+        result = prime * result + ((carta2 == null) ? 0 : carta2.hashCode());
+        result = prime * result + ((carta3 == null) ? 0 : carta3.hashCode());
+        result = prime * result + valorEnvido;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Mano other = (Mano) obj;
+        if (carta1 == null) {
+            if (other.carta1 != null)
+                return false;
+        } else if (!carta1.equals(other.carta1))
+            return false;
+        if (carta2 == null) {
+            if (other.carta2 != null)
+                return false;
+        } else if (!carta2.equals(other.carta2))
+            return false;
+        if (carta3 == null) {
+            if (other.carta3 != null)
+                return false;
+        } else if (!carta3.equals(other.carta3))
+            return false;
+        if (valorEnvido != other.valorEnvido)
+            return false;
+        return true;
+    }
     
 }
 
