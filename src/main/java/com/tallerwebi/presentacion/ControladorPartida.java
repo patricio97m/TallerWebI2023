@@ -48,7 +48,9 @@ public class ControladorPartida {
             request.getSession().setAttribute("idPartida", idPartida);
         }
 
-        ModelMap model = convertirPartidaAModelMap(servicioPartida.buscarPartida(idPartida), usuario);
+        Partida partida = servicioPartida.buscarPartida(idPartida);
+
+        ModelMap model = convertirPartidaAModelMap(partida, usuario);
         return new ModelAndView("partida", model);
     }
 

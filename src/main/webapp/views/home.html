@@ -32,9 +32,7 @@
           <div th:if="${usuario != null}">
             <a class="nav-link text-white h4 pb-0" href="perfil">Mi Perfil</a>
           </div>
-          <div th:if="${usuario != null}">
           <a class="nav-link text-white h4 pb-0" href="partida">Partida Rápida</a>
-          </div>
           <div th:if="${usuario == null}">
             <a class="nav-link text-white h4 pb-0" href="login">Iniciar Sesión</a>
           </div>
@@ -56,7 +54,7 @@
         </div>
       </a>
 
-      <a href="" class="card col-3 mx-auto p-0 tournaments-card">
+      <a href="partida" class="card col-3 mx-auto p-0 tournaments-card">
         <div class="p-3 text-center dark-bg">
           <h3 class="card-title">Proximamente</h3>
           <h5 class="card-text">Inscribite a los torneos diarios y suma puntos en el ranking</h5>
